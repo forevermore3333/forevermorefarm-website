@@ -12,6 +12,7 @@ interface HeroSectionProps {
   bgPositionMobile?: string
   bgPositionDesktop?: string
   bgScaleDesktop?: number
+  bgTranslateXDesktop?: string
   showLogo?: boolean
   children?: React.ReactNode
 }
@@ -21,6 +22,7 @@ export default function HeroSection({
   bgPositionMobile = '50% 50%',
   bgPositionDesktop = '50% 50%',
   bgScaleDesktop = 1.0,
+  bgTranslateXDesktop = '0%',
 }: HeroSectionProps) {
   const ref = useRef<HTMLElement>(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
@@ -30,18 +32,16 @@ export default function HeroSection({
     <section ref={ref} className="relative flex items-center justify-center min-h-[85vh] md:min-h-[95vh] overflow-hidden">
       {bgImage && (
         <motion.div style={{ y }} className="absolute inset-0">
-          {/* Mobile */}
           <div className="absolute inset-0 md:hidden" style={{
             backgroundImage: `url(${bgImage})`,
             backgroundSize: 'cover',
             backgroundPosition: bgPositionMobile,
           }} />
-          {/* Desktop */}
           <div className="absolute inset-0 hidden md:block" style={{
             backgroundImage: `url(${bgImage})`,
             backgroundSize: 'cover',
             backgroundPosition: bgPositionDesktop,
-            transform: `scale(${bgScaleDesktop}) translateX(-10%)`,
+            transform: `scale(${bgScaleDesktop}) translateX(${bgTranslateXDesktop})`,
             transformOrigin: 'center bottom',
           }} />
         </motion.div>

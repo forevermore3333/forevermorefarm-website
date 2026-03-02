@@ -18,6 +18,7 @@ export default function Home() {
         bgPositionMobile="71% 70%"
         bgPositionDesktop="50% 80%"
         bgScaleDesktop={1.6}
+        bgTranslateXDesktop="-10%"
         showLogo
       />
 
