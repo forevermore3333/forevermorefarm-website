@@ -63,7 +63,7 @@ export default function Home() {
                   src="/images/house-animals/clementine-sunglasses-blanket.jpg"
                   alt="Clementine the Juliana pig wearing sunglasses"
                   fill
-                  className="object-cover"
+                  className="object-cover object-top"
                 />
               </div>
               <div className="p-6">
@@ -78,7 +78,7 @@ export default function Home() {
                   src="/images/pigs/piglet-posing-shelter.jpg"
                   alt="Heritage Berkshire piglet posing in the shelter"
                   fill
-                  className="object-cover"
+                  className="object-cover object-[center_30%]"
                 />
               </div>
               <div className="p-6">
@@ -93,7 +93,7 @@ export default function Home() {
                   src="/images/goats/baby-nigerian-dwarf-trio.jpg"
                   alt="Three Nigerian Dwarf baby goat kids in the pasture"
                   fill
-                  className="object-cover"
+                  className="object-cover object-top"
                 />
               </div>
               <div className="p-6">
@@ -169,7 +169,7 @@ export default function Home() {
             </p>
           </div>
           <div className="relative aspect-[4/3] rounded-sm overflow-hidden shadow-md">
-            <Image src="/images/pasture-land/wildflower-meadow-wide-4.jpg" alt="Wildflower meadow in the bowl at Forevermore Farm" fill className="object-cover" />
+            <Image src="/images/pasture-land/wildflower-meadow-wide-4.jpg" alt="Wildflower meadow in the bowl at Forevermore Farm" fill className="object-cover object-top" />
           </div>
         </div>
       </section>
@@ -182,14 +182,14 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-6">
             <div className="border border-farm-tan/30 rounded-sm p-8">
               <div className="relative h-48 rounded-sm overflow-hidden mb-6">
-                <Image src="/images/property/stage-reverse-valley-frost.jpg" alt="The stage at Forevermore Farm looking over the frost-covered valley" fill className="object-cover" />
+                <Image src="/images/property/stage-sunrise-fog-valley.jpg" alt="The stage at Forevermore Farm looking over the frost-covered valley" fill className="object-cover" />
               </div>
               <span className="text-xs font-medium tracking-widest text-farm-tan uppercase tracking-widest">Coming Soon</span>
               <h3 className="font-serif text-2xl text-farm-cream mt-2">Event Venue</h3>
             </div>
             <div className="border border-farm-tan/30 rounded-sm p-8">
               <div className="relative h-48 rounded-sm overflow-hidden mb-6">
-                <Image src="/images/house-animals/clementine-teddy-pasture-flat.jpg" alt="Clementine and Teddy relaxing in the pasture" fill className="object-cover" />
+                <Image src="/images/house-animals/clementine-teddy-pasture-flat.jpg" alt="Clementine and Teddy relaxing in the pasture" fill className="object-cover object-top" />
               </div>
               <span className="text-xs font-medium tracking-widest text-farm-tan uppercase tracking-widest">Coming Soon</span>
               <h3 className="font-serif text-2xl text-farm-cream mt-2">Farm Stay</h3>

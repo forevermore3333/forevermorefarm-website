@@ -38,7 +38,7 @@ export default function OurFarm() {
       <section className="py-4 px-4 bg-farm-tan/20">
         <div className="max-w-6xl mx-auto">
           <div className="relative h-72 md:h-96 rounded-sm overflow-hidden">
-            <Image src="/images/property/olin-tractor-brushhog-pov.jpg" alt="Olin on the tractor brush hogging the property" fill className="object-cover" />
+            <Image src="/images/property/olin-tractor-brushhog-pov.jpg" alt="Olin on the tractor brush hogging the property" fill className="object-cover object-[center_25%]" />
             <div className="absolute inset-0 bg-farm-charcoal/30" />
             <div className="absolute bottom-6 left-8">
               <p className="font-serif text-2xl text-farm-cream drop-shadow-lg">Olin keeps the land.</p>
@@ -55,7 +55,7 @@ export default function OurFarm() {
           {/* Clementine & Hazel */}
           <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
             <div className="relative aspect-[4/3] rounded-sm overflow-hidden shadow-md">
-              <Image src="/images/house-animals/clementine-sunglasses-blanket.jpg" alt="Clementine the Juliana pig in sunglasses" fill className="object-cover" />
+              <Image src="/images/house-animals/clementine-sunglasses-blanket.jpg" alt="Clementine the Juliana pig in sunglasses" fill className="object-cover object-top" />
             </div>
             <div>
               <h3 className="font-serif text-2xl text-farm-green mb-4">Clementine &amp; Hazel</h3>
@@ -67,7 +67,7 @@ export default function OurFarm() {
           {/* Teddy */}
           <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
             <div className="md:order-2 relative aspect-[4/3] rounded-sm overflow-hidden shadow-md">
-              <Image src="/images/house-animals/teddy-sitting-like-person.jpg" alt="Teddy the cat sitting upright like a person" fill className="object-cover" />
+              <Image src="/images/house-animals/teddy-sitting-like-person.jpg" alt="Teddy the cat sitting upright like a person" fill className="object-cover object-top" />
             </div>
             <div className="md:order-1">
               <h3 className="font-serif text-2xl text-farm-green mb-4">Teddy</h3>
@@ -79,7 +79,7 @@ export default function OurFarm() {
           {/* Heritage Pigs */}
           <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
             <div className="relative aspect-[4/3] rounded-sm overflow-hidden shadow-md">
-              <Image src="/images/pigs/piglet-posing-shelter.jpg" alt="Heritage Berkshire piglet in the shelter" fill className="object-cover" />
+              <Image src="/images/pigs/piglet-posing-shelter.jpg" alt="Heritage Berkshire piglet in the shelter" fill className="object-cover object-top" />
             </div>
             <div>
               <h3 className="font-serif text-2xl text-farm-green mb-4">Heritage Berkshire Pigs</h3>
@@ -91,7 +91,7 @@ export default function OurFarm() {
           {/* Baby Goats */}
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="md:order-2 relative aspect-[4/3] rounded-sm overflow-hidden shadow-md">
-              <Image src="/images/goats/baby-nigerian-dwarf-trio.jpg" alt="Three Nigerian Dwarf baby goats in summer grass" fill className="object-cover" />
+              <Image src="/images/goats/baby-nigerian-dwarf-trio.jpg" alt="Three Nigerian Dwarf baby goats in summer grass" fill className="object-cover object-center" />
             </div>
             <div className="md:order-1">
               <h3 className="font-serif text-2xl text-farm-green mb-4">Nigerian Dwarf Goats</h3>
@@ -108,7 +108,7 @@ export default function OurFarm() {
           <h2 className="font-serif text-3xl text-farm-green text-center mb-12">The Land</h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="relative aspect-[4/3] rounded-sm overflow-hidden shadow-md">
-              <Image src="/images/pasture-land/wildflower-meadow-wide-4.jpg" alt="Wildflower meadow filling the bowl at Forevermore Farm" fill className="object-cover" />
+              <Image src="/images/pasture-land/wildflower-meadow-wide-4.jpg" alt="Wildflower meadow filling the bowl at Forevermore Farm" fill className="object-cover object-[center_20%]" />
               <div className="absolute bottom-0 left-0 right-0 bg-farm-charcoal/50 text-farm-cream text-sm px-4 py-2">The bowl fills every spring</div>
             </div>
             <div className="relative aspect-[4/3] rounded-sm overflow-hidden shadow-md">
