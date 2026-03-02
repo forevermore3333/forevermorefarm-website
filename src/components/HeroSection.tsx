@@ -30,7 +30,7 @@ export default function HeroSection({ title, subtitle, ctaText, ctaHref, bgImage
             src={bgImage}
             alt=""
             fill
-            className="object-cover object-right-bottom"
+            className="object-cover" style={{ objectPosition: "right bottom" }}
             priority
           />
         </motion.div>
