@@ -60,7 +60,7 @@ export default function Home() {
             <div className="bg-farm-cream rounded-sm overflow-hidden shadow-sm">
               <div className="relative h-64">
                 <Image
-                  src="/images/house-animals/hazel-teddy-dogbed-2.jpg"
+                  src="/images/house-animals/clementine-belle-meade.jpg"
                   alt="Hazel the pot-belly pig nose-to-nose with Teddy the cat on the hardwood floor"
                   fill
                   className="object-cover"
@@ -189,7 +189,7 @@ export default function Home() {
             </div>
             <div className="border border-farm-tan/30 rounded-sm p-8">
               <div className="relative h-48 rounded-sm overflow-hidden mb-6">
-                <Image src="/images/property/concetta-hazel-sheep-field.jpg" alt="Concetta and Hazel in the field with sheep at evening light" fill className="object-cover" />
+                <Image src="/images/house-animals/clementine-teddy-pasture-flat.jpg" alt="Clementine and Teddy relaxing in the pasture" fill className="object-cover" />
               </div>
               <span className="text-xs font-medium tracking-widest text-farm-tan uppercase tracking-widest">Coming Soon</span>
               <h3 className="font-serif text-2xl text-farm-cream mt-2">Farm Stay</h3>
