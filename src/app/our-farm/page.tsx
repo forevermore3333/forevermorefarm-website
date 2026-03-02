@@ -66,8 +66,8 @@ export default function OurFarm() {
 
           {/* Teddy */}
           <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
-            <div className="md:order-2 relative aspect-[9/16] rounded-sm overflow-hidden shadow-md">
-              <Image src="/images/house-animals/teddy-sitting-like-person.jpg" alt="Teddy the cat sitting upright like a person" fill className="object-cover object-top" />
+            <div className="md:order-2 relative aspect-[3/4] rounded-sm overflow-hidden shadow-md">
+              <Image src="/images/house-animals/teddy-sitting-like-person.jpg" alt="Teddy the cat sitting upright like a person" fill className="object-cover object-center" />
             </div>
             <div className="md:order-1">
               <h3 className="font-serif text-2xl text-farm-green mb-4">Teddy</h3>
