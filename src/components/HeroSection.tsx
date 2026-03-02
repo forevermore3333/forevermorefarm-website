@@ -9,42 +9,41 @@ interface HeroSectionProps {
   ctaText?: string
   ctaHref?: string
   bgImage?: string
+  bgPositionMobile?: string
+  bgPositionDesktop?: string
+  bgScaleDesktop?: number
   showLogo?: boolean
   children?: React.ReactNode
 }
 
-export default function HeroSection({ title, subtitle, ctaText, ctaHref, bgImage, showLogo, children }: HeroSectionProps) {
+export default function HeroSection({
+  title, subtitle, ctaText, ctaHref, bgImage, showLogo, children,
+  bgPositionMobile = '50% 50%',
+  bgPositionDesktop = '50% 50%',
+  bgScaleDesktop = 1.0,
+}: HeroSectionProps) {
   const ref = useRef<HTMLElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start start', 'end start'],
-  })
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '30%'])
 
   return (
     <section ref={ref} className="relative flex items-center justify-center min-h-[85vh] md:min-h-[95vh] overflow-hidden">
       {bgImage && (
         <motion.div style={{ y }} className="absolute inset-0">
-          {/* Mobile bg — was perfect, don't touch */}
-          <div
-            className="absolute inset-0 md:hidden"
-            style={{
-              backgroundImage: `url(${bgImage})`,
-              backgroundSize: 'cover',
-              backgroundPosition: '71% 70%',
-            }}
-          />
-          {/* Desktop bg — independent adjustments */}
-          <div
-            className="absolute inset-0 hidden md:block"
-            style={{
-              backgroundImage: `url(${bgImage})`,
-              backgroundSize: 'cover',
-              backgroundPosition: '50% 80%',
-              transform: 'scale(1.6) translateX(-10%)',
-              transformOrigin: 'center bottom',
-            }}
-          />
+          {/* Mobile */}
+          <div className="absolute inset-0 md:hidden" style={{
+            backgroundImage: `url(${bgImage})`,
+            backgroundSize: 'cover',
+            backgroundPosition: bgPositionMobile,
+          }} />
+          {/* Desktop */}
+          <div className="absolute inset-0 hidden md:block" style={{
+            backgroundImage: `url(${bgImage})`,
+            backgroundSize: 'cover',
+            backgroundPosition: bgPositionDesktop,
+            transform: `scale(${bgScaleDesktop}) translateX(-10%)`,
+            transformOrigin: 'center bottom',
+          }} />
         </motion.div>
       )}
       <div className="absolute inset-0 bg-farm-charcoal/55" />
@@ -59,10 +58,7 @@ export default function HeroSection({ title, subtitle, ctaText, ctaHref, bgImage
           </p>
         )}
         {ctaText && ctaHref && (
-          <a
-            href={ctaHref}
-            className="inline-block bg-farm-green text-farm-cream px-8 py-3 rounded-sm text-sm font-medium tracking-widest uppercase hover:bg-farm-green/90 transition-colors"
-          >
+          <a href={ctaHref} className="inline-block bg-farm-green text-farm-cream px-8 py-3 rounded-sm text-sm font-medium tracking-widest uppercase hover:bg-farm-green/90 transition-colors">
             {ctaText}
           </a>
         )}
@@ -71,12 +67,9 @@ export default function HeroSection({ title, subtitle, ctaText, ctaHref, bgImage
 
       {showLogo && (
         <div className="absolute bottom-[13%] md:bottom-[32%] left-0 right-0 flex justify-center z-10">
-          <img
-            src="/images/forevermore-farm-logo.svg"
-            alt="Forevermore Farm"
+          <img src="/images/forevermore-farm-logo.svg" alt="Forevermore Farm"
             className="w-56 h-56 md:w-64 md:h-64 drop-shadow-2xl"
-            style={{ filter: 'drop-shadow(0 4px 24px rgba(0,0,0,0.5))' }}
-          />
+            style={{ filter: 'drop-shadow(0 4px 24px rgba(0,0,0,0.5))' }} />
         </div>
       )}
     </section>

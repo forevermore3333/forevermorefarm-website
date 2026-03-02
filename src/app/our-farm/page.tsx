@@ -9,6 +9,9 @@ export default function OurFarm() {
       <HeroSection
         title="The Life Here"
         bgImage="/images/property/concetta-sheep-stage-bg.jpg"
+        bgPositionMobile="38% 67%"
+        bgPositionDesktop="38% 67%"
+        bgScaleDesktop={1.0}
         showLogo
       />
 

@@ -15,6 +15,9 @@ export default function Home() {
         ctaText="Join Our List"
         ctaHref="#email-capture"
         bgImage="/images/property/stage-sunrise-fog-valley.jpg"
+        bgPositionMobile="71% 70%"
+        bgPositionDesktop="50% 80%"
+        bgScaleDesktop={1.6}
         showLogo
       />
 
