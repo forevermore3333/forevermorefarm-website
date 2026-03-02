@@ -60,15 +60,15 @@ export default function Home() {
             <div className="bg-farm-cream rounded-sm overflow-hidden shadow-sm">
               <div className="relative h-64">
                 <Image
-                  src="/images/house-animals/juliana-pasture-5-both-facing.jpg"
-                  alt="Clementine and Hazel — both pigs facing the camera in the pasture"
+                  src="/images/house-animals/hazel-teddy-dogbed-2.jpg"
+                  alt="Hazel the pot-belly pig nose-to-nose with Teddy the cat on the hardwood floor"
                   fill
                   className="object-cover"
                 />
               </div>
               <div className="p-6">
                 <h3 className="font-serif text-xl text-farm-green mb-3">Clementine &amp; Hazel</h3>
-                <p className="text-farm-charcoal/70 leading-relaxed text-sm">Clementine is a Juliana pig. Hazel is a pot-belly. Both live in the house, both have strong opinions, and between the two of them they run this farm. Teddy the cat babysits. Nobody asked him to — he just does.</p>
+                <p className="text-farm-charcoal/70 leading-relaxed text-sm">Clementine is a Juliana pig. Hazel is a pot-belly. Both live in the house and both have strong opinions about it. Teddy the cat has appointed himself babysitter to both of them. Nobody asked. He just started doing it.</p>
               </div>
             </div>
             {/* Heritage Pigs */}

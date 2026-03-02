@@ -55,11 +55,11 @@ export default function OurFarm() {
           {/* Clementine & Hazel */}
           <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
             <div className="relative aspect-[4/3] rounded-sm overflow-hidden shadow-md">
-              <Image src="/images/house-animals/clementine-sunglasses-blanket.jpg" alt="Clementine the Juliana pig in sunglasses" fill className="object-cover object-top" />
+              <Image src="/images/house-animals/hazel-teddy-dogbed-2.jpg" alt="Hazel the pot-belly pig nose-to-nose with Teddy on the hardwood floor" fill className="object-cover" />
             </div>
             <div>
               <h3 className="font-serif text-2xl text-farm-green mb-4">Clementine &amp; Hazel</h3>
-              <p className="text-farm-charcoal/70 leading-relaxed mb-4">Clementine is a Juliana pig who lives in the house, goes on walks down the driveway, once visited Belle Meade, and has been photographed in sunglasses. Hazel is a pot-belly pig with strong opinions about the road and a fondness for Teddy&apos;s dog bed.</p>
+              <p className="text-farm-charcoal/70 leading-relaxed mb-4">Clementine is a Juliana pig — she goes on walks, once visited Belle Meade, and has been photographed in sunglasses. Hazel is a pot-belly pig with strong opinions about the road and a deep fondness for Teddy&apos;s dog bed.</p>
               <p className="text-farm-charcoal/70 leading-relaxed">They don&apos;t know they&apos;re pigs. Nobody&apos;s going to tell them.</p>
             </div>
           </div>
