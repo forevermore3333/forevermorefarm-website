@@ -60,7 +60,7 @@ export default function Home() {
             <div className="bg-farm-cream rounded-sm overflow-hidden shadow-sm">
               <div className="relative h-64">
                 <Image
-                  src="/images/house-animals/clementine-belle-meade.jpg"
+                  src="/images/house-animals/clementine-hazel-pasture.jpg"
                   alt="Hazel the pot-belly pig nose-to-nose with Teddy the cat on the hardwood floor"
                   fill
                   className="object-cover"
