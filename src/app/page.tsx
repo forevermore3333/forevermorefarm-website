@@ -32,6 +32,24 @@ export default function Home() {
         </div>
       </section>
 
+
+      {/* Press — social proof */}
+      <section className="py-12 px-4 bg-farm-charcoal/95">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-xs font-medium tracking-widest text-farm-tan uppercase mb-6">As Seen In</p>
+          <a
+            href="https://www.wkrn.com/special-reports/hickman-county-homesteaders-living-off-grid/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-3 text-farm-cream/70 hover:text-farm-cream transition-colors"
+          >
+            <span className="font-serif text-lg">WKRN News 2</span>
+            <span className="text-farm-tan/50">—</span>
+            <span className="text-sm italic text-farm-cream/50 group-hover:text-farm-cream/80 transition-colors">&ldquo;Hickman County Homesteaders Living Off Grid&rdquo;</span>
+          </a>
+        </div>
+      </section>
+
       {/* Animals Section */}
       <section className="py-16 px-4 bg-white/60">
         <div className="max-w-6xl mx-auto">

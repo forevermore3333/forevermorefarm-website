@@ -140,6 +140,25 @@ export default function OurFarm() {
         </div>
       </section>
 
+      {/* As Seen In */}
+      <section className="py-20 px-4 bg-farm-charcoal">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="text-xs font-medium tracking-widest text-farm-tan uppercase mb-10">As Seen In</p>
+          <a
+            href="https://www.wkrn.com/special-reports/hickman-county-homesteaders-living-off-grid/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex flex-col items-center gap-4 hover:opacity-90 transition-opacity"
+          >
+            <div className="border border-farm-tan/30 rounded-sm px-10 py-6 group-hover:border-farm-tan/60 transition-colors">
+              <p className="font-serif text-2xl text-farm-cream mb-1">WKRN News 2</p>
+              <p className="text-farm-tan text-sm tracking-wide">&ldquo;Hickman County Homesteaders Living Off Grid&rdquo;</p>
+              <p className="text-farm-cream/30 text-xs mt-3 group-hover:text-farm-cream/60 transition-colors">Watch the feature →</p>
+            </div>
+          </a>
+        </div>
+      </section>
+
       <EmailCapture
         headline="Stay connected."
         subtitle="Events, farm days, and workshop announcements — to your inbox first."
