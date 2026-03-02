@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 
@@ -26,19 +25,20 @@ export default function HeroSection({ title, subtitle, ctaText, ctaHref, bgImage
     <section ref={ref} className="relative flex items-center justify-center min-h-[85vh] md:min-h-[90vh] overflow-hidden">
       {bgImage && (
         <motion.div style={{ y }} className="absolute inset-0">
-          <Image
-            src={bgImage}
-            alt=""
-            fill
-            className="object-cover"
-            style={{ objectPosition: '70% bottom', transform: 'scale(1.35)', transformOrigin: 'right bottom' }}
-            priority
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `url(${bgImage})`,
+              backgroundSize: 'cover',
+              backgroundPosition: '70% bottom',
+              transform: 'scale(1.35)',
+              transformOrigin: 'right bottom',
+            }}
           />
         </motion.div>
       )}
       <div className="absolute inset-0 bg-farm-charcoal/55" />
 
-      {/* Title + subtitle + CTA — vertically centered */}
       <div className="relative z-10 text-center px-4 max-w-3xl pb-48">
         <h1 className="font-serif text-4xl md:text-6xl text-farm-cream mb-6 leading-tight drop-shadow-lg">
           {title}
@@ -59,7 +59,6 @@ export default function HeroSection({ title, subtitle, ctaText, ctaHref, bgImage
         {children}
       </div>
 
-      {/* Logo pinned to bottom-center */}
       {showLogo && (
         <div className="absolute bottom-20 left-0 right-0 flex justify-center z-10">
           <img
