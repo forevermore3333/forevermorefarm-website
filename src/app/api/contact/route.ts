@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { resend } from '@/lib/resend'
+import { getResend } from '@/lib/resend'
 
 export async function POST(req: NextRequest) {
   try {
@@ -14,7 +14,7 @@ export async function POST(req: NextRequest) {
       ? `New email list signup: ${email}`
       : `Name: ${name}\nEmail: ${email}\nCategory: ${category}\n\nMessage:\n${message}`
 
-    await resend.emails.send({
+    await getResend().emails.send({
       from: 'onboarding@resend.dev',
       to: process.env.CONTACT_EMAIL || 'placeholder@example.com',
       subject,
