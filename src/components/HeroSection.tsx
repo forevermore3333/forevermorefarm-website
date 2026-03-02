@@ -25,8 +25,18 @@ export default function HeroSection({ title, subtitle, ctaText, ctaHref, bgImage
     <section ref={ref} className="relative flex items-center justify-center min-h-[85vh] md:min-h-[90vh] overflow-hidden">
       {bgImage && (
         <motion.div style={{ y }} className="absolute inset-0">
+          {/* Mobile bg — was perfect, don't touch */}
           <div
-            className="absolute inset-0"
+            className="absolute inset-0 md:hidden"
+            style={{
+              backgroundImage: `url(${bgImage})`,
+              backgroundSize: 'cover',
+              backgroundPosition: '60% 70%',
+            }}
+          />
+          {/* Desktop bg — independent adjustments */}
+          <div
+            className="absolute inset-0 hidden md:block"
             style={{
               backgroundImage: `url(${bgImage})`,
               backgroundSize: 'cover',
