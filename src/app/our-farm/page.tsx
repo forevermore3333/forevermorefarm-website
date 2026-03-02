@@ -37,7 +37,7 @@ export default function OurFarm() {
       {/* Olin on the land */}
       <section className="py-4 px-4 bg-farm-tan/20">
         <div className="max-w-6xl mx-auto">
-          <div className="relative h-72 md:h-96 rounded-sm overflow-hidden">
+          <div className="relative aspect-[3/4] max-w-2xl mx-auto rounded-sm overflow-hidden">
             <Image src="/images/property/olin-tractor-brushhog-pov.jpg" alt="Olin on the tractor brush hogging the property" fill className="object-cover object-[center_25%]" />
             <div className="absolute inset-0 bg-farm-charcoal/30" />
             <div className="absolute bottom-6 left-8">
