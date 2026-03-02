@@ -31,7 +31,7 @@ export default function HeroSection({ title, subtitle, ctaText, ctaHref, bgImage
             alt=""
             fill
             className="object-cover"
-            style={{ objectPosition: '80% bottom', transform: 'scale(1.35)', transformOrigin: 'right bottom' }}
+            style={{ objectPosition: '70% bottom', transform: 'scale(1.35)', transformOrigin: 'right bottom' }}
             priority
           />
         </motion.div>
