@@ -70,7 +70,7 @@ export default function HeroSection({ title, subtitle, ctaText, ctaHref, bgImage
       </div>
 
       {showLogo && (
-        <div className="absolute bottom-[5%] md:bottom-[18%] left-0 right-0 flex justify-center z-10">
+        <div className="absolute bottom-[10%] md:bottom-[18%] left-0 right-0 flex justify-center z-10">
           <img
             src="/images/forevermore-farm-logo.svg"
             alt="Forevermore Farm"
