@@ -1,4 +1,8 @@
+'use client'
+
 import Image from 'next/image'
+import { useRef } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 
 interface HeroSectionProps {
   title: string
@@ -11,16 +15,25 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ title, subtitle, ctaText, ctaHref, bgImage, showLogo, children }: HeroSectionProps) {
+  const ref = useRef<HTMLElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start start', 'end start'],
+  })
+  const y = useTransform(scrollYProgress, [0, 1], ['0%', '30%'])
+
   return (
-    <section className="relative flex items-center justify-center min-h-screen">
+    <section ref={ref} className="relative flex items-center justify-center min-h-screen overflow-hidden">
       {bgImage && (
-        <Image
-          src={bgImage}
-          alt=""
-          fill
-          className="object-cover"
-          priority
-        />
+        <motion.div style={{ y }} className="absolute inset-0 scale-110">
+          <Image
+            src={bgImage}
+            alt=""
+            fill
+            className="object-cover"
+            priority
+          />
+        </motion.div>
       )}
       <div className="absolute inset-0 bg-farm-charcoal/55" />
       <div className="relative z-10 text-center px-4 max-w-3xl">
@@ -35,19 +48,18 @@ export default function HeroSection({ title, subtitle, ctaText, ctaHref, bgImage
         {ctaText && ctaHref && (
           <a
             href={ctaHref}
-            className="inline-block bg-farm-green text-farm-cream px-8 py-3 rounded-sm text-sm font-medium tracking-wide hover:bg-farm-green/90 transition-colors mb-10"
+            className="inline-block bg-farm-green text-farm-cream px-8 py-3 rounded-sm text-sm font-medium tracking-widest uppercase hover:bg-farm-green/90 transition-colors mb-10"
           >
             {ctaText}
           </a>
         )}
         {showLogo && (
-          <div className="flex justify-center mt-6">
-            <Image
-              src="/images/forevermore-farm-logo.jpg"
+          <div className="flex justify-center mt-8">
+            <img
+              src="/images/forevermore-farm-logo.svg"
               alt="Forevermore Farm"
-              width={120}
-              height={120}
-              className="rounded-full ring-4 ring-white/30 shadow-2xl"
+              className="w-32 h-32 drop-shadow-2xl"
+              style={{ filter: 'drop-shadow(0 4px 24px rgba(0,0,0,0.5))' }}
             />
           </div>
         )}

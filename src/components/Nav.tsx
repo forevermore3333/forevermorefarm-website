@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 
 const links = [
   { href: '/', label: 'Home' },
@@ -17,17 +16,15 @@ export default function Nav() {
   const [open, setOpen] = useState(false)
 
   return (
-    <nav className="sticky top-0 z-50 bg-farm-cream border-b border-farm-tan">
+    <nav className="sticky top-0 z-50 bg-farm-cream/95 backdrop-blur-sm border-b border-farm-tan/30">
       <div className="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
         <Link href="/" className="flex items-center gap-3">
-          <Image
-            src="/images/forevermore-farm-logo.jpg"
+          <img
+            src="/images/forevermore-farm-logo.svg"
             alt="Forevermore Farm"
-            width={44}
-            height={44}
-            className="rounded-full object-cover ring-2 ring-farm-tan"
+            className="w-10 h-10"
           />
-          <span className="font-serif text-lg font-bold text-farm-green tracking-wide hidden sm:block">
+          <span className="font-serif text-base font-bold text-farm-green tracking-wide hidden sm:block">
             FOREVERMORE FARM
           </span>
         </Link>
@@ -38,7 +35,7 @@ export default function Nav() {
             <Link
               key={l.href}
               href={l.href}
-              className="text-sm text-farm-charcoal hover:text-farm-green transition-colors"
+              className="text-xs tracking-widest uppercase text-farm-charcoal/70 hover:text-farm-green transition-colors"
             >
               {l.label}
             </Link>
@@ -59,13 +56,13 @@ export default function Nav() {
 
       {/* Mobile dropdown */}
       {open && (
-        <div className="md:hidden bg-farm-cream border-t border-farm-tan px-4 pb-4">
+        <div className="md:hidden bg-farm-cream border-t border-farm-tan/30 px-4 pb-4">
           {links.map((l) => (
             <Link
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="block py-2 text-sm text-farm-charcoal hover:text-farm-green"
+              className="block py-3 text-xs tracking-widest uppercase text-farm-charcoal/70 hover:text-farm-green"
             >
               {l.label}
             </Link>
