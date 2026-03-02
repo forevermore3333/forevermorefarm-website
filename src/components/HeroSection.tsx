@@ -25,12 +25,12 @@ export default function HeroSection({ title, subtitle, ctaText, ctaHref, bgImage
   return (
     <section ref={ref} className="relative flex items-center justify-center min-h-[85vh] md:min-h-screen overflow-hidden">
       {bgImage && (
-        <motion.div style={{ y }} className="absolute inset-0 scale-[1.12]">
+        <motion.div style={{ y }} className="absolute inset-0 scale-[1.2]">
           <Image
             src={bgImage}
             alt=""
             fill
-            className="object-cover object-[80%_85%]"
+            className="object-cover object-[90%_95%]"
             priority
           />
         </motion.div>
