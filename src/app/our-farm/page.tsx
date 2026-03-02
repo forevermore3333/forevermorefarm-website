@@ -82,7 +82,7 @@ export default function OurFarm() {
           {/* Heritage Pigs */}
           <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
             <div className="relative aspect-[4/3] rounded-sm overflow-hidden shadow-md">
-              <Image src="/images/pigs/piglet-posing-shelter.jpg" alt="Heritage Berkshire piglet in the shelter" fill className="object-cover object-top" />
+              <Image src="/images/pigs/piglet-posing-shelter.jpg" alt="Heritage Berkshire piglet in the shelter" fill className="object-cover" style={{ objectPosition: '50% 17%' }} />
             </div>
             <div>
               <h3 className="font-serif text-2xl text-farm-green mb-4">Heritage Berkshire Pigs</h3>
