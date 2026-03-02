@@ -189,7 +189,7 @@ export default function Home() {
             </div>
             <div className="border border-farm-tan/30 rounded-sm p-8">
               <div className="relative h-48 rounded-sm overflow-hidden mb-6">
-                <Image src="/images/house-animals/clementine-teddy-pasture-flat.jpg" alt="Clementine and Teddy relaxing in the pasture" fill className="object-cover" />
+                <Image src="/images/property/concetta-hazel-sheep-field.jpg" alt="Concetta in the field with sheep at evening light" fill className="object-cover" />
               </div>
               <span className="text-xs font-medium tracking-widest text-farm-tan uppercase tracking-widest">Coming Soon</span>
               <h3 className="font-serif text-2xl text-farm-cream mt-2">Farm Stay</h3>
