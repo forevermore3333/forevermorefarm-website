@@ -30,7 +30,7 @@ export default function HeroSection({ title, subtitle, ctaText, ctaHref, bgImage
             src={bgImage}
             alt=""
             fill
-            className="object-cover"
+            className="object-cover object-[center_55%]"
             priority
           />
         </motion.div>
@@ -58,7 +58,7 @@ export default function HeroSection({ title, subtitle, ctaText, ctaHref, bgImage
             <img
               src="/images/forevermore-farm-logo.svg"
               alt="Forevermore Farm"
-              className="w-32 h-32 drop-shadow-2xl"
+              className="w-48 h-48 drop-shadow-2xl"
               style={{ filter: 'drop-shadow(0 4px 24px rgba(0,0,0,0.5))' }}
             />
           </div>
