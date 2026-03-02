@@ -2,10 +2,12 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const links = [
   { href: '/', label: 'Home' },
   { href: '/our-farm', label: 'Our Farm' },
+  { href: '/straw-bale-garden', label: 'Garden' },
   { href: '/events', label: 'Events' },
   { href: '/stay', label: 'Stay' },
   { href: '/contact', label: 'Contact' },
@@ -17,8 +19,17 @@ export default function Nav() {
   return (
     <nav className="sticky top-0 z-50 bg-farm-cream border-b border-farm-tan">
       <div className="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
-        <Link href="/" className="font-serif text-xl font-bold text-farm-green tracking-wide">
-          FOREVERMORE FARM
+        <Link href="/" className="flex items-center gap-3">
+          <Image
+            src="/images/forevermore-farm-logo.jpg"
+            alt="Forevermore Farm"
+            width={44}
+            height={44}
+            className="rounded-full object-cover ring-2 ring-farm-tan"
+          />
+          <span className="font-serif text-lg font-bold text-farm-green tracking-wide hidden sm:block">
+            FOREVERMORE FARM
+          </span>
         </Link>
 
         {/* Desktop */}
