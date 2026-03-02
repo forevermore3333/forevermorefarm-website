@@ -23,7 +23,7 @@ export default function HeroSection({ title, subtitle, ctaText, ctaHref, bgImage
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '30%'])
 
   return (
-    <section ref={ref} className="relative flex items-center justify-center min-h-screen overflow-hidden">
+    <section ref={ref} className="relative flex items-center justify-center min-h-[70vh] md:min-h-screen overflow-hidden">
       {bgImage && (
         <motion.div style={{ y }} className="absolute inset-0 scale-[1.03]">
           <Image
