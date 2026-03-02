@@ -38,7 +38,7 @@ export default function HeroSection({ title, subtitle, ctaText, ctaHref, bgImage
       <div className="absolute inset-0 bg-farm-charcoal/55" />
 
       {/* Title + subtitle + CTA — vertically centered */}
-      <div className="relative z-10 text-center px-4 max-w-3xl -translate-y-16">
+      <div className="relative z-10 text-center px-4 max-w-3xl pb-48">
         <h1 className="font-serif text-4xl md:text-6xl text-farm-cream mb-6 leading-tight drop-shadow-lg">
           {title}
         </h1>
