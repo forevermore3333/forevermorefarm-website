@@ -58,7 +58,7 @@ export default function HeroSection({ title, subtitle, ctaText, ctaHref, bgImage
             <img
               src="/images/forevermore-farm-logo.svg"
               alt="Forevermore Farm"
-              className="w-48 h-48 drop-shadow-2xl"
+              className="w-64 h-64 drop-shadow-2xl"
               style={{ filter: 'drop-shadow(0 4px 24px rgba(0,0,0,0.5))' }}
             />
           </div>
