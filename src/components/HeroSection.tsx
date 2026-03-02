@@ -40,9 +40,9 @@ export default function HeroSection({ title, subtitle, ctaText, ctaHref, bgImage
             style={{
               backgroundImage: `url(${bgImage})`,
               backgroundSize: 'cover',
-              backgroundPosition: '50% center',
+              backgroundPosition: '50% bottom',
               transform: 'scale(1.45)',
-              transformOrigin: 'center center',
+              transformOrigin: 'center bottom',
             }}
           />
         </motion.div>
