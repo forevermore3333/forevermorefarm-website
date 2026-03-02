@@ -23,7 +23,7 @@ export default function Home() {
         <div className="max-w-3xl mx-auto text-center">
           <p className="font-serif text-2xl md:text-3xl text-farm-charcoal leading-relaxed mb-6">
             fo&middot;rev&middot;er&middot;more{' '}
-            <span className="text-farm-charcoal/40 text-lg">/f&#601;r-&#x2C8;ev-&#601;r-&#x2CC;m&#xF4;r/</span>
+            <span className="text-farm-tan text-lg">/f&#601;r-&#x2C8;ev-&#601;r-&#x2CC;m&#xF4;r/</span>
             {' '}&mdash; not a place you visit once. a place that stays with you.
           </p>
           <p className="text-farm-charcoal/70 leading-relaxed max-w-2xl mx-auto text-lg">
@@ -162,18 +162,18 @@ export default function Home() {
           <h2 className="font-serif text-3xl text-farm-cream mb-3">What&apos;s Coming</h2>
           <p className="text-farm-cream/50 mb-12">Join the list to hear first.</p>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="border border-farm-cream/20 rounded-sm p-8">
+            <div className="border border-farm-tan/30 rounded-sm p-8">
               <div className="relative h-48 rounded-sm overflow-hidden mb-6">
                 <Image src="/images/property/stage-reverse-valley-frost.jpg" alt="The stage at Forevermore Farm looking over the frost-covered valley" fill className="object-cover" />
               </div>
-              <span className="text-xs font-medium tracking-widest text-farm-tan uppercase">Coming Soon</span>
+              <span className="text-xs font-medium tracking-widest text-farm-tan uppercase tracking-widest">Coming Soon</span>
               <h3 className="font-serif text-2xl text-farm-cream mt-2">Event Venue</h3>
             </div>
-            <div className="border border-farm-cream/20 rounded-sm p-8">
+            <div className="border border-farm-tan/30 rounded-sm p-8">
               <div className="relative h-48 rounded-sm overflow-hidden mb-6">
                 <Image src="/images/house-animals/clementine-teddy-pasture-flat.jpg" alt="Clementine and Teddy relaxing in the pasture" fill className="object-cover" />
               </div>
-              <span className="text-xs font-medium tracking-widest text-farm-tan uppercase">Coming Soon</span>
+              <span className="text-xs font-medium tracking-widest text-farm-tan uppercase tracking-widest">Coming Soon</span>
               <h3 className="font-serif text-2xl text-farm-cream mt-2">Farm Stay</h3>
             </div>
           </div>

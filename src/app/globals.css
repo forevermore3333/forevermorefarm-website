@@ -1,18 +1,24 @@
 @import "tailwindcss";
 
 :root {
-  --background: #F9F5EF;
-  --foreground: #2C2C2C;
+  --background: #F7F3EC;
+  --foreground: #1C1C1C;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-farm-cream: #F9F5EF;
-  --color-farm-green: #2D4A2D;
-  --color-farm-charcoal: #2C2C2C;
-  --color-farm-brown: #8B6914;
-  --color-farm-tan: #D4C4A0;
+
+  /* High-end venue palette — deep forest + champagne gold + warm ivory */
+  --color-farm-cream: #F7F3EC;       /* warm ivory — backgrounds, cards */
+  --color-farm-green: #1B3A2D;       /* deep forest green — primary, headings */
+  --color-farm-charcoal: #1C1C1C;    /* near-black — body text, footer */
+  --color-farm-brown: #8B6914;       /* antique gold — replaced tan-brown */
+  --color-farm-tan: #C9A96E;         /* champagne gold — accents, borders, badges */
+  --color-farm-gold: #C9A96E;        /* alias for champagne gold */
+  --color-farm-ivory: #F7F3EC;       /* alias for cream */
+  --color-farm-sage: #4A6741;        /* mid sage — hover states, secondary */
+
   --font-sans: var(--font-inter);
   --font-serif: var(--font-playfair);
 }
@@ -20,4 +26,16 @@
 body {
   background: var(--background);
   color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* High-end venue typography refinements */
+h1, h2, h3, h4 {
+  letter-spacing: -0.01em;
+}
+
+/* Subtle gold underline for section links */
+a.venue-link {
+  border-bottom: 1px solid var(--color-farm-tan);
+  padding-bottom: 1px;
 }

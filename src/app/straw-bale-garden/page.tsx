@@ -77,9 +77,9 @@ export default function StrawBaleGarden() {
       <section className="py-20 px-4 bg-farm-cream">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="text-xs font-medium tracking-widest text-farm-brown uppercase">From the Instructor</span>
+            <span className="text-xs font-medium tracking-widest text-farm-tan uppercase tracking-widest">From the Instructor</span>
             <h2 className="font-serif text-3xl text-farm-green mt-3 mb-6">Concetta West</h2>
-            <blockquote className="border-l-4 border-farm-green pl-6 mb-6">
+            <blockquote className="border-l-4 border-farm-tan pl-6 mb-6">
               <p className="font-serif text-xl text-farm-charcoal leading-relaxed italic">
                 &ldquo;10+ years ago I had the honor of attending a straw bale gardening class taught by Joel Karsten. His methods inspired and equipped me to grow a market garden and 30-member CSA with the produce from my very first Straw Bale Garden in Washington State.&rdquo;
               </p>

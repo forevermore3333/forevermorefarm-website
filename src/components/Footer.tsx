@@ -11,7 +11,7 @@ export default function Footer() {
             alt="Forevermore Farm"
             width={80}
             height={80}
-            className="rounded-full opacity-80 ring-2 ring-farm-cream/20"
+            className="rounded-full opacity-80 ring-2 ring-farm-tan/40"
           />
         </div>
         <p className="font-serif text-lg text-farm-cream/90 mb-2">Forevermore Farm</p>

@@ -11,7 +11,7 @@ export default function Stay() {
 
       <section className="py-24 px-4 bg-farm-cream">
         <div className="max-w-2xl mx-auto text-center">
-          <span className="text-xs font-medium tracking-widest text-farm-brown uppercase">Coming Soon</span>
+          <span className="text-xs font-medium tracking-widest text-farm-tan uppercase tracking-widest">Coming Soon</span>
           <p className="font-serif text-2xl md:text-3xl text-farm-charcoal leading-relaxed mt-6">
             Something quiet is being built here.
           </p>
