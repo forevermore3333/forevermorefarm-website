@@ -41,7 +41,7 @@ export default function HeroSection({ title, subtitle, ctaText, ctaHref, bgImage
               backgroundImage: `url(${bgImage})`,
               backgroundSize: 'cover',
               backgroundPosition: '50% 80%',
-              transform: 'scale(1.6) translateX(-14%)',
+              transform: 'scale(1.6) translateX(-11%)',
               transformOrigin: 'center bottom',
             }}
           />
