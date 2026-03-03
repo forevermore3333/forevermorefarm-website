@@ -6,7 +6,8 @@ export const events = [
     time: 'TBD',
     description: 'Forevermore Farm is a stop on the Hickman County Ag & Arts Tour. Come walk the land, meet the animals, see the straw bale garden, and experience farm life firsthand. Free and open to the public.',
     cta: 'Learn More',
-    ctaLink: '#',
+    ctaLink: 'https://www.agandartstour.com/',
+    ctaExternal: true,
     badge: 'Free Event',
   }
 ]

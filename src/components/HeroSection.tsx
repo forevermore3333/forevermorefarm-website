@@ -66,7 +66,7 @@ export default function HeroSection({
       </div>
 
       {showLogo && (
-        <div className="absolute bottom-[13%] md:bottom-[32%] left-0 right-0 flex justify-center z-10">
+        <div className="absolute bottom-[13%] md:bottom-[32%] left-0 right-0 flex justify-center z-10 pointer-events-none">
           <img src="/images/forevermore-farm-logo.svg" alt="Forevermore Farm"
             className="w-56 h-56 md:w-64 md:h-64 drop-shadow-2xl"
             style={{ filter: 'drop-shadow(0 4px 24px rgba(0,0,0,0.5))' }} />

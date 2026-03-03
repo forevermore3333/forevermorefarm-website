@@ -19,6 +19,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Forevermore Farm — Lyles, Tennessee",
   description: "A regenerative farm in Lyles, TN where people gather, grow, and slow down.",
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
   robots: {
     index: false,
     follow: false,

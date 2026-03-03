@@ -5,10 +5,11 @@ interface EventCardProps {
   description: string
   cta: string
   ctaLink: string
+  ctaExternal?: boolean
   badge?: string
 }
 
-export default function EventCard({ title, date, time, description, cta, ctaLink, badge }: EventCardProps) {
+export default function EventCard({ title, date, time, description, cta, ctaLink, ctaExternal, badge }: EventCardProps) {
   return (
     <div className="bg-farm-cream border border-farm-tan rounded-sm p-6 flex flex-col">
       <div className="flex items-start justify-between gap-4 mb-3">
@@ -25,6 +26,7 @@ export default function EventCard({ title, date, time, description, cta, ctaLink
       <p className="text-farm-charcoal/80 text-sm leading-relaxed mb-4 flex-1">{description}</p>
       <a
         href={ctaLink}
+        {...(ctaExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
         className="inline-block text-sm font-medium text-farm-green hover:text-farm-brown transition-colors"
       >
         {cta} &rarr;
