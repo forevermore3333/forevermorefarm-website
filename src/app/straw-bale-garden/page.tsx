@@ -68,6 +68,7 @@ export default function StrawBaleGarden() {
       <HeroSection
         title="The Straw Bale Method"
         subtitle="Grow anywhere. No soil required. Concetta has been doing this for over a decade."
+        bgVideo="/videos/garden-drone-reveal.mp4"
         bgImage="/images/garden-build/garden-enclosure-wide-blue-sky.jpg"
         ctaText="Learn from Concetta"
         ctaHref="#workshops"

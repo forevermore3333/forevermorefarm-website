@@ -9,6 +9,7 @@ interface HeroSectionProps {
   ctaText?: string
   ctaHref?: string
   bgImage?: string
+  bgVideo?: string
   bgPositionMobile?: string
   bgPositionDesktop?: string
   bgScaleDesktop?: number
@@ -18,7 +19,7 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({
-  title, subtitle, ctaText, ctaHref, bgImage, showLogo, children,
+  title, subtitle, ctaText, ctaHref, bgImage, bgVideo, showLogo, children,
   bgPositionMobile = '50% 50%',
   bgPositionDesktop = '50% 50%',
   bgScaleDesktop = 1.0,
@@ -30,7 +31,20 @@ export default function HeroSection({
 
   return (
     <section ref={ref} className="relative flex items-center justify-center min-h-[85vh] md:min-h-[95vh] overflow-hidden">
-      {bgImage && (
+      {bgVideo && (
+        <motion.div style={{ y }} className="absolute inset-0">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src={bgVideo} type="video/mp4" />
+          </video>
+        </motion.div>
+      )}
+      {bgImage && !bgVideo && (
         <motion.div style={{ y }} className="absolute inset-0">
           <div className="absolute inset-0 md:hidden" style={{
             backgroundImage: `url(${bgImage})`,
