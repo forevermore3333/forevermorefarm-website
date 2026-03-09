@@ -97,6 +97,21 @@ export default function Contact() {
             <p className="text-center text-sm text-farm-charcoal/50 mt-4">Lyles, TN 37098</p>
           </form>
         )}
+
+        {/* Map Section */}
+        <div className="mt-12">
+          <p className="font-serif text-farm-green text-sm mb-2">Find Us</p>
+          <div className="relative w-full aspect-[4/3] sm:aspect-video rounded-sm overflow-hidden border border-farm-tan/30">
+            <iframe
+              src="https://maps.google.com/maps?q=302+Hickory+Trce,+Lyles,+TN+37098&output=embed"
+              className="absolute inset-0 w-full h-full"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Forevermore Farm location"
+            />
+          </div>
+          <p className="text-sm text-farm-charcoal/60 mt-2 text-center">302 Hickory Trce, Lyles, TN 37098</p>
+        </div>
       </div>
     </section>
   )
