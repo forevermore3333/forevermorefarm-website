@@ -9,6 +9,7 @@ const links = [
   { href: '/straw-bale-garden', label: 'Garden' },
   { href: '/events', label: 'Events' },
   { href: '/stay', label: 'Stay' },
+  { href: '/gallery', label: 'Gallery' },
   { href: '/contact', label: 'Contact' },
 ]
 
@@ -60,7 +61,7 @@ export default function Nav() {
         {/* Mobile hamburger */}
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden flex flex-col gap-1.5 p-2"
+          className="md:hidden flex flex-col items-center justify-center gap-1.5 p-3 min-h-[44px] min-w-[44px]"
           aria-label="Toggle menu"
         >
           <span className={`block w-6 h-0.5 bg-farm-charcoal transition-transform ${open ? 'rotate-45 translate-y-2' : ''}`} />
