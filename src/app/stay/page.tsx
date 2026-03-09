@@ -1,4 +1,11 @@
+import type { Metadata } from "next"
 import HeroSection from '@/components/HeroSection'
+
+export const metadata: Metadata = {
+  title: "Stay at the Farm | Forevermore Farm | Lyles, TN",
+  description: "Experience farm life in Lyles, Tennessee. Lodging and overnight stays at Forevermore Farm — 45 minutes from Nashville.",
+}
+
 import EmailCapture from '@/components/EmailCapture'
 
 export default function Stay() {

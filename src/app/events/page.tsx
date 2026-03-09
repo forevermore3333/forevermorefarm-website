@@ -1,4 +1,11 @@
+import type { Metadata } from "next"
 import Image from 'next/image'
+
+export const metadata: Metadata = {
+  title: "Events & Workshops | Forevermore Farm | Lyles, TN",
+  description: "Farm days, straw bale gardening workshops, and seasonal events at Forevermore Farm in Lyles, Tennessee.",
+}
+
 import EventCard from '@/components/EventCard'
 import EmailCapture from '@/components/EmailCapture'
 import { events } from '@/data/events'

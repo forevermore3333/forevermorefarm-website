@@ -1,4 +1,10 @@
+import type { Metadata } from "next"
 import Image from 'next/image'
+
+export const metadata: Metadata = {
+  title: "Our Farm | Forevermore Farm | Lyles, TN",
+  description: "Meet Olin and Concetta West. Heritage Berkshire pigs, Nigerian Dwarf goats, straw bale gardens, and a way of life rooted in Lyles, Tennessee.",
+}
 import HeroSection from '@/components/HeroSection'
 import EmailCapture from '@/components/EmailCapture'
 import Link from 'next/link'
