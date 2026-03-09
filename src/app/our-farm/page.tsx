@@ -43,6 +43,33 @@ export default function OurFarm() {
         </div>
       </section>
 
+      {/* Who We Are */}
+      <section className="py-20 px-4 bg-farm-tan/20">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+          <div className="relative aspect-[4/3] rounded-sm overflow-hidden shadow-md">
+            <Image src="/images/people/olin-concetta-barn-snow.jpg" alt="Olin and Concetta West at Forevermore Farm" fill className="object-cover" />
+          </div>
+          <div>
+            <h2 className="font-serif text-3xl text-farm-green mb-6">Who We Are</h2>
+            <p className="text-farm-charcoal/70 leading-relaxed mb-4">
+              Olin spent 20 years in the United States Navy on submarines &mdash; sonar technician, Senior Chief Petty Officer, the person responsible for knowing what was out there in the dark. After the Navy, he spent five more years at Puget Sound Naval Shipyard, maintaining the combat systems he&apos;d built his career operating. Somewhere in all of that, he started thinking about land.
+            </p>
+            <p className="text-farm-charcoal/70 leading-relaxed mb-4">
+              Concetta was a trauma nurse at a major hospital in Seattle &mdash; the kind of work where you don&apos;t get to ease into your day. She left the ER, moved to Tennessee, and opened{' '}
+              <a href="https://thelocalplacetn.com" target="_blank" rel="noopener noreferrer" className="text-farm-green hover:underline underline-offset-4">The LOCAL Place</a>
+              {' '}on the square in Centerville &mdash; a caf&eacute;, a gathering spot, a reason for people to come downtown. Then came{' '}
+              <a href="https://thelocalplacetn.com/drive-thru" target="_blank" rel="noopener noreferrer" className="text-farm-green hover:underline underline-offset-4">The LOCAL Drive-Thru</a>
+              {' '}and{' '}
+              <a href="https://thelocalplacetn.com/made" target="_blank" rel="noopener noreferrer" className="text-farm-green hover:underline underline-offset-4">MADE @ The Local</a>
+              , a paint-your-own pottery and candle-making studio upstairs.
+            </p>
+            <p className="font-serif text-lg text-farm-green">
+              They didn&apos;t come to Tennessee to slow down. They came to build something real.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Olin on the land */}
       <section className="py-4 px-4 bg-farm-tan/20">
         <div className="max-w-6xl mx-auto">
