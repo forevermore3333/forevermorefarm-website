@@ -148,9 +148,9 @@ export default function GalleryClient() {
       <HeroSection
         title="Life at Forevermore"
         subtitle="A look inside the farm — the gardens, the animals, the land, and the people who make it home."
-        bgImage="/images/property/daffodils-line-field-house.jpg"
-        bgPositionMobile="60% 50%"
-        bgPositionDesktop="60% 50%"
+        bgImage="/images/garden/lilies-daisies-garden-bed.jpg"
+        bgPositionMobile="50% 60%"
+        bgPositionDesktop="50% 60%"
       />
 
       <section className="bg-farm-cream py-12 md:py-16">
