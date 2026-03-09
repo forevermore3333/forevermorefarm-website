@@ -159,7 +159,7 @@ export default function OurFarm() {
             rel="noopener noreferrer"
             className="group inline-flex flex-col items-center gap-4 hover:opacity-90 transition-opacity"
           >
-            <div className="border border-farm-tan/30 rounded-sm px-10 py-6 group-hover:border-farm-tan/60 transition-colors">
+            <div className="border border-farm-tan/30 rounded-sm px-6 sm:px-10 py-6 group-hover:border-farm-tan/60 transition-colors">
               <p className="font-serif text-2xl text-farm-cream mb-1">WKRN News 2</p>
               <p className="text-farm-tan text-sm tracking-wide">&ldquo;Hickman County Homesteaders Living Off Grid&rdquo;</p>
               <p className="text-farm-cream/30 text-xs mt-3 group-hover:text-farm-cream/60 transition-colors">Watch the feature →</p>

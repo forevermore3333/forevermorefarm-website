@@ -20,19 +20,19 @@ export default function Footer() {
         </div>
         <p className="font-serif text-lg text-farm-cream/90 mb-1 tracking-wide">Forevermore Farm</p>
         <p className="text-farm-tan text-xs tracking-widest uppercase mb-8">Lyles, Tennessee</p>
-        <div className="flex justify-center gap-8 text-xs tracking-widest uppercase text-farm-cream/40 mb-6">
-          <Link href="/our-farm" className="hover:text-farm-cream transition-colors">Our Farm</Link>
-          <Link href="/straw-bale-garden" className="hover:text-farm-cream transition-colors">Garden</Link>
-          <Link href="/events" className="hover:text-farm-cream transition-colors">Events</Link>
-          <Link href="/stay" className="hover:text-farm-cream transition-colors">Stay</Link>
-          <Link href="/contact" className="hover:text-farm-cream transition-colors">Contact</Link>
+        <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 text-xs tracking-widest uppercase text-farm-cream/40 mb-6">
+          <Link href="/our-farm" className="hover:text-farm-cream transition-colors py-1">Our Farm</Link>
+          <Link href="/straw-bale-garden" className="hover:text-farm-cream transition-colors py-1">Garden</Link>
+          <Link href="/events" className="hover:text-farm-cream transition-colors py-1">Events</Link>
+          <Link href="/stay" className="hover:text-farm-cream transition-colors py-1">Stay</Link>
+          <Link href="/contact" className="hover:text-farm-cream transition-colors py-1">Contact</Link>
         </div>
         <div className="flex justify-center mb-8">
           <a
             href="https://www.facebook.com/ForevermoreFarm.tn"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-farm-cream/40 hover:text-farm-cream transition-colors"
+            className="text-farm-cream/40 hover:text-farm-cream transition-colors p-3 -m-3"
             aria-label="Forevermore Farm on Facebook"
           >
             <FacebookIcon />

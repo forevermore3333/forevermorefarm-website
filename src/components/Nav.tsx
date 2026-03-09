@@ -72,13 +72,13 @@ export default function Nav() {
 
       {/* Mobile dropdown */}
       {open && (
-        <div className="md:hidden bg-farm-cream border-t border-farm-tan/30 px-4 pb-4">
+        <div className="md:hidden bg-farm-cream border-t border-farm-tan/30 px-4 pb-2">
           {links.map((l) => (
             <Link
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="block py-3 text-xs tracking-widest uppercase text-farm-charcoal/70 hover:text-farm-green"
+              className="flex items-center min-h-[44px] text-xs tracking-widest uppercase text-farm-charcoal/70 hover:text-farm-green"
             >
               {l.label}
             </Link>
@@ -87,7 +87,7 @@ export default function Nav() {
             href="https://www.facebook.com/ForevermoreFarm.tn"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 py-3 text-farm-charcoal/50 hover:text-farm-green transition-colors"
+            className="flex items-center gap-2 min-h-[44px] text-farm-charcoal/50 hover:text-farm-green transition-colors"
             aria-label="Forevermore Farm on Facebook"
           >
             <FacebookIcon />

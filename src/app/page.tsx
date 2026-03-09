@@ -52,10 +52,10 @@ export default function Home() {
             href="https://www.wkrn.com/special-reports/hickman-county-homesteaders-living-off-grid/"
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-3 text-farm-cream/70 hover:text-farm-cream transition-colors"
+            className="group flex flex-col sm:flex-row items-center gap-1 sm:gap-3 text-farm-cream/70 hover:text-farm-cream transition-colors"
           >
             <span className="font-serif text-lg">WKRN News 2</span>
-            <span className="text-farm-tan/50">—</span>
+            <span className="text-farm-tan/50 hidden sm:inline">—</span>
             <span className="text-sm italic text-farm-cream/50 group-hover:text-farm-cream/80 transition-colors">&ldquo;Hickman County Homesteaders Living Off Grid&rdquo;</span>
           </a>
         </div>
