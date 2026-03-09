@@ -107,8 +107,8 @@ export default function OurFarm() {
             </div>
             <div className="md:order-1">
               <h3 className="font-serif text-2xl text-farm-green mb-4">Teddy</h3>
-              <p className="text-farm-charcoal/70 leading-relaxed mb-4">Teddy arrived as a barn cat and immediately decided he was an indoor cat. He babysits Clementine, supervises the garden, and has strong opinions about everything.</p>
-              <p className="text-farm-charcoal/70 leading-relaxed">He runs this farm. The rest of us just live here.</p>
+              <p className="text-farm-charcoal/70 leading-relaxed mb-4">We got Teddy for our daughter when she broke her neck and was stuck in bed for weeks. He was supposed to be a companion for her &mdash; and he was. But Teddy didn&apos;t stop there. He bonded with every animal on this farm. He babysits Clementine, supervises the garden, and has strong opinions about everything.</p>
+              <p className="text-farm-charcoal/70 leading-relaxed">He runs this place. The rest of us just live here.</p>
             </div>
           </div>
 
