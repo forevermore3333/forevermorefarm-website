@@ -8,7 +8,9 @@ interface EmailCaptureProps {
 }
 
 export default function EmailCapture({ headline, subtitle }: EmailCaptureProps) {
+  const [name, setName] = useState('')
   const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
 
@@ -19,13 +21,15 @@ export default function EmailCapture({ headline, subtitle }: EmailCaptureProps) 
       await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ type: 'email_signup', email }),
+        body: JSON.stringify({ type: 'email_signup', name, email, phone, source: 'homepage' }),
       })
       setSubmitted(true)
     } finally {
       setLoading(false)
     }
   }
+
+  const inputClass = 'px-4 py-3 rounded-sm bg-farm-cream text-farm-charcoal placeholder:text-farm-charcoal/40 w-full'
 
   return (
     <section className="bg-farm-green py-16 px-4">
@@ -36,14 +40,29 @@ export default function EmailCapture({ headline, subtitle }: EmailCaptureProps) 
         {submitted ? (
           <p className="text-farm-cream font-medium">You&apos;re on the list. We&apos;ll be in touch.</p>
         ) : (
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 justify-center">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-3 max-w-sm mx-auto">
+            <input
+              type="text"
+              required
+              placeholder="Your name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className={inputClass}
+            />
+            <input
+              type="tel"
+              placeholder="Phone (optional)"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              className={inputClass}
+            />
             <input
               type="email"
               required
               placeholder="your@email.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="px-4 py-3 rounded-sm bg-farm-cream text-farm-charcoal placeholder:text-farm-charcoal/40 flex-1 max-w-sm"
+              className={inputClass}
             />
             <button
               type="submit"
