@@ -58,6 +58,7 @@ export default function Home() {
             <span className="text-farm-tan/50 hidden sm:inline">—</span>
             <span className="text-sm italic text-farm-cream/50 group-hover:text-farm-cream/80 transition-colors">&ldquo;Hickman County Homesteaders Living Off Grid&rdquo;</span>
           </a>
+          <p className="text-farm-cream/40 text-xs mt-4">Concetta&apos;s straw bale garden at Forevermore is soon to be featured on PBS <em>Volunteer Gardener</em> — the method she teaches, trained directly under creator Joel Karsten.</p>
         </div>
       </section>
 
@@ -187,23 +188,41 @@ export default function Home() {
 
       {/* Coming Soon — stripped clean */}
       <section className="py-16 px-4 bg-farm-charcoal">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-6xl mx-auto text-center">
           <h2 className="font-serif text-3xl text-farm-cream mb-3">What&apos;s Coming</h2>
           <p className="text-farm-cream/50 mb-12">Join the list to hear first.</p>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="border border-farm-tan/30 rounded-sm p-8">
               <div className="relative h-48 rounded-sm overflow-hidden mb-6">
                 <Image src="/images/property/stage-sunrise-fog-valley.jpg" alt="The stage at Forevermore Farm looking over the frost-covered valley" fill className="object-cover" />
               </div>
-              <span className="text-xs font-medium tracking-widest text-farm-tan uppercase tracking-widest">Coming Soon</span>
+              <span className="text-xs font-medium tracking-widest text-farm-tan uppercase">Coming Soon</span>
               <h3 className="font-serif text-2xl text-farm-cream mt-2">Event Venue</h3>
+              <p className="text-farm-cream/60 text-sm mt-3 leading-relaxed">A renovated barn, an outdoor stage, and open sky. Forevermore Farm is becoming a place where people gather for music, community dinners, and the kind of evening that&apos;s hard to explain but easy to remember.</p>
             </div>
             <div className="border border-farm-tan/30 rounded-sm p-8">
               <div className="relative h-48 rounded-sm overflow-hidden mb-6">
                 <Image src="/images/property/concetta-hazel-sheep-field.jpg" alt="Concetta in the field with sheep at evening light" fill className="object-cover" />
               </div>
-              <span className="text-xs font-medium tracking-widest text-farm-tan uppercase tracking-widest">Coming Soon</span>
+              <span className="text-xs font-medium tracking-widest text-farm-tan uppercase">Coming Soon</span>
               <h3 className="font-serif text-2xl text-farm-cream mt-2">Farm Stay</h3>
+              <p className="text-farm-cream/60 text-sm mt-3 leading-relaxed">Wake up to roosters. Fall asleep under stars. The tiny home on the property is ready, and a camping area isn&apos;t far behind. Come for a night, leave moving a little slower than you arrived.</p>
+            </div>
+            <div className="border border-farm-tan/30 rounded-sm p-8">
+              <div className="relative h-48 rounded-sm overflow-hidden mb-6">
+                <Image src="/images/property/solar-barn-sheep.jpg" alt="The solar barn at Forevermore Farm with sheep" fill className="object-cover" />
+              </div>
+              <span className="text-xs font-medium tracking-widest text-farm-tan uppercase">Coming Soon</span>
+              <h3 className="font-serif text-2xl text-farm-cream mt-2">Harvest Hosts</h3>
+              <p className="text-farm-cream/60 text-sm mt-3 leading-relaxed">If you travel by RV, the best stops aren&apos;t the RV parks. Forevermore is exploring Harvest Hosts — a real working homestead, solar powered, with animals and gardens. No hookups needed. Just show up curious.</p>
+            </div>
+            <div className="border border-farm-tan/30 rounded-sm p-8">
+              <div className="relative h-48 rounded-sm overflow-hidden mb-6">
+                <Image src="/images/property/solar-barn-sheep.jpg" alt="The solar barn at Forevermore Farm" fill className="object-cover" />
+              </div>
+              <span className="text-xs font-medium tracking-widest text-farm-tan uppercase">As Seen On TV</span>
+              <h3 className="font-serif text-2xl text-farm-cream mt-2">Off-Grid Living</h3>
+              <p className="text-farm-cream/60 text-sm mt-3 leading-relaxed">The farm runs almost entirely on solar power — no grid electricity. WKRN News 2 covered how this family lives off-grid in Hickman County, and Concetta&apos;s straw bale garden is soon to be featured on PBS Volunteer Gardener.</p>
             </div>
           </div>
         </div>
