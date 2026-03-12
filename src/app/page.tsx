@@ -45,20 +45,30 @@ export default function Home() {
 
 
       {/* Press — social proof */}
-      <section className="py-12 px-4 bg-farm-charcoal/95">
+      <section className="py-16 px-4 bg-farm-charcoal/95">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="text-xs font-medium tracking-widest text-farm-tan uppercase mb-6">As Seen In</p>
-          <a
-            href="https://www.wkrn.com/special-reports/hickman-county-homesteaders-living-off-grid/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex flex-col sm:flex-row items-center gap-1 sm:gap-3 text-farm-cream/70 hover:text-farm-cream transition-colors"
-          >
-            <span className="font-serif text-lg">WKRN News 2</span>
-            <span className="text-farm-tan/50 hidden sm:inline">—</span>
-            <span className="text-sm italic text-farm-cream/50 group-hover:text-farm-cream/80 transition-colors">&ldquo;Hickman County Homesteaders Living Off Grid&rdquo;</span>
-          </a>
-          <p className="text-farm-cream/40 text-xs mt-4">Concetta&apos;s straw bale garden at Forevermore is soon to be featured on PBS <em>Volunteer Gardener</em> — the method she teaches, trained directly under creator Joel Karsten.</p>
+          <p className="text-xs font-medium tracking-widest text-farm-tan uppercase mb-8">As Seen In</p>
+
+          {/* WKRN Feature */}
+          <div className="mb-6">
+            <a
+              href="https://www.wkrn.com/special-reports/hickman-county-homesteaders-living-off-grid/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-3 text-farm-cream/70 hover:text-farm-cream transition-colors mb-4"
+            >
+              <span className="font-serif text-xl">WKRN News 2</span>
+              <span className="text-farm-tan/50">—</span>
+              <span className="text-sm italic text-farm-cream/50 group-hover:text-farm-cream/80 transition-colors">&ldquo;Hickman County Homesteaders Living Off Grid&rdquo;</span>
+            </a>
+            <blockquote className="mt-6 border-l-2 border-farm-tan/40 pl-6 text-left max-w-xl mx-auto">
+              <p className="text-farm-cream/70 italic leading-relaxed">&ldquo;It tastes better knowing that it came out of your garden. And it tastes better knowing that you raised the animal that you&apos;re eating. It&apos;s healthier.&rdquo;</p>
+              <cite className="block mt-3 text-farm-tan/70 text-sm not-italic">— Olin West, WKRN News 2 · July 3, 2025</cite>
+            </blockquote>
+          </div>
+
+          {/* PBS teaser */}
+          <p className="text-farm-cream/40 text-xs mt-8 max-w-lg mx-auto">Concetta&apos;s straw bale garden at Forevermore is soon to be featured on PBS <em>Volunteer Gardener</em> — the method she teaches, trained directly under creator Joel Karsten.</p>
         </div>
       </section>
 
