@@ -78,8 +78,8 @@ export default function AdminSubscribersPage() {
 
   if (!authed) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#F7F3EC]">
-        <div className="bg-white rounded-2xl shadow-lg p-10 w-full max-w-sm">
+      <div className="min-h-screen flex items-center justify-center bg-[#F7F3EC] px-4">
+        <div className="bg-white rounded-2xl shadow-lg p-8 w-full max-w-sm">
           <h1 className="text-2xl font-serif font-bold text-[#1B3A2D] mb-6 text-center tracking-tight">
             Admin Access
           </h1>
@@ -109,8 +109,10 @@ export default function AdminSubscribersPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F7F3EC] p-8">
+    <div className="min-h-screen bg-[#F7F3EC] px-4 py-8">
       <div className="max-w-6xl mx-auto">
+
+        {/* Header */}
         <div className="flex items-center justify-between mb-6">
           <div>
             <h1 className="text-3xl font-serif font-bold text-[#1B3A2D] tracking-tight">
@@ -122,13 +124,14 @@ export default function AdminSubscribersPage() {
           </div>
           <button
             onClick={() => exportCSV(subscribers)}
-            className="bg-[#C9A96E] hover:bg-[#8B6914] text-white font-semibold rounded-lg px-5 py-2.5 text-sm transition-colors"
+            className="bg-[#C9A96E] hover:bg-[#8B6914] text-white font-semibold rounded-lg px-4 py-2.5 text-sm transition-colors"
           >
             Export CSV
           </button>
         </div>
 
-        <div className="bg-white rounded-2xl shadow overflow-hidden">
+        {/* Desktop table — hidden on mobile */}
+        <div className="hidden md:block bg-white rounded-2xl shadow overflow-hidden">
           <table className="w-full text-sm text-left">
             <thead className="bg-[#1B3A2D] text-[#F7F3EC]">
               <tr>
@@ -141,10 +144,7 @@ export default function AdminSubscribersPage() {
             </thead>
             <tbody>
               {subscribers.map((s, i) => (
-                <tr
-                  key={s.id}
-                  className={i % 2 === 0 ? 'bg-white' : 'bg-[#F7F3EC]'}
-                >
+                <tr key={s.id} className={i % 2 === 0 ? 'bg-white' : 'bg-[#F7F3EC]'}>
                   <td className="px-4 py-3 text-[#8B6914] font-mono">{s.id}</td>
                   <td className="px-4 py-3 text-[#1C1C1C] font-medium">{s.name}</td>
                   <td className="px-4 py-3 text-[#1C1C1C]">{s.email}</td>
@@ -163,6 +163,37 @@ export default function AdminSubscribersPage() {
             </tbody>
           </table>
         </div>
+
+        {/* Mobile cards — visible only on mobile */}
+        <div className="md:hidden flex flex-col gap-3">
+          {subscribers.length === 0 && (
+            <p className="text-center text-[#C9A96E] py-8">No subscribers yet.</p>
+          )}
+          {subscribers.map((s) => (
+            <div key={s.id} className="bg-white rounded-2xl shadow p-4 flex flex-col gap-1">
+              <div className="flex items-center justify-between mb-1">
+                <span className="font-serif text-lg font-semibold text-[#1B3A2D]">{s.name}</span>
+                <span className="text-xs text-[#8B6914] font-mono">#{s.id}</span>
+              </div>
+              <a
+                href={`mailto:${s.email}`}
+                className="text-sm text-[#1B3A2D] underline underline-offset-2 break-all"
+              >
+                {s.email}
+              </a>
+              {s.phone && (
+                <a href={`tel:${s.phone}`} className="text-sm text-[#4A6741]">
+                  {s.phone}
+                </a>
+              )}
+              <div className="flex items-center justify-between mt-2 pt-2 border-t border-[#F7F3EC]">
+                <span className="text-xs text-[#4A6741]">{s.source ?? 'homepage'}</span>
+                <span className="text-xs text-[#1C1C1C]/50">{formatDate(s.created_at)}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+
       </div>
     </div>
   );
