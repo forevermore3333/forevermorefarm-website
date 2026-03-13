@@ -3,9 +3,29 @@ import HeroSection from '@/components/HeroSection'
 import EmailCapture from '@/components/EmailCapture'
 import Link from 'next/link'
 
-export const metadata = {
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
   title: 'Straw Bale Gardening | Forevermore Farm',
   description: 'Learn straw bale gardening from a certified instructor. Concetta West studied under Joel Karsten and grew a 30-member CSA from her very first straw bale garden.',
+  openGraph: {
+    title: 'Straw Bale Gardening | Forevermore Farm',
+    description: 'Learn straw bale gardening from a certified instructor. Concetta West studied under Joel Karsten and grew a 30-member CSA from her very first straw bale garden.',
+    images: [
+      {
+        url: '/images/garden-build/concetta-placing-bales-golden-hour.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Concetta placing straw bales in the garden at golden hour',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Straw Bale Gardening | Forevermore Farm',
+    description: 'Learn straw bale gardening from a certified instructor. Concetta West studied under Joel Karsten and grew a 30-member CSA from her very first straw bale garden.',
+    images: ['/images/garden-build/concetta-placing-bales-golden-hour.jpg'],
+  },
 }
 
 const steps = [

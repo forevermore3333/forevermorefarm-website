@@ -4,6 +4,24 @@ import Image from 'next/image'
 export const metadata: Metadata = {
   title: "Our Farm | Forevermore Farm | Lyles, TN",
   description: "Meet Olin and Concetta West. Heritage Berkshire pigs, Nigerian Dwarf goats, straw bale gardens, and a way of life rooted in Lyles, Tennessee.",
+  openGraph: {
+    title: "Our Farm | Forevermore Farm | Lyles, TN",
+    description: "Meet Olin and Concetta West. Heritage Berkshire pigs, Nigerian Dwarf goats, straw bale gardens, and a way of life rooted in Lyles, Tennessee.",
+    images: [
+      {
+        url: "/images/property/concetta-sheep-stage-bg.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Concetta with sheep on the stage at Forevermore Farm",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Our Farm | Forevermore Farm | Lyles, TN",
+    description: "Meet Olin and Concetta West. Heritage Berkshire pigs, Nigerian Dwarf goats, straw bale gardens, and a way of life rooted in Lyles, Tennessee.",
+    images: ["/images/property/concetta-sheep-stage-bg.jpg"],
+  },
 }
 import HeroSection from '@/components/HeroSection'
 import EmailCapture from '@/components/EmailCapture'

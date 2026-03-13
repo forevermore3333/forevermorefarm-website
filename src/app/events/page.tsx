@@ -4,6 +4,24 @@ import Image from 'next/image'
 export const metadata: Metadata = {
   title: "Events & Workshops | Forevermore Farm | Lyles, TN",
   description: "Farm days, straw bale gardening workshops, and seasonal events at Forevermore Farm in Lyles, Tennessee.",
+  openGraph: {
+    title: "Events & Workshops | Forevermore Farm | Lyles, TN",
+    description: "Farm days, straw bale gardening workshops, and seasonal events at Forevermore Farm in Lyles, Tennessee.",
+    images: [
+      {
+        url: "/images/pasture-land/tulips-driveway-pig-bg.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Tulips lining the driveway at Forevermore Farm with a pig in the background",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Events & Workshops | Forevermore Farm | Lyles, TN",
+    description: "Farm days, straw bale gardening workshops, and seasonal events at Forevermore Farm in Lyles, Tennessee.",
+    images: ["/images/pasture-land/tulips-driveway-pig-bg.jpg"],
+  },
 }
 
 import EventCard from '@/components/EventCard'

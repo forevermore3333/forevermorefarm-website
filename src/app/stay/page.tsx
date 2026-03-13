@@ -4,6 +4,24 @@ import HeroSection from '@/components/HeroSection'
 export const metadata: Metadata = {
   title: "Stay at the Farm | Forevermore Farm | Lyles, TN",
   description: "Experience farm life in Lyles, Tennessee. Lodging and overnight stays at Forevermore Farm — 45 minutes from Nashville.",
+  openGraph: {
+    title: "Stay at the Farm | Forevermore Farm | Lyles, TN",
+    description: "Experience farm life in Lyles, Tennessee. Lodging and overnight stays at Forevermore Farm — 45 minutes from Nashville.",
+    images: [
+      {
+        url: "/images/property/stage-reverse-valley-frost.jpg",
+        width: 1200,
+        height: 630,
+        alt: "The stage at Forevermore Farm with a frost-covered valley in the background",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Stay at the Farm | Forevermore Farm | Lyles, TN",
+    description: "Experience farm life in Lyles, Tennessee. Lodging and overnight stays at Forevermore Farm — 45 minutes from Nashville.",
+    images: ["/images/property/stage-reverse-valley-frost.jpg"],
+  },
 }
 
 import EmailCapture from '@/components/EmailCapture'
