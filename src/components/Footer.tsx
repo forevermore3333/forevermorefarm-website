@@ -39,6 +39,9 @@ export default function Footer() {
           </a>
         </div>
         <p className="text-farm-cream/20 text-xs">&copy; 2026 Forevermore Farm. All rights reserved.</p>
+        <p className="text-farm-cream/20 text-xs mt-2">
+          <a href="https://honeydodigital.com" target="_blank" rel="noopener noreferrer" className="hover:text-farm-cream/40 transition-colors">Website by HoneyDo Digital</a>
+        </p>
       </div>
     </footer>
   )
