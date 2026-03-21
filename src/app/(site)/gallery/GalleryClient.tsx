@@ -157,7 +157,7 @@ export default function GalleryClient() {
         <div className="max-w-7xl mx-auto px-4">
 
           {/* Category filter tabs */}
-          <div className="overflow-x-auto pb-2 -mx-4 px-4 md:mx-0 md:px-0 mb-10">
+          <div className="relative overflow-x-auto pb-2 -mx-4 px-4 md:mx-0 md:px-0 mb-10">
             <div className="flex gap-2 min-w-max md:flex-wrap md:min-w-0 md:justify-center">
               {CATEGORIES.map(({ id, label }) => (
                 <button

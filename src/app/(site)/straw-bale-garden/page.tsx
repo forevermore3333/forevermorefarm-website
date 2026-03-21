@@ -119,6 +119,7 @@ export default function StrawBaleGarden() {
               src="/images/garden-build/concetta-placing-bales-golden-hour.jpg"
               alt="Concetta placing straw bales in the garden at golden hour"
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"
             />
           </div>
@@ -155,7 +156,7 @@ export default function StrawBaleGarden() {
                   <p className="text-farm-charcoal/70 leading-relaxed">{step.body}</p>
                 </div>
                 <div className={`relative aspect-[4/3] rounded-sm overflow-hidden shadow-md ${i % 2 === 1 ? 'md:order-1' : ''}`}>
-                  <Image src={step.image} alt={step.imageAlt} fill className="object-cover" />
+                  <Image src={step.image} alt={step.imageAlt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
                 </div>
               </div>
             ))}
@@ -169,16 +170,16 @@ export default function StrawBaleGarden() {
           <h2 className="font-serif text-2xl text-farm-charcoal text-center mb-10">The Garden at Forevermore</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             <div className="relative aspect-square rounded-sm overflow-hidden">
-              <Image src="/images/garden-build/garden-enclosure-wide-blue-sky.jpg" alt="Garden enclosure exterior" fill className="object-cover" />
+              <Image src="/images/garden-build/garden-enclosure-wide-blue-sky.jpg" alt="Garden enclosure exterior" fill sizes="(max-width: 768px) 50vw, 25vw" className="object-cover" />
             </div>
             <div className="relative aspect-square rounded-sm overflow-hidden">
-              <Image src="/images/garden-build/garden-pergola-interior-complete.jpg" alt="Garden pergola interior" fill className="object-cover" />
+              <Image src="/images/garden-build/garden-pergola-interior-complete.jpg" alt="Garden pergola interior" fill sizes="(max-width: 768px) 50vw, 25vw" className="object-cover" />
             </div>
             <div className="relative aspect-square rounded-sm overflow-hidden">
-              <Image src="/images/garden-build/olin-family-filling-beds.jpg" alt="Family building the garden together" fill className="object-cover" />
+              <Image src="/images/garden-build/olin-family-filling-beds.jpg" alt="Family building the garden together" fill sizes="(max-width: 768px) 50vw, 25vw" className="object-cover" />
             </div>
             <div className="relative aspect-square rounded-sm overflow-hidden">
-              <Image src="/images/garden-build/garden-enclosure-closeup-frame.jpg" alt="Garden frame construction detail" fill className="object-cover" />
+              <Image src="/images/garden-build/garden-enclosure-closeup-frame.jpg" alt="Garden frame construction detail" fill sizes="(max-width: 768px) 50vw, 25vw" className="object-cover" />
             </div>
           </div>
         </div>

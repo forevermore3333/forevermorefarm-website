@@ -69,7 +69,7 @@ export default function OurFarm() {
       <section className="py-20 px-4 bg-farm-tan/20">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div className="relative aspect-[4/3] rounded-sm overflow-hidden shadow-md">
-            <Image src="/images/people/olin-concetta-barn-snow.jpg" alt="Olin and Concetta West at Forevermore Farm" fill className="object-cover" />
+            <Image src="/images/people/olin-concetta-barn-snow.jpg" alt="Olin and Concetta West at Forevermore Farm" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
           </div>
           <div>
             <h2 className="font-serif text-3xl text-farm-green mb-6">Who We Are</h2>
@@ -96,7 +96,7 @@ export default function OurFarm() {
       <section className="py-4 px-4 bg-farm-tan/20">
         <div className="max-w-6xl mx-auto">
           <div className="relative aspect-[4/3] max-w-2xl mx-auto rounded-sm overflow-hidden">
-            <Image src="/images/property/olin-tractor-brushhog-pov.jpg" alt="Olin on the tractor brush hogging the property" fill className="object-cover" style={{ objectPosition: '50% 76%' }} />
+            <Image src="/images/property/olin-tractor-brushhog-pov.jpg" alt="Olin on the tractor brush hogging the property" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" style={{ objectPosition: '50% 76%' }} />
             <div className="absolute inset-0 bg-farm-charcoal/30" />
             <div className="absolute bottom-6 left-8">
               <p className="font-serif text-2xl text-farm-cream drop-shadow-lg">Olin keeps the land.</p>
@@ -113,7 +113,7 @@ export default function OurFarm() {
           {/* Clementine & Hazel */}
           <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
             <div className="relative aspect-[4/3] rounded-sm overflow-hidden shadow-md">
-              <Image src="/images/house-animals/clementine-hazel-birthday-couch.jpg" alt="Clementine and Hazel in birthday hats on the couch with a cake" fill className="object-cover" />
+              <Image src="/images/house-animals/clementine-hazel-birthday-couch.jpg" alt="Clementine and Hazel in birthday hats on the couch with a cake" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
             </div>
             <div>
               <h3 className="font-serif text-2xl text-farm-green mb-4">Clementine &amp; Hazel</h3>
@@ -125,7 +125,7 @@ export default function OurFarm() {
           {/* Teddy */}
           <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
             <div className="md:order-2 relative aspect-[4/3] rounded-sm overflow-hidden shadow-md">
-              <Image src="/images/house-animals/teddy-apple-crate-porch.jpg" alt="Teddy the cat on the apple crate on the porch" fill className="object-cover" style={{ objectPosition: '100% 92%' }} />
+              <Image src="/images/house-animals/teddy-apple-crate-porch.jpg" alt="Teddy the cat on the apple crate on the porch" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" style={{ objectPosition: '100% 92%' }} />
             </div>
             <div className="md:order-1">
               <h3 className="font-serif text-2xl text-farm-green mb-4">Teddy</h3>
@@ -137,7 +137,7 @@ export default function OurFarm() {
           {/* Heritage Pigs */}
           <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
             <div className="relative aspect-[4/3] rounded-sm overflow-hidden shadow-md">
-              <Image src="/images/pigs/piglet-posing-shelter.jpg" alt="Heritage Berkshire piglet in the shelter" fill className="object-cover" style={{ objectPosition: '50% 17%' }} />
+              <Image src="/images/pigs/piglet-posing-shelter.jpg" alt="Heritage Berkshire piglet in the shelter" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" style={{ objectPosition: '50% 17%' }} />
             </div>
             <div>
               <h3 className="font-serif text-2xl text-farm-green mb-4">Heritage Berkshire Pigs</h3>
@@ -149,7 +149,7 @@ export default function OurFarm() {
           {/* Baby Goats */}
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="md:order-2 relative aspect-[4/3] rounded-sm overflow-hidden shadow-md">
-              <Image src="/images/goats/baby-nigerian-dwarf-trio.jpg" alt="Three Nigerian Dwarf baby goats in summer grass" fill className="object-cover object-center" />
+              <Image src="/images/goats/baby-nigerian-dwarf-trio.jpg" alt="Three Nigerian Dwarf baby goats in summer grass" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover object-center" />
             </div>
             <div className="md:order-1">
               <h3 className="font-serif text-2xl text-farm-green mb-4">Nigerian Dwarf Goats</h3>
@@ -166,11 +166,11 @@ export default function OurFarm() {
           <h2 className="font-serif text-3xl text-farm-green text-center mb-12">The Land</h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="relative aspect-[4/3] rounded-sm overflow-hidden shadow-md">
-              <Image src="/images/pasture-land/wildflower-meadow-wide-4.jpg" alt="Wildflower meadow filling the bowl at Forevermore Farm" fill className="object-cover object-[center_20%]" />
+              <Image src="/images/pasture-land/wildflower-meadow-wide-4.jpg" alt="Wildflower meadow filling the bowl at Forevermore Farm" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover object-[center_20%]" />
               <div className="absolute bottom-0 left-0 right-0 bg-farm-charcoal/50 text-farm-cream text-sm px-4 py-2">The bowl fills every spring</div>
             </div>
             <div className="relative aspect-[4/3] rounded-sm overflow-hidden shadow-md">
-              <Image src="/images/pasture-land/tulips-driveway-pig-bg.jpg" alt="Tulips lining the driveway with a pig in the background" fill className="object-cover" />
+              <Image src="/images/pasture-land/tulips-driveway-pig-bg.jpg" alt="Tulips lining the driveway with a pig in the background" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
               <div className="absolute bottom-0 left-0 right-0 bg-farm-charcoal/50 text-farm-cream text-sm px-4 py-2">The welcome committee</div>
             </div>
           </div>
@@ -193,7 +193,7 @@ export default function OurFarm() {
             </Link>
           </div>
           <div className="relative aspect-[4/3] rounded-sm overflow-hidden shadow-md">
-            <Image src="/images/garden-build/concetta-placing-bales-golden-hour.jpg" alt="Concetta placing straw bales at golden hour" fill className="object-cover" />
+            <Image src="/images/garden-build/concetta-placing-bales-golden-hour.jpg" alt="Concetta placing straw bales at golden hour" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
           </div>
         </div>
       </section>

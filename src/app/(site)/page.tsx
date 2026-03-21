@@ -107,6 +107,7 @@ export default function Home() {
                   src="/images/house-animals/clementine-hazel-pasture.jpg"
                   alt="Hazel the pot-belly pig nose-to-nose with Teddy the cat on the hardwood floor"
                   fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover"
                 />
               </div>
@@ -122,6 +123,7 @@ export default function Home() {
                   src="/images/pigs/piglet-posing-shelter.jpg"
                   alt="Heritage Berkshire piglet posing in the shelter"
                   fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover object-[center_30%]"
                 />
               </div>
@@ -137,6 +139,7 @@ export default function Home() {
                   src="/images/goats/baby-nigerian-dwarf-trio.jpg"
                   alt="Three Nigerian Dwarf baby goat kids in the pasture"
                   fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover object-top"
                 />
               </div>
@@ -163,15 +166,15 @@ export default function Home() {
           </div>
           <div className="grid md:grid-cols-3 gap-4">
             <div className="relative aspect-[4/3] rounded-sm overflow-hidden">
-              <Image src="/images/garden-build/trailer-full-straw-bales-arrive.jpg" alt="Straw bales arriving at Forevermore Farm" fill className="object-cover hover:scale-105 transition-transform duration-500" />
+              <Image src="/images/garden-build/trailer-full-straw-bales-arrive.jpg" alt="Straw bales arriving at Forevermore Farm" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover hover:scale-105 transition-transform duration-500" />
               <div className="absolute bottom-0 left-0 right-0 bg-farm-charcoal/60 text-farm-cream text-xs px-3 py-2">The bales arrive</div>
             </div>
             <div className="relative aspect-[4/3] rounded-sm overflow-hidden">
-              <Image src="/images/garden-build/concetta-placing-bales-golden-hour.jpg" alt="Concetta placing straw bales at golden hour" fill className="object-cover hover:scale-105 transition-transform duration-500" />
+              <Image src="/images/garden-build/concetta-placing-bales-golden-hour.jpg" alt="Concetta placing straw bales at golden hour" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover hover:scale-105 transition-transform duration-500" />
               <div className="absolute bottom-0 left-0 right-0 bg-farm-charcoal/60 text-farm-cream text-xs px-3 py-2">Conditioning begins</div>
             </div>
             <div className="relative aspect-[4/3] rounded-sm overflow-hidden">
-              <Image src="/images/garden-build/garden-pergola-interior-complete.jpg" alt="The completed pergola garden enclosure" fill className="object-cover hover:scale-105 transition-transform duration-500" />
+              <Image src="/images/garden-build/garden-pergola-interior-complete.jpg" alt="The completed pergola garden enclosure" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover hover:scale-105 transition-transform duration-500" />
               <div className="absolute bottom-0 left-0 right-0 bg-farm-charcoal/60 text-farm-cream text-xs px-3 py-2">The finished garden</div>
             </div>
           </div>
@@ -185,16 +188,16 @@ export default function Home() {
           <p className="text-center text-farm-charcoal/50 text-sm mb-10">Every board cut, every post set, every bale placed by hand.</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             <div className="relative aspect-square rounded-sm overflow-hidden">
-              <Image src="/images/garden-build/garden-enclosure-wide-blue-sky.jpg" alt="Garden enclosure build under blue sky" fill className="object-cover" />
+              <Image src="/images/garden-build/garden-enclosure-wide-blue-sky.jpg" alt="Garden enclosure build under blue sky" fill sizes="(max-width: 768px) 50vw, 25vw" className="object-cover" />
             </div>
             <div className="relative aspect-square rounded-sm overflow-hidden">
-              <Image src="/images/garden-build/olin-concetta-working-garden.jpg" alt="Olin and Concetta working in the garden" fill className="object-cover" />
+              <Image src="/images/garden-build/olin-concetta-working-garden.jpg" alt="Olin and Concetta working in the garden" fill sizes="(max-width: 768px) 50vw, 25vw" className="object-cover" />
             </div>
             <div className="relative aspect-square rounded-sm overflow-hidden">
-              <Image src="/images/garden-build/olin-family-filling-beds.jpg" alt="Family filling raised beds with compost" fill className="object-cover" />
+              <Image src="/images/garden-build/olin-family-filling-beds.jpg" alt="Family filling raised beds with compost" fill sizes="(max-width: 768px) 50vw, 25vw" className="object-cover" />
             </div>
             <div className="relative aspect-square rounded-sm overflow-hidden">
-              <Image src="/images/garden-build/raised-beds-filled-straw-wide.jpg" alt="Raised beds filled and ready for planting" fill className="object-cover" />
+              <Image src="/images/garden-build/raised-beds-filled-straw-wide.jpg" alt="Raised beds filled and ready for planting" fill sizes="(max-width: 768px) 50vw, 25vw" className="object-cover" />
             </div>
           </div>
         </div>
@@ -213,7 +216,7 @@ export default function Home() {
             </p>
           </div>
           <div className="relative aspect-[4/3] rounded-sm overflow-hidden shadow-md">
-            <Image src="/images/pasture-land/wildflower-meadow-wide-4.jpg" alt="Wildflower meadow in the bowl at Forevermore Farm" fill className="object-cover object-top" />
+            <Image src="/images/pasture-land/wildflower-meadow-wide-4.jpg" alt="Wildflower meadow in the bowl at Forevermore Farm" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover object-top" />
           </div>
         </div>
       </section>
@@ -226,7 +229,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="border border-farm-tan/30 rounded-sm p-8">
               <div className="relative h-48 rounded-sm overflow-hidden mb-6">
-                <Image src="/images/property/stage-sunrise-fog-valley.jpg" alt="The stage at Forevermore Farm looking over the frost-covered valley" fill className="object-cover" />
+                <Image src="/images/property/stage-sunrise-fog-valley.jpg" alt="The stage at Forevermore Farm looking over the frost-covered valley" fill sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover" />
               </div>
               <span className="text-xs font-medium tracking-widest text-farm-tan uppercase">Coming Soon</span>
               <h3 className="font-serif text-2xl text-farm-cream mt-2">Event Venue</h3>
@@ -234,7 +237,7 @@ export default function Home() {
             </div>
             <div className="border border-farm-tan/30 rounded-sm p-8">
               <div className="relative h-48 rounded-sm overflow-hidden mb-6">
-                <Image src="/images/property/concetta-hazel-sheep-field.jpg" alt="Concetta in the field with sheep at evening light" fill className="object-cover" />
+                <Image src="/images/property/concetta-hazel-sheep-field.jpg" alt="Concetta in the field with sheep at evening light" fill sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover" />
               </div>
               <span className="text-xs font-medium tracking-widest text-farm-tan uppercase">Coming Soon</span>
               <h3 className="font-serif text-2xl text-farm-cream mt-2">Farm Stay</h3>
@@ -242,7 +245,7 @@ export default function Home() {
             </div>
             <div className="border border-farm-tan/30 rounded-sm p-8">
               <div className="relative h-48 rounded-sm overflow-hidden mb-6">
-                <Image src="/images/property/solar-barn-sheep.jpg" alt="The solar barn at Forevermore Farm with sheep" fill className="object-cover" />
+                <Image src="/images/property/solar-barn-sheep.jpg" alt="The solar barn at Forevermore Farm with sheep" fill sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover" />
               </div>
               <span className="text-xs font-medium tracking-widest text-farm-tan uppercase">Coming Soon</span>
               <h3 className="font-serif text-2xl text-farm-cream mt-2">Harvest Hosts</h3>
@@ -250,7 +253,7 @@ export default function Home() {
             </div>
             <div className="border border-farm-tan/30 rounded-sm p-8">
               <div className="relative h-48 rounded-sm overflow-hidden mb-6">
-                <Image src="/images/property/solar-barn-sheep.jpg" alt="The solar barn at Forevermore Farm" fill className="object-cover" />
+                <Image src="/images/property/solar-barn-sheep.jpg" alt="The solar barn at Forevermore Farm" fill sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover" />
               </div>
               <span className="text-xs font-medium tracking-widest text-farm-tan uppercase">As Seen On TV</span>
               <h3 className="font-serif text-2xl text-farm-cream mt-2">Off-Grid Living</h3>

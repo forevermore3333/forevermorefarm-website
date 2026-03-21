@@ -30,9 +30,31 @@ export const metadata: Metadata = {
 
 import EventCard from '@/components/EventCard'
 import EmailCapture from '@/components/EmailCapture'
-import { events } from '@/data/events'
+import { client } from '../../../../sanity/client'
 
-export default function Events() {
+interface SanityEvent {
+  _id: string
+  title: string
+  date: string
+  time: string
+  description: string
+  cta: string
+  ctaLink: string
+  ctaExternal: boolean
+  badge?: string
+}
+
+async function getEvents(): Promise<SanityEvent[]> {
+  try {
+    return await client.fetch(`*[_type == "event"] | order(date asc)`)
+  } catch {
+    return []
+  }
+}
+
+export default async function Events() {
+  const events = await getEvents()
+
   return (
     <>
       {/* Photo header */}
@@ -41,6 +63,7 @@ export default function Events() {
           src="/images/pasture-land/tulips-driveway-pig-bg.jpg"
           alt="Tulips lining the driveway at Forevermore Farm with a pig in the background"
           fill
+          sizes="100vw"
           className="object-cover"
           priority
         />
@@ -55,7 +78,17 @@ export default function Events() {
           <p className="text-center text-farm-charcoal/60 mb-12 text-lg">Events are announced to the email list first. Join below to hear before tickets go wide.</p>
           <div className="grid gap-6">
             {events.map((event) => (
-              <EventCard key={event.id} {...event} />
+              <EventCard
+                key={event._id}
+                title={event.title}
+                date={event.date}
+                time={event.time}
+                description={event.description}
+                cta={event.cta}
+                ctaLink={event.ctaLink}
+                ctaExternal={event.ctaExternal}
+                badge={event.badge}
+              />
             ))}
           </div>
 
