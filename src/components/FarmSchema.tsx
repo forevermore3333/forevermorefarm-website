@@ -1,6 +1,6 @@
 const schema = {
   "@context": "https://schema.org",
-  "@type": ["LocalBusiness", "Farm"],
+  "@type": ["LocalBusiness", "Farm", "Organization"],
   name: "Forevermore Farm",
   url: "https://forevermorefarmtn.com",
   description:
