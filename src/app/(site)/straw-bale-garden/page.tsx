@@ -2,8 +2,11 @@ import Image from 'next/image'
 import HeroSection from '@/components/HeroSection'
 import EmailCapture from '@/components/EmailCapture'
 import Link from 'next/link'
+import { client } from '../../../../sanity/client'
+import { urlFor } from '../../../../sanity/image'
 
 import type { Metadata } from 'next'
+import type { SanityImageSource } from '@sanity/image-url'
 
 export const metadata: Metadata = {
   title: 'Straw Bale Gardening | Forevermore Farm',
@@ -32,7 +35,9 @@ export const metadata: Metadata = {
   },
 }
 
-const steps = [
+// ── Fallback data (used when Sanity doc is missing) ───────────────────────────
+
+const FALLBACK_STEPS = [
   {
     number: '01',
     title: 'Choose Your Bales',
@@ -43,14 +48,14 @@ const steps = [
   {
     number: '02',
     title: 'Condition the Bales',
-    body: 'Conditioning triggers decomposition inside the bale, creating a warm, nutrient-rich growing medium. For 12 days, alternate watering and applying a high-nitrogen fertilizer (blood meal or ammonium nitrate). The bale interior will heat up — this is good. It means it\'s working.',
+    body: "Conditioning triggers decomposition inside the bale, creating a warm, nutrient-rich growing medium. For 12 days, alternate watering and applying a high-nitrogen fertilizer (blood meal or ammonium nitrate). The bale interior will heat up — this is good. It means it's working.",
     image: '/images/garden-build/bales-compost-added-stakes.jpg',
     imageAlt: 'Straw bales being conditioned with compost and fertilizer',
   },
   {
     number: '03',
     title: 'Plant Your Garden',
-    body: 'Once the bale cools (below 99°F), you\'re ready to plant. Create holes with a trowel or your hand and fill with potting mix before transplanting starts. Seeds can be planted directly into a thin layer of potting mix spread across the top. Water daily — bales dry out faster than soil.',
+    body: "Once the bale cools (below 99°F), you're ready to plant. Create holes with a trowel or your hand and fill with potting mix before transplanting starts. Seeds can be planted directly into a thin layer of potting mix spread across the top. Water daily — bales dry out faster than soil.",
     image: '/images/garden-build/concetta-placing-bales-golden-hour.jpg',
     imageAlt: 'Concetta working in the straw bale garden at golden hour',
   },
@@ -71,31 +76,179 @@ const steps = [
   {
     number: '06',
     title: 'Close the Loop',
-    body: 'Nothing goes to waste. After the season, the partially composted bales go straight to the compost pile or directly onto garden beds as mulch. Next year\'s soil is richer for it. That\'s the straw bale method — it feeds the garden and improves the land at the same time.',
+    body: "Nothing goes to waste. After the season, the partially composted bales go straight to the compost pile or directly onto garden beds as mulch. Next year's soil is richer for it. That's the straw bale method — it feeds the garden and improves the land at the same time.",
     image: '/images/garden-build/olin-concetta-working-garden.jpg',
     imageAlt: 'Olin and Concetta working together in the completed garden',
   },
 ]
 
-const benefits = [
+const FALLBACK_BENEFITS = [
   { title: 'No Soil Needed', body: 'Grow anywhere — gravel, concrete, rocky ground. The bale is the garden bed.' },
   { title: 'Simple Setup', body: 'No tilling, no raised bed lumber, no hauling cubic yards of soil. Bales arrive, you condition them, you plant.' },
   { title: 'Plant Anywhere', body: 'Patio, driveway, field, hillside. If you can set a bale there, you can grow there.' },
-  { title: 'Fewer Weeds', body: 'Weed pressure is dramatically lower. You\'re growing in straw, not native soil loaded with weed seeds.' },
-  { title: 'No Crop Rotation', body: 'Because you start fresh with new bales each season, the soil disease problems that require crop rotation simply don\'t exist.' },
+  { title: 'Fewer Weeds', body: "Weed pressure is dramatically lower. You're growing in straw, not native soil loaded with weed seeds." },
+  { title: 'No Crop Rotation', body: "Because you start fresh with new bales each season, the soil disease problems that require crop rotation simply don't exist." },
   { title: 'High Yield', body: 'The warm, decomposing interior of a conditioned bale is extraordinarily fertile. Plants grow fast and produce abundantly.' },
 ]
 
-export default function StrawBaleGarden() {
+const FALLBACK_GALLERY = [
+  { src: '/images/garden-build/garden-enclosure-wide-blue-sky.jpg', alt: 'Garden enclosure exterior' },
+  { src: '/images/garden-build/garden-pergola-interior-complete.jpg', alt: 'Garden pergola interior' },
+  { src: '/images/garden-build/olin-family-filling-beds.jpg', alt: 'Family building the garden together' },
+  { src: '/images/garden-build/garden-enclosure-closeup-frame.jpg', alt: 'Garden frame construction detail' },
+]
+
+// ── Types ──────────────────────────────────────────────────────────────────────
+
+interface SanityBenefit {
+  _key: string
+  title: string
+  body: string
+}
+
+interface SanityStepImage {
+  _type: 'image'
+  alt?: string
+  asset?: { _ref: string; _type: string }
+  hotspot?: { x: number; y: number; height: number; width: number }
+}
+
+interface SanityStep {
+  _key: string
+  number: string
+  title: string
+  body: string
+  image?: SanityStepImage
+}
+
+interface SanityGalleryPhoto {
+  _key: string
+  alt?: string
+  asset?: { _ref: string }
+}
+
+interface StrawBalePageData {
+  heroTitle?: string
+  heroSubtitle?: string
+  heroImage?: SanityImageSource
+  heroVideo?: string
+  heroCta?: string
+  heroCtaLink?: string
+  instructorName?: string
+  instructorQuote?: string
+  instructorQuoteAttribution?: string
+  instructorBio?: string
+  instructorImage?: SanityImageSource
+  benefitsTitle?: string
+  benefitsSubtitle?: string
+  benefits?: SanityBenefit[]
+  stepsTitle?: string
+  stepsSubtitle?: string
+  steps?: SanityStep[]
+  galleryTitle?: string
+  galleryPhotos?: SanityGalleryPhoto[]
+  workshopLabel?: string
+  workshopTitle?: string
+  workshopBody?: string
+  workshopCtaText?: string
+  workshopCtaLink?: string
+  emailHeadline?: string
+  emailSubtitle?: string
+}
+
+async function getPageData(): Promise<StrawBalePageData | null> {
+  try {
+    return await client.fetch(`*[_type == "strawBaleGardenPage"][0]`)
+  } catch {
+    return null
+  }
+}
+
+// ── Helpers ────────────────────────────────────────────────────────────────────
+
+function sanityImgUrl(source: SanityImageSource, width: number, height: number): string {
+  return urlFor(source).width(width).height(height).fit('crop').auto('format').url()
+}
+
+export default async function StrawBaleGarden() {
+  const data = await getPageData()
+
+  // ── Hero ──
+  const heroTitle = data?.heroTitle ?? 'The Straw Bale Method'
+  const heroSubtitle = data?.heroSubtitle ?? 'Grow anywhere. No soil required. Concetta has been doing this for over a decade.'
+  const heroBgVideo = data?.heroVideo ?? '/videos/garden-drone-reveal.mp4'
+  const heroBgImage = data?.heroImage
+    ? sanityImgUrl(data.heroImage, 1920, 1080)
+    : '/images/garden-build/garden-enclosure-wide-blue-sky.jpg'
+  const heroCta = data?.heroCta ?? 'Learn from Concetta'
+  const heroCtaLink = data?.heroCtaLink ?? '#workshops'
+
+  // ── Instructor ──
+  const instructorName = data?.instructorName ?? 'Concetta West'
+  const instructorQuote = data?.instructorQuote ?? '10+ years ago I had the honor of attending a straw bale gardening class taught by Joel Karsten. His methods inspired and equipped me to grow a market garden and 30-member CSA with the produce from my very first Straw Bale Garden in Washington State.'
+  const instructorAttribution = data?.instructorQuoteAttribution ?? 'Concetta West, Certified Straw Bale Gardening Instructor'
+  const instructorBio = data?.instructorBio ?? "Concetta is one of a small number of certified instructors trained directly under Joel Karsten — the creator of the straw bale gardening method. She's been practicing and teaching this technique for over a decade, across two states and two different growing zones."
+  const instructorImgSrc = data?.instructorImage
+    ? sanityImgUrl(data.instructorImage, 800, 600)
+    : '/images/garden-build/concetta-placing-bales-golden-hour.jpg'
+
+  // ── Benefits ──
+  const benefitsTitle = data?.benefitsTitle ?? 'Why Straw Bale?'
+  const benefitsSubtitle = data?.benefitsSubtitle ?? 'Five reasons this method changes how people think about growing food.'
+  const benefits = data?.benefits?.length ? data.benefits : FALLBACK_BENEFITS
+
+  // ── Steps ──
+  const stepsTitle = data?.stepsTitle ?? 'How It Works'
+  const stepsSubtitle = data?.stepsSubtitle ?? 'Six steps from empty bale to full harvest. This is the exact method Concetta teaches.'
+
+  // Merge Sanity steps with fallback image paths where Sanity image is absent
+  const steps = data?.steps?.length
+    ? data.steps.map((step, i) => ({
+        number: step.number ?? FALLBACK_STEPS[i]?.number ?? String(i + 1).padStart(2, '0'),
+        title: step.title ?? FALLBACK_STEPS[i]?.title ?? '',
+        body: step.body ?? FALLBACK_STEPS[i]?.body ?? '',
+        imageSrc: step.image?.asset
+          ? sanityImgUrl(step.image as SanityImageSource, 800, 600)
+          : FALLBACK_STEPS[i]?.image ?? '',
+        imageAlt: step.image?.alt ?? FALLBACK_STEPS[i]?.imageAlt ?? '',
+      }))
+    : FALLBACK_STEPS.map((s) => ({
+        number: s.number,
+        title: s.title,
+        body: s.body,
+        imageSrc: s.image,
+        imageAlt: s.imageAlt,
+      }))
+
+  // ── Gallery ──
+  const galleryTitle = data?.galleryTitle ?? 'The Garden at Forevermore'
+  const galleryPhotos = data?.galleryPhotos?.length
+    ? data.galleryPhotos.map((p) => ({
+        src: p.asset ? sanityImgUrl(p as SanityImageSource, 600, 600) : '',
+        alt: p.alt ?? '',
+      })).filter((p) => p.src)
+    : FALLBACK_GALLERY
+
+  // ── Workshop CTA ──
+  const workshopLabel = data?.workshopLabel ?? 'This Season'
+  const workshopTitle = data?.workshopTitle ?? 'Workshops with Concetta'
+  const workshopBody = data?.workshopBody ?? 'Learn straw bale gardening hands-on at Forevermore Farm. Small groups, real instruction, real soil — or rather, real bales. Workshop dates will be announced to the email list first.'
+  const workshopCtaText = data?.workshopCtaText ?? 'See Upcoming Events'
+  const workshopCtaLink = data?.workshopCtaLink ?? '/events'
+
+  // ── Email Capture ──
+  const emailHeadline = data?.emailHeadline ?? 'Workshop dates announced first.'
+  const emailSubtitle = data?.emailSubtitle ?? 'Join the list and hear before anyone else.'
+
   return (
     <>
       <HeroSection
-        title="The Straw Bale Method"
-        subtitle="Grow anywhere. No soil required. Concetta has been doing this for over a decade."
-        bgVideo="/videos/garden-drone-reveal.mp4"
-        bgImage="/images/garden-build/garden-enclosure-wide-blue-sky.jpg"
-        ctaText="Learn from Concetta"
-        ctaHref="#workshops"
+        title={heroTitle}
+        subtitle={heroSubtitle}
+        bgVideo={heroBgVideo}
+        bgImage={heroBgImage}
+        ctaText={heroCta}
+        ctaHref={heroCtaLink}
       />
 
       {/* Concetta intro */}
@@ -103,21 +256,21 @@ export default function StrawBaleGarden() {
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div>
             <span className="text-xs font-medium tracking-widest text-farm-tan uppercase tracking-widest">From the Instructor</span>
-            <h2 className="font-serif text-3xl text-farm-green mt-3 mb-6">Concetta West</h2>
+            <h2 className="font-serif text-3xl text-farm-green mt-3 mb-6">{instructorName}</h2>
             <blockquote className="border-l-4 border-farm-tan pl-6 mb-6">
               <p className="font-serif text-xl text-farm-charcoal leading-relaxed italic">
-                &ldquo;10+ years ago I had the honor of attending a straw bale gardening class taught by Joel Karsten. His methods inspired and equipped me to grow a market garden and 30-member CSA with the produce from my very first Straw Bale Garden in Washington State.&rdquo;
+                &ldquo;{instructorQuote}&rdquo;
               </p>
-              <footer className="mt-4 text-farm-charcoal/60 text-sm">— Concetta West, Certified Straw Bale Gardening Instructor</footer>
+              <footer className="mt-4 text-farm-charcoal/60 text-sm">— {instructorAttribution}</footer>
             </blockquote>
             <p className="text-farm-charcoal/70 leading-relaxed">
-              Concetta is one of a small number of certified instructors trained directly under Joel Karsten — the creator of the straw bale gardening method. She&apos;s been practicing and teaching this technique for over a decade, across two states and two different growing zones.
+              {instructorBio}
             </p>
           </div>
           <div className="relative aspect-[4/3] rounded-sm overflow-hidden shadow-md">
             <Image
-              src="/images/garden-build/concetta-placing-bales-golden-hour.jpg"
-              alt="Concetta placing straw bales in the garden at golden hour"
+              src={instructorImgSrc}
+              alt={`${instructorName} in the straw bale garden`}
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"
@@ -129,8 +282,8 @@ export default function StrawBaleGarden() {
       {/* Benefits */}
       <section className="py-20 px-4 bg-farm-tan/20">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-serif text-3xl text-farm-green text-center mb-4">Why Straw Bale?</h2>
-          <p className="text-center text-farm-charcoal/60 mb-12 max-w-xl mx-auto">Five reasons this method changes how people think about growing food.</p>
+          <h2 className="font-serif text-3xl text-farm-green text-center mb-4">{benefitsTitle}</h2>
+          <p className="text-center text-farm-charcoal/60 mb-12 max-w-xl mx-auto">{benefitsSubtitle}</p>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
             {benefits.map((b) => (
               <div key={b.title} className="bg-farm-cream p-6 rounded-sm">
@@ -145,8 +298,8 @@ export default function StrawBaleGarden() {
       {/* Step by step */}
       <section className="py-20 px-4 bg-farm-cream">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-serif text-3xl text-farm-green text-center mb-4">How It Works</h2>
-          <p className="text-center text-farm-charcoal/60 mb-16 max-w-xl mx-auto">Six steps from empty bale to full harvest. This is the exact method Concetta teaches.</p>
+          <h2 className="font-serif text-3xl text-farm-green text-center mb-4">{stepsTitle}</h2>
+          <p className="text-center text-farm-charcoal/60 mb-16 max-w-xl mx-auto">{stepsSubtitle}</p>
           <div className="space-y-20">
             {steps.map((step, i) => (
               <div key={step.number} className={`grid md:grid-cols-2 gap-12 items-center ${i % 2 === 1 ? '' : ''}`}>
@@ -155,9 +308,11 @@ export default function StrawBaleGarden() {
                   <h3 className="font-serif text-2xl text-farm-green mt-2 mb-4">{step.title}</h3>
                   <p className="text-farm-charcoal/70 leading-relaxed">{step.body}</p>
                 </div>
-                <div className={`relative aspect-[4/3] rounded-sm overflow-hidden shadow-md ${i % 2 === 1 ? 'md:order-1' : ''}`}>
-                  <Image src={step.image} alt={step.imageAlt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
-                </div>
+                {step.imageSrc && (
+                  <div className={`relative aspect-[4/3] rounded-sm overflow-hidden shadow-md ${i % 2 === 1 ? 'md:order-1' : ''}`}>
+                    <Image src={step.imageSrc} alt={step.imageAlt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -167,20 +322,13 @@ export default function StrawBaleGarden() {
       {/* Garden build gallery */}
       <section className="py-16 px-4 bg-farm-tan/20">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-serif text-2xl text-farm-charcoal text-center mb-10">The Garden at Forevermore</h2>
+          <h2 className="font-serif text-2xl text-farm-charcoal text-center mb-10">{galleryTitle}</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            <div className="relative aspect-square rounded-sm overflow-hidden">
-              <Image src="/images/garden-build/garden-enclosure-wide-blue-sky.jpg" alt="Garden enclosure exterior" fill sizes="(max-width: 768px) 50vw, 25vw" className="object-cover" />
-            </div>
-            <div className="relative aspect-square rounded-sm overflow-hidden">
-              <Image src="/images/garden-build/garden-pergola-interior-complete.jpg" alt="Garden pergola interior" fill sizes="(max-width: 768px) 50vw, 25vw" className="object-cover" />
-            </div>
-            <div className="relative aspect-square rounded-sm overflow-hidden">
-              <Image src="/images/garden-build/olin-family-filling-beds.jpg" alt="Family building the garden together" fill sizes="(max-width: 768px) 50vw, 25vw" className="object-cover" />
-            </div>
-            <div className="relative aspect-square rounded-sm overflow-hidden">
-              <Image src="/images/garden-build/garden-enclosure-closeup-frame.jpg" alt="Garden frame construction detail" fill sizes="(max-width: 768px) 50vw, 25vw" className="object-cover" />
-            </div>
+            {galleryPhotos.map((photo, i) => (
+              <div key={i} className="relative aspect-square rounded-sm overflow-hidden">
+                <Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 768px) 50vw, 25vw" className="object-cover" />
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -188,20 +336,20 @@ export default function StrawBaleGarden() {
       {/* Workshops CTA */}
       <section id="workshops" className="py-24 px-4 bg-farm-green">
         <div className="max-w-2xl mx-auto text-center">
-          <span className="text-xs font-medium tracking-widest text-farm-cream/60 uppercase">This Season</span>
-          <h2 className="font-serif text-3xl md:text-4xl text-farm-cream mt-3 mb-6">Workshops with Concetta</h2>
+          <span className="text-xs font-medium tracking-widest text-farm-cream/60 uppercase">{workshopLabel}</span>
+          <h2 className="font-serif text-3xl md:text-4xl text-farm-cream mt-3 mb-6">{workshopTitle}</h2>
           <p className="text-farm-cream/80 leading-relaxed mb-8">
-            Learn straw bale gardening hands-on at Forevermore Farm. Small groups, real instruction, real soil — or rather, real bales. Workshop dates will be announced to the email list first.
+            {workshopBody}
           </p>
-          <Link href="/events" className="inline-block bg-farm-cream text-farm-green px-8 py-3 rounded-sm text-sm font-medium hover:bg-farm-cream/90 transition-colors">
-            See Upcoming Events
+          <Link href={workshopCtaLink} className="inline-block bg-farm-cream text-farm-green px-8 py-3 rounded-sm text-sm font-medium hover:bg-farm-cream/90 transition-colors">
+            {workshopCtaText}
           </Link>
         </div>
       </section>
 
       <EmailCapture
-        headline="Workshop dates announced first."
-        subtitle="Join the list and hear before anyone else."
+        headline={emailHeadline}
+        subtitle={emailSubtitle}
       />
     </>
   )

@@ -35,7 +35,13 @@ import { client } from '../../../../sanity/client'
 interface SanityEvent {
   _id: string
   title: string
-  date: string
+  /** Legacy display field — kept as dateDisplay in schema */
+  dateDisplay?: string
+  /** Fallback: old 'date' field if still present in documents */
+  date?: string
+  startDate: string
+  endDate?: string
+  featured?: boolean
   time: string
   description: string
   cta: string
@@ -44,16 +50,38 @@ interface SanityEvent {
   badge?: string
 }
 
-async function getEvents(): Promise<SanityEvent[]> {
+async function getUpcomingEvents(): Promise<SanityEvent[]> {
   try {
-    return await client.fetch(`*[_type == "event"] | order(date asc)`)
+    return await client.fetch(
+      `*[_type == "event" && startDate >= $today] | order(featured desc, startDate asc)`,
+      { today: new Date().toISOString().slice(0, 10) }
+    )
   } catch {
     return []
   }
 }
 
+async function getPastEvents(): Promise<SanityEvent[]> {
+  try {
+    return await client.fetch(
+      `*[_type == "event" && startDate < $today] | order(startDate desc)[0...10]`,
+      { today: new Date().toISOString().slice(0, 10) }
+    )
+  } catch {
+    return []
+  }
+}
+
+/** Resolve the display date regardless of which field holds it */
+function resolveDate(event: SanityEvent): string {
+  return event.dateDisplay ?? event.date ?? event.startDate ?? ''
+}
+
 export default async function Events() {
-  const events = await getEvents()
+  const [upcomingEvents, pastEvents] = await Promise.all([
+    getUpcomingEvents(),
+    getPastEvents(),
+  ])
 
   return (
     <>
@@ -76,21 +104,27 @@ export default async function Events() {
       <section className="py-16 px-4 bg-farm-cream">
         <div className="max-w-4xl mx-auto">
           <p className="text-center text-farm-charcoal/60 mb-12 text-lg">Events are announced to the email list first. Join below to hear before tickets go wide.</p>
-          <div className="grid gap-6">
-            {events.map((event) => (
-              <EventCard
-                key={event._id}
-                title={event.title}
-                date={event.date}
-                time={event.time}
-                description={event.description}
-                cta={event.cta}
-                ctaLink={event.ctaLink}
-                ctaExternal={event.ctaExternal}
-                badge={event.badge}
-              />
-            ))}
-          </div>
+
+          {/* Upcoming events */}
+          {upcomingEvents.length > 0 ? (
+            <div className="grid gap-6">
+              {upcomingEvents.map((event) => (
+                <EventCard
+                  key={event._id}
+                  title={event.title}
+                  date={resolveDate(event)}
+                  time={event.time}
+                  description={event.description}
+                  cta={event.cta}
+                  ctaLink={event.ctaLink}
+                  ctaExternal={event.ctaExternal}
+                  badge={event.featured ? (event.badge ?? 'Featured') : event.badge}
+                />
+              ))}
+            </div>
+          ) : (
+            <p className="text-center text-farm-charcoal/40 italic py-8">No upcoming events — check back soon, or join the list below.</p>
+          )}
 
           {/* Ag & Arts Tour Detail */}
           <div className="mt-16 border-t border-farm-tan/30 pt-16">
@@ -139,6 +173,30 @@ export default async function Events() {
               </div>
             </div>
           </div>
+
+          {/* Past Events */}
+          {pastEvents.length > 0 && (
+            <div className="mt-16 border-t border-farm-tan/30 pt-16">
+              <h2 className="font-serif text-2xl text-farm-charcoal mb-2">Past Events</h2>
+              <p className="text-farm-charcoal/50 text-sm mb-8">A look at what we&apos;ve hosted before.</p>
+              <div className="grid gap-4">
+                {pastEvents.map((event) => (
+                  <div key={event._id} className="border border-farm-tan/20 rounded-sm p-5 opacity-70">
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <h3 className="font-serif text-lg text-farm-charcoal">{event.title}</h3>
+                        <p className="text-farm-charcoal/50 text-sm mt-1">{resolveDate(event)} · {event.time}</p>
+                        <p className="text-farm-charcoal/60 text-sm mt-2 leading-relaxed">{event.description}</p>
+                      </div>
+                      {event.badge && (
+                        <span className="shrink-0 text-xs font-medium bg-farm-tan/20 text-farm-charcoal/60 px-2 py-1 rounded-full">{event.badge}</span>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </section>
 

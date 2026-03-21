@@ -8,6 +8,7 @@ export default defineConfig({
   title: 'Forevermore Farm',
   projectId: 'd05q9u13',
   dataset: 'production',
+  basePath: '/studio',
   plugins: [structureTool(), visionTool()],
   schema: {
     types: schemaTypes,
