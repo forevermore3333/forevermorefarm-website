@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import HeroSection from '@/components/HeroSection'
-import EmailCapture from '@/components/EmailCapture'
+import GuideDownload from '@/components/GuideDownload'
 import Link from 'next/link'
 import { client } from '../../../../sanity/client'
 import { urlFor } from '../../../../sanity/image'
@@ -236,10 +236,6 @@ export default async function StrawBaleGarden() {
   const workshopCtaText = data?.workshopCtaText ?? 'See Upcoming Events'
   const workshopCtaLink = data?.workshopCtaLink ?? '/events'
 
-  // ── Email Capture ──
-  const emailHeadline = data?.emailHeadline ?? 'Workshop dates announced first.'
-  const emailSubtitle = data?.emailSubtitle ?? 'Join the list and hear before anyone else.'
-
   return (
     <>
       <HeroSection
@@ -307,6 +303,14 @@ export default async function StrawBaleGarden() {
                   <span className="font-serif text-6xl text-farm-tan leading-none">{step.number}</span>
                   <h3 className="font-serif text-2xl text-farm-green mt-2 mb-4">{step.title}</h3>
                   <p className="text-farm-charcoal/70 leading-relaxed">{step.body}</p>
+                  {step.number === '02' && (
+                    <Link
+                      href="/straw-bale-garden/conditioning-guide"
+                      className="inline-block mt-4 text-farm-green font-medium text-sm hover:text-farm-green/70 transition-colors"
+                    >
+                      See the complete 12-day conditioning schedule →
+                    </Link>
+                  )}
                 </div>
                 {step.imageSrc && (
                   <div className={`relative aspect-[4/3] rounded-sm overflow-hidden shadow-md ${i % 2 === 1 ? 'md:order-1' : ''}`}>
@@ -347,10 +351,7 @@ export default async function StrawBaleGarden() {
         </div>
       </section>
 
-      <EmailCapture
-        headline={emailHeadline}
-        subtitle={emailSubtitle}
-      />
+      <GuideDownload />
     </>
   )
 }
