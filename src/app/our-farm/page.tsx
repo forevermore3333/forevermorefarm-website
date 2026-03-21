@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Our Farm | Forevermore Farm | Lyles, TN",
   description: "Meet Olin and Concetta West. Heritage Berkshire pigs, Nigerian Dwarf goats, straw bale gardens, and a way of life rooted in Lyles, Tennessee.",
   openGraph: {
+    type: "website",
     title: "Our Farm | Forevermore Farm | Lyles, TN",
     description: "Meet Olin and Concetta West. Heritage Berkshire pigs, Nigerian Dwarf goats, straw bale gardens, and a way of life rooted in Lyles, Tennessee.",
     images: [
@@ -21,6 +22,9 @@ export const metadata: Metadata = {
     title: "Our Farm | Forevermore Farm | Lyles, TN",
     description: "Meet Olin and Concetta West. Heritage Berkshire pigs, Nigerian Dwarf goats, straw bale gardens, and a way of life rooted in Lyles, Tennessee.",
     images: ["/images/property/concetta-sheep-stage-bg.jpg"],
+  },
+  alternates: {
+    canonical: "/our-farm",
   },
 }
 import HeroSection from '@/components/HeroSection'

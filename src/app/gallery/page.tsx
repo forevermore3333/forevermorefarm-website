@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: 'Photo Gallery | Forevermore Farm | Lyles, TN',
   description: 'Photos of life at Forevermore Farm — the straw bale gardens, heritage pigs, goats, sheep, wildflower pastures, and the family behind it all in Lyles, Tennessee.',
   openGraph: {
+    type: "website",
     title: 'Photo Gallery | Forevermore Farm | Lyles, TN',
     description: 'Photos of life at Forevermore Farm — the straw bale gardens, heritage pigs, goats, sheep, wildflower pastures, and the family behind it all in Lyles, Tennessee.',
     images: [
@@ -21,6 +22,9 @@ export const metadata: Metadata = {
     title: 'Photo Gallery | Forevermore Farm | Lyles, TN',
     description: 'Photos of life at Forevermore Farm — the straw bale gardens, heritage pigs, goats, sheep, wildflower pastures, and the family behind it all in Lyles, Tennessee.',
     images: ['/images/property/stage-sunrise-fog-valley.jpg'],
+  },
+  alternates: {
+    canonical: '/gallery',
   },
 }
 

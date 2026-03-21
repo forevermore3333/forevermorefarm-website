@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: 'Straw Bale Gardening | Forevermore Farm',
   description: 'Learn straw bale gardening from a certified instructor. Concetta West studied under Joel Karsten and grew a 30-member CSA from her very first straw bale garden.',
   openGraph: {
+    type: "website",
     title: 'Straw Bale Gardening | Forevermore Farm',
     description: 'Learn straw bale gardening from a certified instructor. Concetta West studied under Joel Karsten and grew a 30-member CSA from her very first straw bale garden.',
     images: [
@@ -25,6 +26,9 @@ export const metadata: Metadata = {
     title: 'Straw Bale Gardening | Forevermore Farm',
     description: 'Learn straw bale gardening from a certified instructor. Concetta West studied under Joel Karsten and grew a 30-member CSA from her very first straw bale garden.',
     images: ['/images/garden-build/concetta-placing-bales-golden-hour.jpg'],
+  },
+  alternates: {
+    canonical: '/straw-bale-garden',
   },
 }
 

@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Events & Workshops | Forevermore Farm | Lyles, TN",
   description: "Farm days, straw bale gardening workshops, and seasonal events at Forevermore Farm in Lyles, Tennessee.",
   openGraph: {
+    type: "website",
     title: "Events & Workshops | Forevermore Farm | Lyles, TN",
     description: "Farm days, straw bale gardening workshops, and seasonal events at Forevermore Farm in Lyles, Tennessee.",
     images: [
@@ -21,6 +22,9 @@ export const metadata: Metadata = {
     title: "Events & Workshops | Forevermore Farm | Lyles, TN",
     description: "Farm days, straw bale gardening workshops, and seasonal events at Forevermore Farm in Lyles, Tennessee.",
     images: ["/images/pasture-land/tulips-driveway-pig-bg.jpg"],
+  },
+  alternates: {
+    canonical: "/events",
   },
 }
 

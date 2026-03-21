@@ -41,7 +41,9 @@ export default function EmailCapture({ headline, subtitle }: EmailCaptureProps) 
           <p className="text-farm-cream font-medium">You&apos;re on the list. We&apos;ll be in touch.</p>
         ) : (
           <form onSubmit={handleSubmit} className="flex flex-col gap-3 max-w-sm mx-auto">
+            <label htmlFor="signup-name" className="sr-only">Your name</label>
             <input
+              id="signup-name"
               type="text"
               required
               placeholder="Your name"
@@ -49,14 +51,18 @@ export default function EmailCapture({ headline, subtitle }: EmailCaptureProps) 
               onChange={(e) => setName(e.target.value)}
               className={inputClass}
             />
+            <label htmlFor="signup-phone" className="sr-only">Phone (optional)</label>
             <input
+              id="signup-phone"
               type="tel"
               placeholder="Phone (optional)"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               className={inputClass}
             />
+            <label htmlFor="signup-email" className="sr-only">Email address</label>
             <input
+              id="signup-email"
               type="email"
               required
               placeholder="your@email.com"

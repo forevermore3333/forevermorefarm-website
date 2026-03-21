@@ -84,7 +84,9 @@ export default function AdminSubscribersPage() {
             Admin Access
           </h1>
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+            <label htmlFor="admin-password" className="sr-only">Password</label>
             <input
+              id="admin-password"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}

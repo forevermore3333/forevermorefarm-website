@@ -26,6 +26,9 @@ export const metadata: Metadata = {
     shortcut: "/favicon.svg",
     apple: "/favicon.svg",
   },
+  alternates: {
+    canonical: "./",
+  },
   robots: {
     index: true,
     follow: true,

@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Contact | Forevermore Farm | Lyles, TN",
   description: "Get in touch with Forevermore Farm in Lyles, Tennessee. Reach out about events, farm stays, workshops, or media inquiries.",
   openGraph: {
+    type: "website",
     title: "Contact | Forevermore Farm | Lyles, TN",
     description: "Get in touch with Forevermore Farm in Lyles, Tennessee. Reach out about events, farm stays, workshops, or media inquiries.",
     images: [
@@ -21,6 +22,9 @@ export const metadata: Metadata = {
     title: "Contact | Forevermore Farm | Lyles, TN",
     description: "Get in touch with Forevermore Farm in Lyles, Tennessee. Reach out about events, farm stays, workshops, or media inquiries.",
     images: ["/images/property/stage-sunrise-fog-valley.jpg"],
+  },
+  alternates: {
+    canonical: "/contact",
   },
 }
 

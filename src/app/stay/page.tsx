@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Stay at the Farm | Forevermore Farm | Lyles, TN",
   description: "Experience farm life in Lyles, Tennessee. Lodging and overnight stays at Forevermore Farm — 45 minutes from Nashville.",
   openGraph: {
+    type: "website",
     title: "Stay at the Farm | Forevermore Farm | Lyles, TN",
     description: "Experience farm life in Lyles, Tennessee. Lodging and overnight stays at Forevermore Farm — 45 minutes from Nashville.",
     images: [
@@ -21,6 +22,9 @@ export const metadata: Metadata = {
     title: "Stay at the Farm | Forevermore Farm | Lyles, TN",
     description: "Experience farm life in Lyles, Tennessee. Lodging and overnight stays at Forevermore Farm — 45 minutes from Nashville.",
     images: ["/images/property/stage-reverse-valley-frost.jpg"],
+  },
+  alternates: {
+    canonical: "/stay",
   },
 }
 

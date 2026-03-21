@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Forevermore Farm — Heritage Pigs, Gardens & Farm Life | Lyles, TN",
   description: "A regenerative farm in Lyles, Tennessee. Heritage Berkshire pigs, straw bale gardens, Nigerian Dwarf goats, and farm workshops — 45 minutes from Nashville.",
   openGraph: {
+    type: "website",
     title: "Forevermore Farm — Heritage Pigs, Gardens & Farm Life | Lyles, TN",
     description: "A regenerative farm in Lyles, Tennessee. Heritage Berkshire pigs, straw bale gardens, Nigerian Dwarf goats, and farm workshops — 45 minutes from Nashville.",
     images: [
@@ -21,6 +22,9 @@ export const metadata: Metadata = {
     title: "Forevermore Farm — Heritage Pigs, Gardens & Farm Life | Lyles, TN",
     description: "A regenerative farm in Lyles, Tennessee. Heritage Berkshire pigs, straw bale gardens, Nigerian Dwarf goats, and farm workshops — 45 minutes from Nashville.",
     images: ["/images/property/stage-sunrise-fog-valley.jpg"],
+  },
+  alternates: {
+    canonical: "/",
   },
 }
 
