@@ -28,6 +28,8 @@ export const metadata: Metadata = {
   },
 }
 
+export const revalidate = 3600 // revalidate every hour so "Happening Today" stays fresh
+
 import EventCard from '@/components/EventCard'
 import EmailCapture from '@/components/EmailCapture'
 import { client } from '../../../../sanity/client'
@@ -52,9 +54,11 @@ interface SanityEvent {
 
 async function getUpcomingEvents(): Promise<SanityEvent[]> {
   try {
+    const today = new Date().toISOString().slice(0, 10)
+    // Include events where startDate is today or future, OR endDate is today or future (multi-day events)
     return await client.fetch(
-      `*[_type == "event" && startDate >= $today] | order(featured desc, startDate asc)`,
-      { today: new Date().toISOString().slice(0, 10) }
+      `*[_type == "event" && (startDate >= $today || endDate >= $today)] | order(featured desc, startDate asc)`,
+      { today }
     )
   } catch {
     return []
@@ -63,13 +67,27 @@ async function getUpcomingEvents(): Promise<SanityEvent[]> {
 
 async function getPastEvents(): Promise<SanityEvent[]> {
   try {
+    const today = new Date().toISOString().slice(0, 10)
+    // Past = endDate < today (or startDate < today if no endDate)
     return await client.fetch(
-      `*[_type == "event" && startDate < $today] | order(startDate desc)[0...10]`,
-      { today: new Date().toISOString().slice(0, 10) }
+      `*[_type == "event" && (
+        (defined(endDate) && endDate < $today) ||
+        (!defined(endDate) && startDate < $today)
+      )] | order(startDate desc)[0...20]`,
+      { today }
     )
   } catch {
     return []
   }
+}
+
+function getEventStatus(event: SanityEvent): 'happening-now' | 'upcoming' | 'past' {
+  const today = new Date().toISOString().slice(0, 10)
+  const start = event.startDate
+  const end = event.endDate ?? event.startDate
+  if (start <= today && end >= today) return 'happening-now'
+  if (start > today) return 'upcoming'
+  return 'past'
 }
 
 /** Resolve the display date regardless of which field holds it */
@@ -119,6 +137,7 @@ export default async function Events() {
                   ctaLink={event.ctaLink}
                   ctaExternal={event.ctaExternal}
                   badge={event.featured ? (event.badge ?? 'Featured') : event.badge}
+                  status={getEventStatus(event)}
                 />
               ))}
             </div>
