@@ -91,17 +91,17 @@ export function FarmPhotoAssetSource({ onSelect, onClose }: AssetSourceComponent
     overlay: {
       position: 'fixed' as const,
       inset: 0,
-      background: 'rgba(0,0,0,0.75)',
+      background: 'rgba(0,0,0,0.85)',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      zIndex: 9999,
+      zIndex: 99999,
     },
     modal: {
       background: '#1a1a1a',
       borderRadius: 8,
-      width: '90vw',
-      maxWidth: 1100,
+      width: '95vw',
+      maxWidth: 1400,
       height: '85vh',
       display: 'flex',
       flexDirection: 'column' as const,
@@ -135,10 +135,14 @@ export function FarmPhotoAssetSource({ onSelect, onClose }: AssetSourceComponent
       padding: '12px 20px',
       borderBottom: '1px solid #333',
       display: 'flex',
-      gap: 12,
-      alignItems: 'center',
-      flexWrap: 'wrap' as const,
+      flexDirection: 'column' as const,
+      gap: 10,
       flexShrink: 0,
+    },
+    toolbarTop: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: 12,
     },
     searchInput: {
       background: '#2a2a2a',
@@ -151,9 +155,10 @@ export function FarmPhotoAssetSource({ onSelect, onClose }: AssetSourceComponent
     },
     tabs: {
       display: 'flex',
-      gap: 6,
-      flexWrap: 'wrap' as const,
-      flex: 1,
+      gap: 8,
+      flexWrap: 'nowrap' as const,
+      overflowX: 'auto' as const,
+      paddingBottom: 4,
     },
     tab: (active: boolean) => ({
       background: active ? '#2563eb' : '#2a2a2a',
@@ -164,6 +169,8 @@ export function FarmPhotoAssetSource({ onSelect, onClose }: AssetSourceComponent
       fontSize: 12,
       cursor: 'pointer',
       textTransform: 'capitalize' as const,
+      whiteSpace: 'nowrap' as const,
+      flexShrink: 0,
     }),
     countLabel: {
       fontSize: 12,
@@ -175,7 +182,7 @@ export function FarmPhotoAssetSource({ onSelect, onClose }: AssetSourceComponent
       overflowY: 'auto' as const,
       padding: 16,
       display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))',
+      gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))',
       gap: 10,
       alignContent: 'start',
     },
@@ -232,14 +239,17 @@ export function FarmPhotoAssetSource({ onSelect, onClose }: AssetSourceComponent
         </div>
 
         <div style={styles.toolbar}>
-          <input
-            ref={searchRef}
-            style={styles.searchInput}
-            type="text"
-            placeholder="Search by filename…"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
+          <div style={styles.toolbarTop}>
+            <input
+              ref={searchRef}
+              style={styles.searchInput}
+              type="text"
+              placeholder="Search by filename…"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+            <span style={styles.countLabel}>{filtered.length} photos</span>
+          </div>
           <div style={styles.tabs}>
             <button
               style={styles.tab(activeCategory === 'all')}
@@ -257,7 +267,6 @@ export function FarmPhotoAssetSource({ onSelect, onClose }: AssetSourceComponent
               </button>
             ))}
           </div>
-          <span style={styles.countLabel}>{filtered.length} photos</span>
         </div>
 
         {loading && (
