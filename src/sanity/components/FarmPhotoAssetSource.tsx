@@ -195,18 +195,15 @@ export function FarmPhotoAssetSource({ onSelect, onClose }: AssetSourceComponent
       transition: 'border-color 0.15s',
       position: 'relative' as const,
     }),
-    imgWrap: {
+    imgThumb: (src: string) => ({
       width: '100%',
       height: '180px',
-      overflow: 'hidden',
-      backgroundColor: '#1a1a1a',
-    },
-    imgEl: {
-      width: '100%',
-      height: '180px',
-      objectFit: 'cover' as const,
-      display: 'block',
-    },
+      backgroundImage: `url(${src})`,
+      backgroundSize: 'cover' as const,
+      backgroundPosition: 'center' as const,
+      backgroundRepeat: 'no-repeat' as const,
+      backgroundColor: '#2a2a2a',
+    }),
     imgLabel: {
       padding: '4px 6px',
       fontSize: 10,
@@ -304,15 +301,11 @@ export function FarmPhotoAssetSource({ onSelect, onClose }: AssetSourceComponent
                 onClick={() => handleSelect(img)}
                 title={img.filename}
               >
-                <div style={styles.imgWrap}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={img.path}
-                    alt={img.filename}
-                    loading="lazy"
-                    style={styles.imgEl}
-                  />
-                </div>
+                <div
+                  style={styles.imgThumb(img.path)}
+                  role="img"
+                  aria-label={img.filename}
+                />
                 <div style={styles.imgLabel}>{img.filename}</div>
               </div>
             ))}
