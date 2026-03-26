@@ -13,11 +13,16 @@ interface Category {
   images: ImageEntry[]
 }
 
-interface ApiResponse {
+interface ManifestResponse {
   categories: Category[]
 }
 
 const PAGE_SIZE = 60
+
+// Valid React component icon for Sanity v5
+function FarmIcon() {
+  return <span>🌿</span>
+}
 
 export function FarmPhotoAssetSource({ onSelect, onClose }: AssetSourceComponentProps) {
   const [categories, setCategories] = useState<Category[]>([])
@@ -30,9 +35,12 @@ export function FarmPhotoAssetSource({ onSelect, onClose }: AssetSourceComponent
   const searchRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
-    fetch('/api/studio/images')
-      .then((r) => r.json())
-      .then((data: ApiResponse) => {
+    fetch('/images/manifest.json')
+      .then((r) => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}`)
+        return r.json()
+      })
+      .then((data: ManifestResponse) => {
         setCategories(data.categories)
         setLoading(false)
       })
@@ -71,7 +79,6 @@ export function FarmPhotoAssetSource({ onSelect, onClose }: AssetSourceComponent
     try {
       const res = await fetch(img.path)
       const blob = await res.blob()
-      // Use global File (browser File API) — cast as Sanity expects string | File
       const file = new globalThis.File([blob], img.filename, { type: blob.type })
       onSelect([{ kind: 'file', value: file as unknown as string }])
     } catch {
@@ -341,5 +348,5 @@ export const farmPhotoAssetSource = {
   name: 'farmPhotos',
   title: 'Farm Photos',
   component: FarmPhotoAssetSource,
-  icon: () => '🌿',
+  icon: FarmIcon,
 }
