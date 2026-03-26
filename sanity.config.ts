@@ -2,6 +2,7 @@ import { defineConfig } from 'sanity'
 import { structureTool } from 'sanity/structure'
 import { visionTool } from '@sanity/vision'
 import { schemaTypes } from './sanity/schemas'
+import { farmPhotoAssetSource } from './src/sanity/components/FarmPhotoAssetSource'
 
 export default defineConfig({
   name: 'forevermore-farm',
@@ -12,5 +13,10 @@ export default defineConfig({
   plugins: [structureTool(), visionTool()],
   schema: {
     types: schemaTypes,
+  },
+  form: {
+    image: {
+      assetSources: (previousSources) => [...previousSources, farmPhotoAssetSource],
+    },
   },
 })
