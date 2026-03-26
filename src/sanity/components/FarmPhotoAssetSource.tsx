@@ -182,8 +182,8 @@ export function FarmPhotoAssetSource({ onSelect, onClose }: AssetSourceComponent
       overflowY: 'auto' as const,
       padding: 16,
       display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))',
-      gap: 10,
+      gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))',
+      gap: 12,
       alignContent: 'start',
     },
     imgCard: (isSelecting: boolean) => ({
@@ -195,9 +195,18 @@ export function FarmPhotoAssetSource({ onSelect, onClose }: AssetSourceComponent
       transition: 'border-color 0.15s',
       position: 'relative' as const,
     }),
-    imgEl: {
+    imgWrap: {
+      position: 'relative' as const,
       width: '100%',
-      aspectRatio: '1',
+      paddingBottom: '100%',
+      overflow: 'hidden',
+    },
+    imgEl: {
+      position: 'absolute' as const,
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
       objectFit: 'cover' as const,
       display: 'block',
     },
@@ -298,13 +307,15 @@ export function FarmPhotoAssetSource({ onSelect, onClose }: AssetSourceComponent
                 onClick={() => handleSelect(img)}
                 title={img.filename}
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={img.path}
-                  alt={img.filename}
-                  loading="lazy"
-                  style={styles.imgEl}
-                />
+                <div style={styles.imgWrap}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={img.path}
+                    alt={img.filename}
+                    loading="lazy"
+                    style={styles.imgEl}
+                  />
+                </div>
                 <div style={styles.imgLabel}>{img.filename}</div>
               </div>
             ))}
