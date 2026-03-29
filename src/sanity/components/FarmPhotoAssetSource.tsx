@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useMemo, useCallback, useRef } from 'react'
+import { createPortal } from 'react-dom'
 import type { AssetSourceComponentProps } from '@sanity/types'
 
 interface ImageEntry {
@@ -240,7 +241,7 @@ export function FarmPhotoAssetSource({ onSelect, onClose }: AssetSourceComponent
     }),
   }
 
-  return (
+  return createPortal(
     <div style={styles.overlay} onClick={(e) => e.target === e.currentTarget && onClose()}>
       <div style={styles.modal}>
         <div style={styles.header}>
@@ -353,7 +354,8 @@ export function FarmPhotoAssetSource({ onSelect, onClose }: AssetSourceComponent
           </div>
         )}
       </div>
-    </div>
+    </div>,
+    document.body
   )
 }
 
