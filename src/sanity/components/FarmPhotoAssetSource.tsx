@@ -24,48 +24,6 @@ function FarmIcon() {
   return <span>🌿</span>
 }
 
-const FARM_PICKER_CSS = `
-.farm-picker-grid {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)) !important;
-  gap: 12px !important;
-  padding: 16px !important;
-  overflow-y: auto !important;
-  flex: 1 !important;
-  align-content: start !important;
-}
-.farm-picker-card {
-  border-radius: 6px !important;
-  overflow: hidden !important;
-  background: #2a2a2a !important;
-  border: 2px solid transparent !important;
-  transition: border-color 0.15s !important;
-  cursor: pointer !important;
-}
-.farm-picker-card:hover {
-  border-color: #2563eb !important;
-}
-.farm-picker-thumb {
-  width: 100% !important;
-  height: 180px !important;
-  min-height: 180px !important;
-  max-height: 180px !important;
-  background-size: cover !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
-  background-color: #2a2a2a !important;
-  display: block !important;
-}
-.farm-picker-label {
-  padding: 4px 6px !important;
-  font-size: 10px !important;
-  color: #888 !important;
-  white-space: nowrap !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-}
-`
-
 export function FarmPhotoAssetSource({ onSelect, onClose }: AssetSourceComponentProps) {
   const [categories, setCategories] = useState<Category[]>([])
   const [loading, setLoading] = useState(true)
@@ -219,6 +177,7 @@ export function FarmPhotoAssetSource({ onSelect, onClose }: AssetSourceComponent
       color: '#888',
       flexShrink: 0,
     },
+    // Grid: all inline — no class dependency
     grid: {
       flex: 1,
       overflowY: 'auto' as const,
@@ -226,20 +185,25 @@ export function FarmPhotoAssetSource({ onSelect, onClose }: AssetSourceComponent
       display: 'grid',
       gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))',
       gap: 12,
-      alignContent: 'start',
+      alignContent: 'start' as const,
     },
-    imgCard: (isSelecting: boolean) => ({
-      cursor: isSelecting ? 'wait' : 'pointer',
+    imgCard: (selecting: boolean, isThis: boolean) => ({
+      cursor: selecting ? (isThis ? 'wait' : 'default') : 'pointer',
       borderRadius: 6,
-      overflow: 'hidden',
+      overflow: 'hidden' as const,
       background: '#2a2a2a',
-      border: '2px solid transparent',
+      border: isThis ? '2px solid #2563eb' : '2px solid transparent',
       transition: 'border-color 0.15s',
       position: 'relative' as const,
+      opacity: selecting && !isThis ? 0.5 : 1,
     }),
+    // Thumb: explicit height + all bg props — zero class reliance
     imgThumb: (src: string) => ({
+      display: 'block',
       width: '100%',
-      height: '180px',
+      height: 180,
+      minHeight: 180,
+      maxHeight: 180,
       backgroundImage: `url(${src})`,
       backgroundSize: 'cover' as const,
       backgroundPosition: 'center' as const,
@@ -251,8 +215,9 @@ export function FarmPhotoAssetSource({ onSelect, onClose }: AssetSourceComponent
       fontSize: 10,
       color: '#888',
       whiteSpace: 'nowrap' as const,
-      overflow: 'hidden',
-      textOverflow: 'ellipsis',
+      overflow: 'hidden' as const,
+      textOverflow: 'ellipsis' as const,
+      display: 'block',
     },
     footer: {
       borderTop: '1px solid #333',
@@ -276,8 +241,6 @@ export function FarmPhotoAssetSource({ onSelect, onClose }: AssetSourceComponent
   }
 
   return (
-    <>
-    <style dangerouslySetInnerHTML={{ __html: FARM_PICKER_CSS }} />
     <div style={styles.overlay} onClick={(e) => e.target === e.currentTarget && onClose()}>
       <div style={styles.modal}>
         <div style={styles.header}>
@@ -333,25 +296,20 @@ export function FarmPhotoAssetSource({ onSelect, onClose }: AssetSourceComponent
         )}
 
         {!loading && !error && paged.length > 0 && (
-          <div className="farm-picker-grid">
+          <div style={styles.grid}>
             {paged.map((img) => (
               <div
                 key={img.path}
-                className="farm-picker-card"
-                style={{
-                  borderColor: selecting === img.path ? '#2563eb' : 'transparent',
-                  opacity: selecting && selecting !== img.path ? 0.5 : 1,
-                }}
+                style={styles.imgCard(!!selecting, selecting === img.path)}
                 onClick={() => handleSelect(img)}
                 title={img.filename}
               >
                 <div
-                  className="farm-picker-thumb"
-                  style={{ backgroundImage: `url(${img.path})` }}
+                  style={styles.imgThumb(img.path)}
                   role="img"
                   aria-label={img.filename}
                 />
-                <div className="farm-picker-label">{img.filename}</div>
+                <span style={styles.imgLabel}>{img.filename}</span>
               </div>
             ))}
           </div>
@@ -396,7 +354,6 @@ export function FarmPhotoAssetSource({ onSelect, onClose }: AssetSourceComponent
         )}
       </div>
     </div>
-    </>
   )
 }
 
