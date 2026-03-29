@@ -8,6 +8,8 @@ import { urlFor } from '../../../../sanity/image'
 import type { Metadata } from 'next'
 import type { SanityImageSource } from '@sanity/image-url'
 
+export const revalidate = 0 // always fetch fresh from Sanity
+
 export const metadata: Metadata = {
   title: 'Straw Bale Gardening | Forevermore Farm',
   description: 'Learn straw bale gardening from a certified instructor. Concetta West studied under Joel Karsten and grew a 30-member CSA from her very first straw bale garden.',
