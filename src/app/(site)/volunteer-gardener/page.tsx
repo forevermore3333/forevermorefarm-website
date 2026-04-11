@@ -346,16 +346,7 @@ export default function VolunteerGardener() {
 
       {/* ── 7. ABOUT THE PBS FEATURE ────────────────────────────────────────── */}
       <section className="py-20 px-4 bg-farm-cream">
-        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div className="relative aspect-[4/3] rounded-sm overflow-hidden shadow-md">
-            <Image
-              src="/images/garden-build/garden-enclosure-wide-blue-sky.jpg"
-              alt="The straw bale garden enclosure at Forevermore Farm under blue sky"
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover"
-            />
-          </div>
+        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div>
             <span className="text-xs font-medium tracking-widest text-farm-tan uppercase">About the Episode</span>
             <h2 className="font-serif text-3xl text-farm-green mt-3 mb-4">How This Happened</h2>
@@ -365,9 +356,23 @@ export default function VolunteerGardener() {
             <p className="text-farm-charcoal/70 leading-relaxed mb-4">
               Concetta is a certified Straw Bale Gardening instructor — trained directly under Joel Karsten, the creator of the method. She&rsquo;s been growing this way for over a decade, across two states and two growing zones. The garden at Forevermore is the result of all of that.
             </p>
-            <p className="text-farm-charcoal/70 leading-relaxed">
+            <p className="text-farm-charcoal/70 leading-relaxed mb-4">
               The episode was filmed here at the farm. What you&rsquo;ll see on PBS is what&rsquo;s here — and you can come see it yourself.
             </p>
+            <div className="rounded-sm border border-farm-tan/20 bg-white/70 p-4 shadow-sm">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-sm">
+                <Image
+                  src="/images/press/forevermorefarm-pbs-van.jpg"
+                  alt="Nashville PBS van at Forevermore Farm during filming for the Volunteer Gardener episode"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+              <p className="mt-3 text-sm leading-relaxed text-farm-charcoal/65">
+                Nashville PBS on-site at Forevermore Farm during filming for the <em>Volunteer Gardener</em> straw bale garden episode.
+              </p>
+            </div>
             <div className="mt-6">
               <Link
                 href="/straw-bale-garden"
@@ -376,6 +381,15 @@ export default function VolunteerGardener() {
                 Learn the straw bale method Concetta teaches →
               </Link>
             </div>
+          </div>
+          <div className="relative aspect-[4/3] rounded-sm overflow-hidden shadow-md">
+            <Image
+              src="/images/garden-build/garden-enclosure-wide-blue-sky.jpg"
+              alt="The straw bale garden enclosure at Forevermore Farm under blue sky"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
+            />
           </div>
         </div>
       </section>
