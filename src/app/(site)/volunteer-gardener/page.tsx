@@ -40,6 +40,8 @@ interface ConfirmedVendor {
 const confirmedVendors: ConfirmedVendor[] = [
   {
     name: 'Papa K Joe’s BBQ',
+    cover: '/images/vendors/papa-kayjoes-bbq-cover.jpg',
+    profile: '/images/vendors/papa-kayjoes-bbq-profile.jpg',
   },
   {
     name: 'Twin Creek Woodworks',
