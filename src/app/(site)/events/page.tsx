@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Image from 'next/image'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: "Events & Workshops | Forevermore Farm | Lyles, TN",
@@ -122,6 +123,33 @@ export default async function Events() {
       <section className="py-16 px-4 bg-farm-cream">
         <div className="max-w-4xl mx-auto">
           <p className="text-center text-farm-charcoal/60 mb-12 text-lg">Events are announced to the email list first. Join below to hear before tickets go wide.</p>
+
+          <div className="mb-14 overflow-hidden rounded-sm border border-farm-tan/30 bg-white shadow-sm">
+            <div className="grid md:grid-cols-[0.95fr_1.05fr]">
+              <div className="relative min-h-[280px]">
+                <Image
+                  src="/images/garden/garden-beds-with-white-tent.jpg"
+                  alt="Garden beds and the tent at Forevermore Farm"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 40vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-8 md:p-10">
+                <span className="text-xs font-medium tracking-widest text-farm-tan uppercase">Featured</span>
+                <h2 className="font-serif text-3xl text-farm-green mt-3 mb-4">Volunteer Gardener is coming to Forevermore Farm.</h2>
+                <p className="text-farm-charcoal/70 leading-relaxed mb-4">
+                  Get the exact PBS air dates, online watch details, and the Ag &amp; Arts Tour visit plan in one place.
+                </p>
+                <p className="text-farm-charcoal/60 leading-relaxed mb-6">
+                  If you want to watch the feature and then come see the straw bale garden in person, start here.
+                </p>
+                <Link href="/volunteer-gardener" className="inline-block bg-farm-green text-farm-cream px-6 py-3 rounded-sm text-sm font-medium tracking-widest uppercase hover:bg-farm-green/90 transition-colors">
+                  Open the feature page
+                </Link>
+              </div>
+            </div>
+          </div>
 
           {/* Upcoming events */}
           {upcomingEvents.length > 0 ? (

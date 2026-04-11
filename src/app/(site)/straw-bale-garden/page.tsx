@@ -277,6 +277,26 @@ export default async function StrawBaleGarden() {
         </div>
       </section>
 
+      <section className="py-16 px-4 bg-white/70">
+        <div className="max-w-5xl mx-auto rounded-sm border border-farm-tan/25 bg-farm-green p-8 md:p-10 text-farm-cream shadow-md">
+          <div className="max-w-3xl">
+            <span className="text-xs font-medium tracking-widest text-farm-cream/60 uppercase">PBS Feature</span>
+            <h2 className="font-serif text-3xl mt-3 mb-4">Volunteer Gardener is featuring this garden.</h2>
+            <p className="text-farm-cream/80 leading-relaxed text-lg">
+              Want the air dates, online watch details, and the Ag &amp; Arts Tour plan for seeing the garden in person? We built a single page for that so it&apos;s actually easy to find.
+            </p>
+            <div className="mt-8 flex flex-col sm:flex-row gap-3">
+              <Link href="/volunteer-gardener" className="inline-block bg-farm-cream text-farm-green px-6 py-3 rounded-sm text-sm font-medium tracking-widest uppercase hover:bg-farm-cream/90 transition-colors text-center">
+                See the Volunteer Gardener page
+              </Link>
+              <Link href="/events" className="inline-block border border-farm-cream/25 text-farm-cream px-6 py-3 rounded-sm text-sm font-medium tracking-widest uppercase hover:bg-farm-cream/10 transition-colors text-center">
+                Check upcoming events
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Benefits */}
       <section className="py-20 px-4 bg-farm-tan/20">
         <div className="max-w-6xl mx-auto">

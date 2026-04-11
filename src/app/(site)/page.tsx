@@ -94,6 +94,36 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Volunteer Gardener promo */}
+      <section className="py-20 px-4 bg-farm-green">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-[1.05fr_0.95fr] gap-10 items-center">
+          <div>
+            <span className="text-xs font-medium tracking-widest text-farm-cream/60 uppercase">PBS Feature</span>
+            <h2 className="font-serif text-3xl md:text-4xl text-farm-cream mt-3 mb-5">Volunteer Gardener is featuring Forevermore Farm.</h2>
+            <p className="text-farm-cream/80 text-lg leading-relaxed max-w-2xl">
+              We pulled the full watch schedule into one place, plus everything you need to know before visiting the farm during the June 19–20, 2026 Ag &amp; Arts Tour.
+            </p>
+            <div className="mt-8 flex flex-col sm:flex-row gap-3">
+              <Link href="/volunteer-gardener" className="inline-block bg-farm-cream text-farm-green px-6 py-3 rounded-sm text-sm font-medium tracking-widest uppercase hover:bg-farm-cream/90 transition-colors text-center">
+                See the PBS feature page
+              </Link>
+              <Link href="/events" className="inline-block border border-farm-cream/25 text-farm-cream px-6 py-3 rounded-sm text-sm font-medium tracking-widest uppercase hover:bg-farm-cream/10 transition-colors text-center">
+                View upcoming events
+              </Link>
+            </div>
+          </div>
+          <div className="relative aspect-[4/3] rounded-sm overflow-hidden shadow-lg">
+            <Image
+              src="/images/garden/zinnias-sunflowers-white-tent.jpg"
+              alt="Sunflowers and zinnias near the tent at Forevermore Farm"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Animals Section */}
       <section className="py-16 px-4 bg-white/60">
         <div className="max-w-6xl mx-auto">
