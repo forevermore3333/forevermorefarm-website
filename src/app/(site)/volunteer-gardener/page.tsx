@@ -1,23 +1,98 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import EmailCapture from '@/components/EmailCapture'
+
+import HeroSection from '@/components/HeroSection'
+
+const broadcastSchedule = [
+  {
+    outlet: 'Nashville PBS debut',
+    time: 'Thursday, April 30, 2026 at 7:30 PM',
+  },
+  {
+    outlet: 'Nashville PBS repeat',
+    time: 'Sunday, May 3, 2026 at 9:30 AM',
+  },
+  {
+    outlet: 'WCTE Cookeville',
+    time: 'Saturday, May 2, 2026 at 3:00 PM',
+  },
+  {
+    outlet: 'WKNO Memphis',
+    time: 'Saturday, May 2, 2026 at 2:30 PM',
+  },
+  {
+    outlet: 'WTCI Chattanooga',
+    time: 'Saturday, May 2, 2026 at 10:00 AM',
+  },
+  {
+    outlet: 'West TN PBS',
+    time: 'Saturday, May 2, 2026 at 1:30 PM and Sunday, May 3, 2026 at 5:30 PM',
+  },
+]
+
+interface ConfirmedVendor {
+  name: string
+  cover?: string
+  profile?: string
+}
+
+const confirmedVendors: ConfirmedVendor[] = [
+  {
+    name: 'Papa K Joe’s BBQ',
+    cover: '/images/vendors/papa-kayjoes-bbq-cover.jpg',
+    profile: '/images/vendors/papa-kayjoes-bbq-profile.jpg',
+  },
+  {
+    name: 'Twin Creek Woodworks',
+    cover: '/images/vendors/twin-creek-woodworks-cover.jpg',
+    profile: '/images/vendors/twin-creek-woodworks-profile.jpg',
+  },
+  {
+    name: 'Rustic Roots',
+    cover: '/images/vendors/rustic-roots-homestead-cover.jpg',
+    profile: '/images/vendors/rustic-roots-homestead-profile.jpg',
+  },
+  {
+    name: 'The Old Country Church Stead',
+    cover: '/images/vendors/the-old-country-churchstead-cover.jpg',
+    profile: '/images/vendors/the-old-country-churchstead-profile.jpg',
+  },
+  {
+    name: 'Sourdough by Katerina',
+    cover: '/images/vendors/sourdough-by-katerina-cover.jpg',
+    profile: '/images/vendors/sourdough-by-katerina-profile.jpg',
+  },
+]
+
+const pressLinks = [
+  {
+    title: 'Watch Volunteer Gardener online',
+    href: 'https://volunteergardener.org/',
+    description: 'Online availability begins April 30 at volunteergardener.org.',
+  },
+  {
+    title: 'WKRN News 2, “Hickman County Homesteaders Living Off Grid”',
+    href: 'https://www.wkrn.com/special-reports/hickman-county-homesteaders-living-off-grid/',
+    description: 'Older off-grid coverage lives down here where it belongs, useful context after the main garden story.',
+  },
+]
 
 export const metadata: Metadata = {
   title: 'Volunteer Gardener PBS Feature | Straw Bale Garden at Forevermore Farm',
   description:
-    'Forevermore Farm is featured on PBS Volunteer Gardener — watch Concetta\'s straw bale garden on Nashville PBS April 30 at 7:30 PM. Then see it in person at the Ag & Arts Tour, June 19–20.',
+    'Watch the Volunteer Gardener PBS feature on Forevermore Farm, get the exact broadcast schedule, and plan your Ag & Arts Tour visit to see the straw bale garden in person.',
   openGraph: {
     type: 'website',
     title: 'Volunteer Gardener PBS Feature | Straw Bale Garden at Forevermore Farm',
     description:
-      'Watch Forevermore Farm\'s straw bale garden on Nashville PBS April 30 at 7:30 PM — then visit in person at the Ag & Arts Tour, June 19–20, 2026.',
+      'Get the full Volunteer Gardener broadcast schedule, then plan your visit to Forevermore Farm during the June 19–20, 2026 Ag & Arts Tour.',
     images: [
       {
-        url: '/images/garden-build/concetta-placing-bales-golden-hour.jpg',
+        url: '/images/press/volunteer-gardener-seo.png',
         width: 1200,
         height: 630,
-        alt: 'Concetta placing straw bales at Forevermore Farm at golden hour',
+        alt: 'Volunteer Gardener feature graphic for Forevermore Farm',
       },
     ],
   },
@@ -25,367 +100,156 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Volunteer Gardener PBS Feature | Straw Bale Garden at Forevermore Farm',
     description:
-      'Watch Forevermore Farm\'s straw bale garden on Nashville PBS April 30 at 7:30 PM — then visit in person at the Ag & Arts Tour, June 19–20, 2026.',
-    images: ['/images/garden-build/concetta-placing-bales-golden-hour.jpg'],
+      'Watch the PBS feature, see the schedule, and come visit the straw bale garden at Forevermore Farm.',
+    images: ['/images/press/volunteer-gardener-seo.png'],
   },
   alternates: {
     canonical: '/volunteer-gardener',
   },
 }
 
-export default function VolunteerGardener() {
+export default function VolunteerGardenerPage() {
   return (
     <>
-      {/* ── 1. HERO ─────────────────────────────────────────────────────────── */}
-      <section className="relative flex items-center justify-center min-h-[70vh] overflow-hidden">
-        <div className="absolute inset-0">
+      <HeroSection
+        title="Volunteer Gardener is coming to Forevermore Farm"
+        subtitle="Watch the PBS feature, then come see the straw bale garden in person during the June 19–20, 2026 Ag & Arts Tour at Forevermore Farm."
+        ctaText="See the watch schedule"
+        ctaHref="#watch-schedule"
+        bgImage="/images/garden/zinnias-sunflowers-white-tent.jpg"
+        bgPositionMobile="50% 52%"
+        bgPositionDesktop="50% 58%"
+        bgScaleDesktop={1.15}
+        contentClassName="flex min-h-[85vh] flex-col justify-end pb-[max(5.5rem,38.2vh)] pt-36 md:min-h-[95vh] md:pb-[38.2vh] md:pt-40"
+      >
+        <div className="mx-auto mt-6 inline-flex items-center gap-3 rounded-full border border-farm-cream/20 bg-farm-charcoal/20 px-4 py-2 text-farm-cream/90 shadow-sm backdrop-blur-sm">
           <Image
-            src="/images/garden-build/concetta-placing-bales-golden-hour.jpg"
-            alt="Concetta placing straw bales in the garden at Forevermore Farm at golden hour"
-            fill
-            sizes="100vw"
-            className="object-cover"
-            priority
+            src="/images/press/volunteer-gardener-gardener.svg"
+            alt="Volunteer Gardener mark"
+            width={30}
+            height={30}
+            className="h-[30px] w-[30px]"
           />
+          <span className="text-[11px] font-medium uppercase tracking-[0.3em] text-farm-cream/85">
+            Featured on Volunteer Gardener
+          </span>
         </div>
-        <div className="absolute inset-0 bg-farm-charcoal/55" />
-        <div className="relative z-10 text-center px-4 max-w-3xl">
-          <span className="text-xs font-medium tracking-widest text-farm-tan uppercase">As Seen on PBS</span>
-          <h1 className="font-serif text-4xl md:text-6xl text-farm-cream mt-4 mb-6 leading-tight drop-shadow-lg">
-            Forevermore Farm on<br />Volunteer Gardener
-          </h1>
-          <p className="text-lg md:text-xl text-farm-cream/85 mb-8 max-w-2xl mx-auto">
-            Concetta&rsquo;s straw bale garden is coming to PBS — and you can see it in person this June at the Hickman County Ag &amp; Arts Tour.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="#watch"
-              className="inline-block bg-farm-green text-farm-cream px-8 py-3 rounded-sm text-sm font-medium tracking-widest uppercase hover:bg-farm-green/90 transition-colors"
-            >
-              Watch Schedule
-            </a>
-            <a
-              href="#ag-arts-tour"
-              className="inline-block border border-farm-cream text-farm-cream px-8 py-3 rounded-sm text-sm font-medium tracking-widest uppercase hover:bg-farm-cream/10 transition-colors"
-            >
-              Visit in June
-            </a>
-          </div>
+        <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+          <Link
+            href="#ag-arts-tour"
+            className="inline-block rounded-sm border border-farm-cream/70 px-6 py-3 text-sm font-medium tracking-widest text-farm-cream uppercase transition-colors hover:bg-farm-cream/10"
+          >
+            Plan your visit
+          </Link>
+          <Link
+            href="/straw-bale-garden"
+            className="inline-block rounded-sm border border-farm-cream/30 px-6 py-3 text-sm font-medium tracking-widest text-farm-cream/90 uppercase transition-colors hover:border-farm-cream/60 hover:text-farm-cream"
+          >
+            Explore the garden
+          </Link>
         </div>
-      </section>
+      </HeroSection>
 
-      {/* ── 2. BROADCAST / WATCH SCHEDULE ───────────────────────────────────── */}
-      <section id="watch" className="py-20 px-4 bg-farm-cream">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <span className="text-xs font-medium tracking-widest text-farm-tan uppercase">Tennessee Premiere</span>
-            <h2 className="font-serif text-3xl md:text-4xl text-farm-green mt-3 mb-4">When &amp; Where to Watch</h2>
-            <p className="text-farm-charcoal/70 leading-relaxed max-w-2xl mx-auto">
-              The episode featuring Forevermore Farm&rsquo;s straw bale garden airs across Tennessee public television stations in late April and early May 2026. Check your local listings or watch online at{' '}
+      <section id="watch-schedule" className="bg-farm-cream px-4 py-20">
+        <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+          <div>
+            <span className="text-xs font-medium uppercase tracking-[0.3em] text-farm-tan">Broadcast / Watch Schedule</span>
+            <h2 className="mt-3 font-serif text-3xl text-farm-green md:text-4xl">Here&apos;s exactly when to watch.</h2>
+            <p className="mt-4 max-w-2xl text-lg leading-relaxed text-farm-charcoal/70">
+              No hunting for listings, no vague “coming soon.” These are the confirmed Volunteer Gardener air dates for the Forevermore Farm feature.
+            </p>
+            <div className="mt-10 grid gap-4">
+              {broadcastSchedule.map((item) => (
+                <div key={item.outlet} className="rounded-sm border border-farm-tan/25 bg-white/70 p-5 shadow-sm">
+                  <p className="font-serif text-xl text-farm-green">{item.outlet}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-farm-charcoal/70">{item.time}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="rounded-sm bg-farm-green p-8 text-farm-cream shadow-md">
+            <span className="text-xs font-medium uppercase tracking-[0.3em] text-farm-cream/60">Online Availability</span>
+            <h3 className="mt-3 font-serif text-3xl">Stream it after the debut.</h3>
+            <p className="mt-4 leading-relaxed text-farm-cream/80">
+              Online availability begins April 30 at{' '}
               <a
                 href="https://volunteergardener.org/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-farm-green underline underline-offset-4 hover:text-farm-green/70 transition-colors"
+                className="underline decoration-farm-cream/40 underline-offset-4 transition-colors hover:text-farm-cream"
               >
                 volunteergardener.org
-              </a>{' '}
-              starting April 30.
+              </a>
+              .
             </p>
-          </div>
-
-          {/* Featured broadcast */}
-          <div className="bg-farm-green text-farm-cream rounded-sm p-8 mb-8 text-center">
-            <span className="text-xs font-medium tracking-widest text-farm-tan uppercase">Tennessee Debut</span>
-            <h3 className="font-serif text-2xl md:text-3xl mt-2 mb-1">Nashville PBS</h3>
-            <p className="text-farm-cream/90 text-lg font-medium">Thursday, April 30, 2026 &mdash; 7:30 PM</p>
-            <p className="text-farm-cream/60 text-sm mt-2">Repeat: Sunday, May 3, 2026 at 9:30 AM</p>
-          </div>
-
-          {/* Regional stations grid */}
-          <div className="grid sm:grid-cols-2 gap-4">
-            <div className="border border-farm-tan/30 rounded-sm p-5 bg-white/50">
-              <h4 className="font-serif text-lg text-farm-green mb-1">WCTE — Cookeville</h4>
-              <p className="text-farm-charcoal/70 text-sm">Saturday, May 2, 2026 &mdash; 3:00 PM</p>
-            </div>
-            <div className="border border-farm-tan/30 rounded-sm p-5 bg-white/50">
-              <h4 className="font-serif text-lg text-farm-green mb-1">WKNO — Memphis</h4>
-              <p className="text-farm-charcoal/70 text-sm">Saturday, May 2, 2026 &mdash; 2:30 PM</p>
-            </div>
-            <div className="border border-farm-tan/30 rounded-sm p-5 bg-white/50">
-              <h4 className="font-serif text-lg text-farm-green mb-1">WTCI — Chattanooga</h4>
-              <p className="text-farm-charcoal/70 text-sm">Saturday, May 2, 2026 &mdash; 10:00 AM</p>
-            </div>
-            <div className="border border-farm-tan/30 rounded-sm p-5 bg-white/50">
-              <h4 className="font-serif text-lg text-farm-green mb-1">West TN PBS</h4>
-              <p className="text-farm-charcoal/70 text-sm">Saturday, May 2, 2026 &mdash; 1:30 PM</p>
-              <p className="text-farm-charcoal/50 text-xs mt-1">Also: Sunday, May 3, 2026 &mdash; 5:30 PM</p>
-            </div>
-          </div>
-
-          <p className="text-center text-farm-charcoal/50 text-sm mt-8">
-            Online streaming available starting April 30 at{' '}
-            <a
-              href="https://volunteergardener.org/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-farm-green hover:underline underline-offset-4"
-            >
-              volunteergardener.org
-            </a>
-          </p>
-        </div>
-      </section>
-
-      {/* ── 3. SEE IT IN PERSON — STRAW BALE GARDEN TIE-IN ─────────────────── */}
-      <section className="py-20 px-4 bg-farm-tan/20">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div className="relative aspect-[4/3] rounded-sm overflow-hidden shadow-md order-2 md:order-1">
-            <Image
-              src="/images/garden-build/garden-pergola-interior-complete.jpg"
-              alt="The completed straw bale garden pergola at Forevermore Farm"
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover"
-            />
-          </div>
-          <div className="order-1 md:order-2">
-            <span className="text-xs font-medium tracking-widest text-farm-tan uppercase">After You Watch</span>
-            <h2 className="font-serif text-3xl text-farm-green mt-3 mb-4">See the Garden in Person</h2>
-            <p className="text-farm-charcoal/70 leading-relaxed mb-4">
-              The garden you&rsquo;ll see on PBS is real, and it&rsquo;s right here on the farm. Concetta built it from scratch — a hand-constructed pergola enclosure with straw bale growing beds inside. Market-scale. Working. The kind of thing you have to see to really understand.
-            </p>
-            <p className="text-farm-charcoal/70 leading-relaxed mb-6">
-              She trained directly under Joel Karsten, the creator of the straw bale gardening method. When the PBS <em>Volunteer Gardener</em> crew came to film, they came here.
-            </p>
-            <Link
-              href="/straw-bale-garden"
-              className="inline-block text-farm-green text-sm font-medium hover:underline underline-offset-4"
-            >
-              Learn the straw bale method →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 4. VISIT DURING AG & ARTS TOUR ──────────────────────────────────── */}
-      <section id="ag-arts-tour" className="py-20 px-4 bg-farm-charcoal">
-        <div className="max-w-4xl mx-auto text-center">
-          <span className="text-xs font-medium tracking-widest text-farm-tan uppercase">June 19–20, 2026</span>
-          <h2 className="font-serif text-3xl md:text-4xl text-farm-cream mt-3 mb-4">
-            Visit at the Hickman County Ag &amp; Arts Tour
-          </h2>
-          <p className="text-farm-cream/70 leading-relaxed max-w-2xl mx-auto mb-10">
-            Forevermore Farm is a tour stop. Come out, walk the straw bale garden, meet the animals, and see what a real working homestead actually looks like. Free and open to the public.
-          </p>
-
-          <div className="grid md:grid-cols-3 gap-6 text-left mb-12">
-            <div className="bg-farm-charcoal/40 border border-farm-tan/20 rounded-sm p-6">
-              <h3 className="font-serif text-lg text-farm-tan mb-3">The Straw Bale Garden</h3>
-              <p className="text-farm-cream/60 text-sm leading-relaxed">
-                Walk through the garden Concetta built and PBS came to film. She&rsquo;ll be giving demos throughout the weekend — the actual method, not a presentation about it.
-              </p>
-            </div>
-            <div className="bg-farm-charcoal/40 border border-farm-tan/20 rounded-sm p-6">
-              <h3 className="font-serif text-lg text-farm-tan mb-3">The Sunflower Fields</h3>
-              <p className="text-farm-cream/60 text-sm leading-relaxed">
-                Bring your camera. Rows and rows of sunflowers in full summer bloom. It&rsquo;s one of those places that earns the photos people take there.
-              </p>
-            </div>
-            <div className="bg-farm-charcoal/40 border border-farm-tan/20 rounded-sm p-6">
-              <h3 className="font-serif text-lg text-farm-tan mb-3">The Animals</h3>
-              <p className="text-farm-cream/60 text-sm leading-relaxed">
-                Heritage Berkshire pigs, Nigerian Dwarf goats, chickens, and Clementine — the miniature pig who lives in the house and makes her rounds. Kid-friendly doesn&rsquo;t begin to cover it.
-              </p>
-            </div>
-          </div>
-
-          <Link
-            href="/events"
-            className="inline-block bg-farm-tan text-farm-charcoal px-8 py-3 rounded-sm text-sm font-medium tracking-widest uppercase hover:bg-farm-tan/90 transition-colors"
-          >
-            Full Event Details
-          </Link>
-        </div>
-      </section>
-
-      {/* ── 5. VENDORS + FLEA MARKET UNDER THE TENT ─────────────────────────── */}
-      <section className="py-20 px-4 bg-farm-cream">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <span className="text-xs font-medium tracking-widest text-farm-tan uppercase">Under the Tent</span>
-              <h2 className="font-serif text-3xl text-farm-green mt-3 mb-4">Vendors &amp; Flea Market</h2>
-              <p className="text-farm-charcoal/70 leading-relaxed mb-6">
-                The weekend is more than a farm tour. We&rsquo;ve got a flea market and vendor market running under the tent — local makers, handmade goods, food, and things you won&rsquo;t find at a big-box store.
-              </p>
-              <div className="space-y-3">
-                <div className="flex gap-3 items-start">
-                  <span className="text-farm-tan mt-0.5">→</span>
-                  <div>
-                    <strong className="text-farm-charcoal">Papa K Joe&rsquo;s BBQ</strong>
-                    <span className="text-farm-charcoal/60"> — Smoked right, served fresh</span>
-                  </div>
-                </div>
-                <div className="flex gap-3 items-start">
-                  <span className="text-farm-tan mt-0.5">→</span>
-                  <div>
-                    <strong className="text-farm-charcoal">Twin Creek Woodworks</strong>
-                    <span className="text-farm-charcoal/60"> — Handcrafted wood pieces</span>
-                  </div>
-                </div>
-                <div className="flex gap-3 items-start">
-                  <span className="text-farm-tan mt-0.5">→</span>
-                  <div>
-                    <strong className="text-farm-charcoal">Rustic Roots</strong>
-                  </div>
-                </div>
-                <div className="flex gap-3 items-start">
-                  <span className="text-farm-tan mt-0.5">→</span>
-                  <div>
-                    <strong className="text-farm-charcoal">The Old Country Church Stead</strong>
-                  </div>
-                </div>
-                <div className="flex gap-3 items-start">
-                  <span className="text-farm-tan mt-0.5">→</span>
-                  <div>
-                    <strong className="text-farm-charcoal">Sourdough by Katerina</strong>
-                    <span className="text-farm-charcoal/60"> — Fresh baked, real sourdough</span>
-                  </div>
-                </div>
-                <div className="flex gap-3 items-start">
-                  <span className="text-farm-tan mt-0.5">→</span>
-                  <span className="text-farm-charcoal/60 italic">Plus more vendors still being added</span>
-                </div>
-              </div>
-            </div>
-            <div className="relative aspect-[4/3] rounded-sm overflow-hidden shadow-md">
-              <Image
-                src="/images/pasture-land/gladiolus-flowers-stage-event-tent-pasture.jpg"
-                alt="Gladiolus flowers in front of the event tent at Forevermore Farm"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 6. PLAN YOUR VISIT ──────────────────────────────────────────────── */}
-      <section className="py-20 px-4 bg-farm-green">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <span className="text-xs font-medium tracking-widest text-farm-cream/50 uppercase">Getting Here</span>
-            <h2 className="font-serif text-3xl text-farm-cream mt-3 mb-4">Plan Your Visit</h2>
-          </div>
-          <div className="grid md:grid-cols-2 gap-10">
-            <div>
-              <h3 className="font-serif text-xl text-farm-tan mb-4">The Basics</h3>
-              <ul className="space-y-3 text-farm-cream/80">
-                <li className="flex gap-3">
-                  <span className="text-farm-tan shrink-0">→</span>
-                  <span><strong className="text-farm-cream">Ag &amp; Arts Tour Weekend:</strong> June 19–20, 2026</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-farm-tan shrink-0">→</span>
-                  <span>
-                    <strong className="text-farm-cream">Address:</strong>{' '}
-                    <a
-                      href="https://maps.google.com/?q=302+Hickory+Trace+Lyles+TN+37098"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="underline underline-offset-4 hover:text-farm-cream transition-colors"
-                    >
-                      302 Hickory Trace, Lyles, TN 37098
-                    </a>
-                  </span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-farm-tan shrink-0">→</span>
-                  <span>Free and open to the public</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-farm-tan shrink-0">→</span>
-                  <span>Parking on-site — follow signage from the road</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-farm-tan shrink-0">→</span>
-                  <span>Restrooms available</span>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-serif text-xl text-farm-tan mb-4">What to Expect</h3>
-              <ul className="space-y-3 text-farm-cream/80">
-                <li className="flex gap-3">
-                  <span className="text-farm-tan shrink-0">→</span>
-                  <span>A working homestead — animals out, garden open, nothing staged</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-farm-tan shrink-0">→</span>
-                  <span>Straw bale garden tours and demos with Concetta</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-farm-tan shrink-0">→</span>
-                  <span>Food, vendors, and flea market under the tent</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-farm-tan shrink-0">→</span>
-                  <span>Sunflower fields — bring a camera</span>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-farm-tan shrink-0">→</span>
-                  <span><strong className="text-farm-cream">Wear shoes you don&rsquo;t mind getting dirty.</strong> This is a real farm.</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 7. ABOUT THE PBS FEATURE ────────────────────────────────────────── */}
-      <section className="py-20 px-4 bg-farm-cream">
-        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <span className="text-xs font-medium tracking-widest text-farm-tan uppercase">About the Episode</span>
-            <h2 className="font-serif text-3xl text-farm-green mt-3 mb-4">How This Happened</h2>
-            <p className="text-farm-charcoal/70 leading-relaxed mb-4">
-              <em>Volunteer Gardener</em> is a Nashville PBS production that has been teaching Tennesseans how to grow for decades. When they came looking for a straw bale story, they found Concetta.
-            </p>
-            <p className="text-farm-charcoal/70 leading-relaxed mb-4">
-              Concetta is a certified Straw Bale Gardening instructor — trained directly under Joel Karsten, the creator of the method. She&rsquo;s been growing this way for over a decade, across two states and two growing zones. The garden at Forevermore is the result of all of that.
-            </p>
-            <p className="text-farm-charcoal/70 leading-relaxed mb-4">
-              The episode was filmed here at the farm. What you&rsquo;ll see on PBS is what&rsquo;s here — and you can come see it yourself.
-            </p>
-            <div className="rounded-sm border border-farm-tan/20 bg-white/70 p-4 shadow-sm">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-sm">
+            <div className="mt-8 overflow-hidden rounded-sm border border-farm-cream/15 bg-farm-charcoal/20 shadow-lg">
+              <div className="relative aspect-[16/9]">
                 <Image
-                  src="/images/press/forevermorefarm-pbs-van.jpg"
-                  alt="Nashville PBS van at Forevermore Farm during filming for the Volunteer Gardener episode"
+                  src="/images/press/volunteer-gardener-seo.png"
+                  alt="Volunteer Gardener feature graphic for Forevermore Farm"
                   fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  sizes="(max-width: 1024px) 100vw, 34vw"
                   className="object-cover"
                 />
               </div>
-              <p className="mt-3 text-sm leading-relaxed text-farm-charcoal/65">
-                Nashville PBS on-site at Forevermore Farm during filming for the <em>Volunteer Gardener</em> straw bale garden episode.
-              </p>
+              <div className="flex items-center gap-3 border-t border-farm-cream/10 px-4 py-4">
+                <Image
+                  src="/images/press/volunteer-gardener-gardener.svg"
+                  alt="Volunteer Gardener mark"
+                  width={28}
+                  height={28}
+                  className="h-7 w-7 shrink-0"
+                />
+                <p className="text-sm leading-relaxed text-farm-cream/75">
+                  Volunteer Gardener spotlighted the straw bale garden visitors can come see in person during Ag &amp; Arts Tour weekend.
+                </p>
+              </div>
             </div>
-            <div className="mt-6">
-              <Link
-                href="/straw-bale-garden"
-                className="inline-block text-farm-green text-sm font-medium hover:underline underline-offset-4"
-              >
-                Learn the straw bale method Concetta teaches →
+            <p className="mt-6 leading-relaxed text-farm-cream/70">
+              If the episode sends you here, good. The next move is simple: come walk the straw bale garden for yourself.
+            </p>
+            <div className="mt-8 rounded-sm border border-farm-cream/15 bg-farm-charcoal/20 p-5">
+              <p className="text-sm uppercase tracking-[0.3em] text-farm-cream/50">Next stop</p>
+              <Link href="#see-it-in-person" className="mt-2 inline-block font-serif text-2xl text-farm-cream hover:text-farm-cream/85">
+                See it in person →
               </Link>
             </div>
           </div>
-          <div className="relative aspect-[4/3] rounded-sm overflow-hidden shadow-md">
+        </div>
+      </section>
+
+      <section id="see-it-in-person" className="bg-white/70 px-4 py-20">
+        <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-2 md:items-center">
+          <div>
+            <span className="text-xs font-medium uppercase tracking-[0.3em] text-farm-tan">See It In Person</span>
+            <h2 className="mt-3 font-serif text-3xl text-farm-green md:text-4xl">The straw bale garden is the real thing, not a set piece.</h2>
+            <p className="mt-5 text-lg leading-relaxed text-farm-charcoal/70">
+              The garden featured on Volunteer Gardener is the same straw bale garden growing at Forevermore Farm. Concetta teaches the method, works it, and keeps learning from it season after season.
+            </p>
+            <p className="mt-4 leading-relaxed text-farm-charcoal/70">
+              She is a certified Straw Bale Gardening instructor trained under Joel Karsten, so when visitors come out, they are seeing a method with deep roots and real results.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link
+                href="/straw-bale-garden"
+                className="inline-block rounded-sm bg-farm-green px-6 py-3 text-center text-sm font-medium uppercase tracking-widest text-farm-cream transition-colors hover:bg-farm-green/90"
+              >
+                Read the full garden story
+              </Link>
+              <Link
+                href="/events"
+                className="inline-block rounded-sm border border-farm-green/25 px-6 py-3 text-center text-sm font-medium uppercase tracking-widest text-farm-green transition-colors hover:border-farm-green/50 hover:bg-farm-green/5"
+              >
+                Check the events page
+              </Link>
+            </div>
+          </div>
+
+          <div className="relative aspect-[4/3] overflow-hidden rounded-sm shadow-md">
             <Image
-              src="/images/garden-build/garden-enclosure-wide-blue-sky.jpg"
-              alt="The straw bale garden enclosure at Forevermore Farm under blue sky"
+              src="/images/garden/raised-bed-garden-overview-summer-2.jpg"
+              alt="The straw bale garden at Forevermore Farm in summer"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"
@@ -394,63 +258,208 @@ export default function VolunteerGardener() {
         </div>
       </section>
 
-      {/* ── 8. PRESS & MEDIA ────────────────────────────────────────────────── */}
-      <section className="py-16 px-4 bg-farm-charcoal/95">
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="text-xs font-medium tracking-widest text-farm-tan uppercase mb-8">Press &amp; Media</p>
-          <div className="space-y-6">
-            {/* PBS Volunteer Gardener */}
-            <div className="border-b border-farm-tan/20 pb-6">
-              <a
-                href="https://volunteergardener.org/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-3 text-farm-cream/70 hover:text-farm-cream transition-colors"
-              >
-                <span className="font-serif text-xl">PBS Volunteer Gardener</span>
-                <span className="text-farm-tan/50">—</span>
-                <span className="text-sm italic text-farm-cream/50 group-hover:text-farm-cream/80 transition-colors">Straw Bale Garden at Forevermore Farm</span>
-              </a>
-              <p className="text-farm-cream/40 text-xs mt-3">Premiering April 30, 2026 on Nashville PBS</p>
-            </div>
-            {/* WKRN */}
-            <div>
-              <a
-                href="https://www.wkrn.com/special-reports/hickman-county-homesteaders-living-off-grid/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-3 text-farm-cream/70 hover:text-farm-cream transition-colors"
-              >
-                <span className="font-serif text-xl">WKRN News 2</span>
-                <span className="text-farm-tan/50">—</span>
-                <span className="text-sm italic text-farm-cream/50 group-hover:text-farm-cream/80 transition-colors">&ldquo;Hickman County Homesteaders Living Off Grid&rdquo;</span>
-              </a>
-              <blockquote className="mt-4 border-l-2 border-farm-tan/40 pl-6 text-left max-w-xl mx-auto">
-                <p className="text-farm-cream/70 italic leading-relaxed text-sm">
-                  &ldquo;It tastes better knowing that it came out of your garden. And it tastes better knowing that you raised the animal that you&rsquo;re eating. It&rsquo;s healthier.&rdquo;
-                </p>
-                <cite className="block mt-3 text-farm-tan/70 text-xs not-italic">— Olin West, WKRN News 2 · July 3, 2025</cite>
-              </blockquote>
+      <section id="ag-arts-tour" className="bg-farm-tan/20 px-4 py-20">
+        <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+          <div className="relative aspect-[4/3] overflow-hidden rounded-sm shadow-md">
+            <Image
+              src="/images/garden/garden-beds-with-white-tent.jpg"
+              alt="Garden beds and the tent at Forevermore Farm"
+              fill
+              sizes="(max-width: 768px) 100vw, 45vw"
+              className="object-cover"
+            />
+          </div>
+
+          <div>
+            <span className="text-xs font-medium uppercase tracking-[0.3em] text-farm-tan">Visit During Ag &amp; Arts Tour</span>
+            <h2 className="mt-3 font-serif text-3xl text-farm-green md:text-4xl">June 19–20, 2026, come see why PBS came out.</h2>
+            <p className="mt-5 text-lg leading-relaxed text-farm-charcoal/70">
+              Forevermore Farm is a tour stop for the 2026 Ag &amp; Arts Tour. If you want the best version of this story, it is not just on a screen. It is walking the garden, seeing the sunflower fields, and stepping into the rhythm of the farm for yourself.
+            </p>
+            <p className="mt-4 leading-relaxed text-farm-charcoal/70">
+              The straw bale garden will be front and center, and there will be a flea market under the tent all weekend.
+            </p>
+            <div className="mt-8 rounded-sm border border-farm-tan/35 bg-farm-cream p-6">
+              <p className="text-xs font-medium uppercase tracking-[0.3em] text-farm-tan">Worth seeing up close</p>
+              <ul className="mt-4 space-y-3 text-farm-charcoal/75">
+                <li>→ The straw bale garden featured on Volunteer Gardener</li>
+                <li>→ Sunflower fields in season</li>
+                <li>→ Heritage animals and a working off-grid, solar-powered farm</li>
+                <li>→ The flea market under the tent during Ag &amp; Arts Tour</li>
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Email + back-links */}
-      <EmailCapture
-        headline="Get the word when the episode airs."
-        subtitle="Join the list — we&apos;ll send a reminder before it premieres, and farm news after."
-      />
+      <section className="bg-farm-cream px-4 py-20">
+        <div className="mx-auto max-w-6xl">
+          <div className="max-w-3xl">
+            <span className="text-xs font-medium uppercase tracking-[0.3em] text-farm-tan">Vendors + Flea Market Under The Tent</span>
+            <h2 className="mt-3 font-serif text-3xl text-farm-green md:text-4xl">Confirmed so far.</h2>
+            <p className="mt-4 text-lg leading-relaxed text-farm-charcoal/70">
+              These are the confirmed names so far for the Ag &amp; Arts Tour weekend at Forevermore Farm. More vendors are still being finalized.
+            </p>
+          </div>
 
-      <section className="py-12 px-4 bg-farm-tan/10 border-t border-farm-tan/20">
-        <div className="max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-farm-charcoal/60">
-          <Link href="/straw-bale-garden" className="hover:text-farm-green transition-colors">
-            ← About the Straw Bale Garden
-          </Link>
-          <span className="hidden sm:block text-farm-tan/40">|</span>
-          <Link href="/events" className="hover:text-farm-green transition-colors">
-            Ag &amp; Arts Tour details →
-          </Link>
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+            {confirmedVendors.map((vendor) =>
+              vendor.cover && vendor.profile ? (
+                <div key={vendor.name} className="overflow-hidden rounded-sm border border-farm-tan/25 bg-white shadow-sm">
+                  <div className="relative aspect-[16/9]">
+                    <Image
+                      src={vendor.cover}
+                      alt={`${vendor.name} vendor image`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="relative p-6 pt-10">
+                    <div className="absolute left-6 top-0 h-16 w-16 -translate-y-1/2 overflow-hidden rounded-full border-4 border-white shadow-md">
+                      <Image
+                        src={vendor.profile}
+                        alt={`${vendor.name} profile image`}
+                        fill
+                        sizes="64px"
+                        className="object-cover"
+                      />
+                    </div>
+                    <p className="text-xs font-medium uppercase tracking-[0.25em] text-farm-tan">Confirmed vendor</p>
+                    <p className="mt-2 font-serif text-2xl text-farm-green">{vendor.name}</p>
+                    <p className="mt-3 text-sm leading-relaxed text-farm-charcoal/60">Confirmed for the Ag &amp; Arts Tour weekend.</p>
+                  </div>
+                </div>
+              ) : (
+                <div key={vendor.name} className="flex min-h-[220px] flex-col justify-between rounded-sm border border-dashed border-farm-green/30 bg-farm-green/5 p-6 shadow-sm">
+                  <div>
+                    <p className="text-xs font-medium uppercase tracking-[0.25em] text-farm-green/60">Confirmed vendor</p>
+                    <p className="mt-3 font-serif text-2xl text-farm-green">{vendor.name}</p>
+                  </div>
+                  <p className="mt-6 text-sm leading-relaxed text-farm-charcoal/60">
+                    Confirmed for the Ag &amp; Arts Tour weekend.
+                  </p>
+                </div>
+              )
+            )}
+            <div className="rounded-sm border border-dashed border-farm-green/30 bg-farm-green/5 p-6">
+              <p className="text-xs font-medium uppercase tracking-[0.3em] text-farm-green/60">Still coming together</p>
+              <p className="mt-3 font-serif text-2xl text-farm-green">Plus other vendors still being finalized</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white/80 px-4 py-20">
+        <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1fr_0.9fr]">
+          <div>
+            <span className="text-xs font-medium uppercase tracking-[0.3em] text-farm-tan">Plan Your Visit</span>
+            <h2 className="mt-3 font-serif text-3xl text-farm-green md:text-4xl">Come ready to spend a little time here.</h2>
+            <p className="mt-5 text-lg leading-relaxed text-farm-charcoal/70">
+              Forevermore Farm sits at 302 Hickory Trace, Lyles, TN 37098. The Ag &amp; Arts Tour weekend is the best built-in chance to watch the story on PBS, then come stand in the middle of it yourself a few weeks later.
+            </p>
+            <p className="mt-4 leading-relaxed text-farm-charcoal/70">
+              Expect the straw bale garden, sunflower fields, heritage animals, and the flea market under the tent. It is a working farm, so give yourself room to slow down and take it in.
+            </p>
+          </div>
+
+          <div className="rounded-sm bg-farm-charcoal p-8 text-farm-cream shadow-md">
+            <h3 className="font-serif text-2xl">Forevermore Farm</h3>
+            <p className="mt-4 leading-relaxed text-farm-cream/75">302 Hickory Trace<br />Lyles, TN 37098</p>
+            <p className="mt-6 text-sm uppercase tracking-[0.3em] text-farm-cream/50">Helpful links</p>
+            <div className="mt-4 flex flex-col gap-3">
+              <Link href="/events" className="inline-block text-farm-cream transition-colors hover:text-farm-tan">
+                See the events page →
+              </Link>
+              <Link href="/straw-bale-garden" className="inline-block text-farm-cream transition-colors hover:text-farm-tan">
+                Read more about the straw bale garden →
+              </Link>
+              <a
+                href="https://volunteergardener.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block text-farm-cream transition-colors hover:text-farm-tan"
+              >
+                Watch Volunteer Gardener online →
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-farm-green px-4 py-20 text-farm-cream">
+        <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-2 md:items-center">
+          <div>
+            <span className="text-xs font-medium uppercase tracking-[0.3em] text-farm-cream/60">About The PBS Feature</span>
+            <h2 className="mt-3 font-serif text-3xl md:text-4xl">Why this episode matters.</h2>
+            <p className="mt-5 text-lg leading-relaxed text-farm-cream/80">
+              Volunteer Gardener is putting a real spotlight on the straw bale garden at Forevermore Farm and on the method Concetta has spent years teaching and refining.
+            </p>
+            <p className="mt-4 leading-relaxed text-farm-cream/75">
+              It matters because this is not trend-chasing garden content. It is practical growing knowledge, taught by a certified instructor, lived out on an off-grid, solar-powered Tennessee farm.
+            </p>
+          </div>
+
+          <div className="relative aspect-[4/3] overflow-hidden rounded-sm shadow-md">
+            <Image
+              src="/images/garden-build/concetta-placing-bales-golden-hour.jpg"
+              alt="Concetta placing straw bales in the garden at Forevermore Farm"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
+
+      <section className="bg-white/80 px-4 py-16">
+        <div className="mx-auto max-w-4xl">
+          <div className="mb-6 max-w-2xl">
+            <span className="text-xs font-medium uppercase tracking-[0.3em] text-farm-tan">Filmed On Site</span>
+            <h2 className="mt-3 font-serif text-3xl text-farm-green md:text-4xl">Nashville PBS was here filming at the farm.</h2>
+          </div>
+          <div className="overflow-hidden rounded-sm border border-farm-tan/20 bg-white shadow-md">
+            <div className="relative aspect-[4/3]">
+              <Image
+                src="/images/press/forevermorefarm-pbs-van.jpg"
+                alt="Nashville PBS van at Forevermore Farm during filming for the Volunteer Gardener episode"
+                fill
+                sizes="(max-width: 1024px) 100vw, 66vw"
+                className="object-cover"
+              />
+            </div>
+            <p className="px-5 py-4 text-sm leading-relaxed text-farm-charcoal/65">
+              Nashville PBS on-site at Forevermore Farm during filming for the <em>Volunteer Gardener</em> straw bale garden episode.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-farm-charcoal px-4 py-20 text-farm-cream">
+        <div className="mx-auto max-w-6xl">
+          <div className="max-w-3xl">
+            <span className="text-xs font-medium uppercase tracking-[0.3em] text-farm-tan">Press &amp; Media</span>
+            <h2 className="mt-3 font-serif text-3xl md:text-4xl">A little context, without turning this into a history lesson.</h2>
+            <p className="mt-4 text-lg leading-relaxed text-farm-cream/75">
+              The main story right now is Volunteer Gardener. If you want a little more background after that, here are the useful links.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-4 md:grid-cols-2">
+            {pressLinks.map((link) => (
+              <a
+                key={link.title}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-sm border border-farm-tan/20 bg-farm-cream/5 p-6 transition-colors hover:bg-farm-cream/10"
+              >
+                <p className="font-serif text-2xl text-farm-cream">{link.title}</p>
+                <p className="mt-3 leading-relaxed text-farm-cream/65">{link.description}</p>
+              </a>
+            ))}
+          </div>
         </div>
       </section>
     </>
