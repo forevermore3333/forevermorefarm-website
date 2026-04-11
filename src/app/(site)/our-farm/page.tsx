@@ -47,19 +47,19 @@ export default function OurFarm() {
       <section className="py-20 px-4 bg-farm-cream">
         <div className="max-w-3xl mx-auto">
           <p className="font-serif text-xl text-farm-charcoal leading-relaxed mb-6">
-            In the hills of Lyles, Tennessee, Olin and Concetta West are building something that can&apos;t be rushed.
+            In the hills of Lyles, Tennessee, Olin and Concetta West are building something that refuses to be rushed.
           </p>
           <p className="text-farm-charcoal/70 leading-relaxed mb-4">
-            Forevermore Farm took root in 2021 — not as an investment, not as a hobby, but as a commitment to a different way of living. To soil you can trust. To food you can trace. To neighbors you actually know.
+            Forevermore Farm began in 2021, not as an investment or a hobby, but as a commitment to a more grounded way of life, one rooted in trusted soil, traceable food, and real connection to community.
           </p>
           <p className="text-farm-charcoal/70 leading-relaxed mb-4">
-            Olin keeps the land. He&apos;s up before the sun, tending fields and animals with the kind of quiet patience that farming demands. He doesn&apos;t talk much about stewardship — he just does it.
+            Olin tends the land with the quiet steadiness farming requires, caring for the fields and animals with patience, consistency, and deep respect for the work. He does not talk much about stewardship, he simply lives it.
           </p>
           <p className="text-farm-charcoal/70 leading-relaxed mb-4">
-            Concetta brings the knowledge. A certified Straw Bale Gardening instructor and the founder of The LOCAL Place in Centerville, she&apos;s been feeding this community for years. At Forevermore, she raises heritage Berkshire and Gloucestershire Old Spot pigs — free-range, no pharmaceutical vaccines, the way it used to be done before farming became a factory. The pork is extraordinary. The reason why is simple.
+            Concetta brings both knowledge and vision. She is a certified Straw Bale Gardening instructor and the founder of The LOCAL Place in Centerville, where she has nourished the community for years. At Forevermore, she raises miniature dairy goats, chickens, unbelievably soft rabbits, and heritage Berkshire and Gloucestershire Old Spot pigs, while also growing vegetables, herbs, and flowers that fill the farm with both nourishment and beauty. Everything is approached in a way that honors older, more natural farming traditions. The pork is exceptional, and the reason is simple: the animals are raised with care.
           </p>
           <p className="text-farm-charcoal/70 leading-relaxed mb-4">
-            Together, they&apos;ve made Forevermore a place where people come to slow down, get their hands dirty, and remember what food actually is. Workshops, farm days, time with the animals, time in the garden — all of it grounded in one belief: that knowing how things grow changes how you live.
+            Together, Olin and Concetta have made Forevermore Farm a place where people can slow down, get their hands dirty, and reconnect with what food really is. Through workshops, farm days, time in the garden, and time with the animals, they invite others into a way of living that is more intentional, more nourishing, and more connected.
           </p>
           <p className="font-serif text-lg text-farm-green">Come wander. Come learn. Come back.</p>
         </div>
@@ -74,19 +74,19 @@ export default function OurFarm() {
           <div>
             <h2 className="font-serif text-3xl text-farm-green mb-6">Who We Are</h2>
             <p className="text-farm-charcoal/70 leading-relaxed mb-4">
-              Olin spent 20 years in the United States Navy on submarines &mdash; sonar technician, Senior Chief Petty Officer, the person responsible for knowing what was out there in the dark. After the Navy, he spent five more years at Puget Sound Naval Shipyard, maintaining the combat systems he&apos;d built his career operating. Somewhere in all of that, he started thinking about land.
+              Olin spent 20 years in the United States Navy serving on submarines as a sonar technician, retiring as a Senior Chief Petty Officer. His work required focus, discipline, and a constant awareness of what could not always be seen. After the Navy, he spent another five years at Puget Sound Naval Shipyard, maintaining the combat systems he had spent his career operating. Along the way, his focus began to turn toward a different kind of calling, one rooted not in steel and sonar, but in land, animals, and the steady work of building something lasting.
             </p>
             <p className="text-farm-charcoal/70 leading-relaxed mb-4">
-              Concetta was a trauma nurse at a major hospital in Seattle &mdash; the kind of work where you don&apos;t get to ease into your day. She left the ER, moved to Tennessee, and opened{' '}
+              Concetta&apos;s path was no less demanding. She worked as a trauma nurse on the OR at a Level One trauma center in Seattle, where the pace was relentless and the stakes were always high. When she moved to Tennessee, she brought that same grit, instinct, and care into a new chapter, opening{' '}
               <a href="https://thelocalplacetn.com" target="_blank" rel="noopener noreferrer" className="text-farm-green hover:underline underline-offset-4">The LOCAL Place</a>
-              {' '}on the square in Centerville &mdash; a caf&eacute;, a gathering spot, a reason for people to come downtown. Then came{' '}
+              {' '}on the square in Centerville. What she created was more than a caf&eacute;. It became a gathering place, a place of warmth, welcome, and community. That vision continued to grow with{' '}
               <a href="https://thelocalplacetn.com/drive-thru" target="_blank" rel="noopener noreferrer" className="text-farm-green hover:underline underline-offset-4">The LOCAL Drive-Thru</a>
               {' '}and{' '}
               <a href="https://thelocalplacetn.com/made" target="_blank" rel="noopener noreferrer" className="text-farm-green hover:underline underline-offset-4">MADE @ The Local</a>
-              , a paint-your-own pottery and candle-making studio upstairs.
+              , a creative space for pottery, candles, and hands-on beauty.
             </p>
             <p className="font-serif text-lg text-farm-green">
-              They didn&apos;t come to Tennessee to slow down. They came to build something real.
+              They did not come to Tennessee to disappear into a quieter life. They came to build something honest, rooted, and real.
             </p>
           </div>
         </div>
