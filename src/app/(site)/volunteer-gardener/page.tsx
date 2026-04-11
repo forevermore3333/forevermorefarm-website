@@ -120,6 +120,7 @@ export default function VolunteerGardenerPage() {
         bgPositionMobile="50% 52%"
         bgPositionDesktop="50% 58%"
         bgScaleDesktop={1.15}
+        contentClassName="flex min-h-[85vh] flex-col justify-end pb-[max(5.5rem,38.2vh)] pt-36 md:min-h-[95vh] md:pb-[38.2vh] md:pt-40"
       >
         <div className="mx-auto mt-6 inline-flex items-center gap-3 rounded-full border border-farm-cream/20 bg-farm-charcoal/20 px-4 py-2 text-farm-cream/90 shadow-sm backdrop-blur-sm">
           <Image

@@ -14,6 +14,7 @@ interface HeroSectionProps {
   bgPositionDesktop?: string
   bgScaleDesktop?: number
   bgTranslateXDesktop?: string
+  contentClassName?: string
   showLogo?: boolean
   children?: React.ReactNode
 }
@@ -24,6 +25,7 @@ export default function HeroSection({
   bgPositionDesktop = '50% 50%',
   bgScaleDesktop = 1.0,
   bgTranslateXDesktop = '0%',
+  contentClassName = 'pb-48 md:-mt-[20vh]',
 }: HeroSectionProps) {
   const ref = useRef<HTMLElement>(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
@@ -62,7 +64,7 @@ export default function HeroSection({
       )}
       <div className="absolute inset-0 bg-farm-charcoal/55" />
 
-      <div className="relative z-10 text-center px-4 max-w-3xl pb-48 md:-mt-[20vh]">
+      <div className={`relative z-10 max-w-3xl px-4 text-center ${contentClassName}`}>
         <h1 className="font-serif text-4xl md:text-6xl text-farm-cream mb-6 leading-tight drop-shadow-lg">
           {title}
         </h1>
