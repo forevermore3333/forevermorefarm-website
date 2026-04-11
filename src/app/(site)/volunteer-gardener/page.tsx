@@ -31,12 +31,36 @@ const broadcastSchedule = [
   },
 ]
 
-const confirmedVendors = [
-  'Papa K Joe’s BBQ',
-  'Twin Creek Woodworks',
-  'Rustic Roots',
-  'The Old Country Church Stead',
-  'Sourdough by Katerina',
+interface ConfirmedVendor {
+  name: string
+  cover?: string
+  profile?: string
+}
+
+const confirmedVendors: ConfirmedVendor[] = [
+  {
+    name: 'Papa K Joe’s BBQ',
+  },
+  {
+    name: 'Twin Creek Woodworks',
+    cover: '/images/vendors/twin-creek-woodworks-cover.jpg',
+    profile: '/images/vendors/twin-creek-woodworks-profile.jpg',
+  },
+  {
+    name: 'Rustic Roots',
+    cover: '/images/vendors/rustic-roots-homestead-cover.jpg',
+    profile: '/images/vendors/rustic-roots-homestead-profile.jpg',
+  },
+  {
+    name: 'The Old Country Church Stead',
+    cover: '/images/vendors/the-old-country-churchstead-cover.jpg',
+    profile: '/images/vendors/the-old-country-churchstead-profile.jpg',
+  },
+  {
+    name: 'Sourdough by Katerina',
+    cover: '/images/vendors/sourdough-by-katerina-cover.jpg',
+    profile: '/images/vendors/sourdough-by-katerina-profile.jpg',
+  },
 ]
 
 const pressLinks = [
@@ -63,10 +87,10 @@ export const metadata: Metadata = {
       'Get the full Volunteer Gardener broadcast schedule, then plan your visit to Forevermore Farm during the June 19–20, 2026 Ag & Arts Tour.',
     images: [
       {
-        url: '/images/garden/zinnias-sunflowers-white-tent.jpg',
+        url: '/images/press/volunteer-gardener-seo.png',
         width: 1200,
         height: 630,
-        alt: 'Sunflowers and zinnias near the event tent at Forevermore Farm',
+        alt: 'Volunteer Gardener feature graphic for Forevermore Farm',
       },
     ],
   },
@@ -75,7 +99,7 @@ export const metadata: Metadata = {
     title: 'Volunteer Gardener PBS Feature | Straw Bale Garden at Forevermore Farm',
     description:
       'Watch the PBS feature, see the schedule, and come visit the straw bale garden at Forevermore Farm.',
-    images: ['/images/garden/zinnias-sunflowers-white-tent.jpg'],
+    images: ['/images/press/volunteer-gardener-seo.png'],
   },
   alternates: {
     canonical: '/volunteer-gardener',
@@ -95,6 +119,18 @@ export default function VolunteerGardenerPage() {
         bgPositionDesktop="50% 58%"
         bgScaleDesktop={1.15}
       >
+        <div className="mx-auto mt-6 inline-flex items-center gap-3 rounded-full border border-farm-cream/20 bg-farm-charcoal/20 px-4 py-2 text-farm-cream/90 shadow-sm backdrop-blur-sm">
+          <Image
+            src="/images/press/volunteer-gardener-gardener.svg"
+            alt="Volunteer Gardener mark"
+            width={30}
+            height={30}
+            className="h-[30px] w-[30px]"
+          />
+          <span className="text-[11px] font-medium uppercase tracking-[0.3em] text-farm-cream/85">
+            Featured on Volunteer Gardener
+          </span>
+        </div>
         <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
           <Link
             href="#ag-arts-tour"
@@ -144,6 +180,29 @@ export default function VolunteerGardenerPage() {
               </a>
               .
             </p>
+            <div className="mt-8 overflow-hidden rounded-sm border border-farm-cream/15 bg-farm-charcoal/20 shadow-lg">
+              <div className="relative aspect-[16/9]">
+                <Image
+                  src="/images/press/volunteer-gardener-seo.png"
+                  alt="Volunteer Gardener feature graphic for Forevermore Farm"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 34vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex items-center gap-3 border-t border-farm-cream/10 px-4 py-4">
+                <Image
+                  src="/images/press/volunteer-gardener-gardener.svg"
+                  alt="Volunteer Gardener mark"
+                  width={28}
+                  height={28}
+                  className="h-7 w-7 shrink-0"
+                />
+                <p className="text-sm leading-relaxed text-farm-cream/75">
+                  Volunteer Gardener spotlighted the straw bale garden visitors can come see in person during Ag &amp; Arts Tour weekend.
+                </p>
+              </div>
+            </div>
             <p className="mt-6 leading-relaxed text-farm-cream/70">
               If the episode sends you here, good. The next move is simple: come walk the straw bale garden for yourself.
             </p>
@@ -240,12 +299,46 @@ export default function VolunteerGardenerPage() {
             </p>
           </div>
 
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {confirmedVendors.map((vendor) => (
-              <div key={vendor} className="rounded-sm border border-farm-tan/25 bg-white/70 p-6 shadow-sm">
-                <p className="font-serif text-2xl text-farm-green">{vendor}</p>
-              </div>
-            ))}
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+            {confirmedVendors.map((vendor) =>
+              vendor.cover && vendor.profile ? (
+                <div key={vendor.name} className="overflow-hidden rounded-sm border border-farm-tan/25 bg-white shadow-sm">
+                  <div className="relative aspect-[16/9]">
+                    <Image
+                      src={vendor.cover}
+                      alt={`${vendor.name} vendor image`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="relative p-6 pt-10">
+                    <div className="absolute left-6 top-0 h-16 w-16 -translate-y-1/2 overflow-hidden rounded-full border-4 border-white shadow-md">
+                      <Image
+                        src={vendor.profile}
+                        alt={`${vendor.name} profile image`}
+                        fill
+                        sizes="64px"
+                        className="object-cover"
+                      />
+                    </div>
+                    <p className="text-xs font-medium uppercase tracking-[0.25em] text-farm-tan">Confirmed vendor</p>
+                    <p className="mt-2 font-serif text-2xl text-farm-green">{vendor.name}</p>
+                    <p className="mt-3 text-sm leading-relaxed text-farm-charcoal/60">Confirmed for the Ag &amp; Arts Tour weekend.</p>
+                  </div>
+                </div>
+              ) : (
+                <div key={vendor.name} className="flex min-h-[220px] flex-col justify-between rounded-sm border border-dashed border-farm-green/30 bg-farm-green/5 p-6 shadow-sm">
+                  <div>
+                    <p className="text-xs font-medium uppercase tracking-[0.25em] text-farm-green/60">Confirmed vendor</p>
+                    <p className="mt-3 font-serif text-2xl text-farm-green">{vendor.name}</p>
+                  </div>
+                  <p className="mt-6 text-sm leading-relaxed text-farm-charcoal/60">
+                    Confirmed for the Ag &amp; Arts Tour weekend.
+                  </p>
+                </div>
+              )
+            )}
             <div className="rounded-sm border border-dashed border-farm-green/30 bg-farm-green/5 p-6">
               <p className="text-xs font-medium uppercase tracking-[0.3em] text-farm-green/60">Still coming together</p>
               <p className="mt-3 font-serif text-2xl text-farm-green">Plus other vendors still being finalized</p>
