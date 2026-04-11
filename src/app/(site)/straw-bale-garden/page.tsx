@@ -359,6 +359,38 @@ export default async function StrawBaleGarden() {
         </div>
       </section>
 
+      {/* PBS Volunteer Gardener callout */}
+      <section className="py-16 px-4 bg-farm-charcoal">
+        <div className="max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-10 items-center">
+            <div>
+              <span className="text-xs font-medium tracking-widest text-farm-tan uppercase">As Seen on PBS</span>
+              <h2 className="font-serif text-2xl md:text-3xl text-farm-cream mt-3 mb-4">
+                This Garden Is on <em>Volunteer Gardener</em>
+              </h2>
+              <p className="text-farm-cream/75 leading-relaxed mb-6">
+                Nashville PBS is airing a feature on Forevermore&apos;s straw bale garden. The premiere is Thursday, April 30 at 7:30 PM — or come see the real thing at the Hickman County Ag &amp; Arts Tour in June.
+              </p>
+              <Link
+                href="/volunteer-gardener"
+                className="inline-block bg-farm-tan text-farm-charcoal px-8 py-3 rounded-sm text-sm font-medium tracking-widest uppercase hover:bg-farm-tan/90 transition-colors"
+              >
+                Watch Schedule &amp; Visit Info
+              </Link>
+            </div>
+            <div className="relative aspect-[4/3] rounded-sm overflow-hidden shadow-md">
+              <Image
+                src="/images/garden-build/garden-beds-straw-bale-construction-4.jpg"
+                alt="Straw bale construction at Forevermore Farm"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Workshops CTA */}
       <section id="workshops" className="py-24 px-4 bg-farm-green">
         <div className="max-w-2xl mx-auto text-center">

@@ -151,6 +151,36 @@ export default async function Events() {
             </div>
           </div>
 
+          {/* PBS Volunteer Gardener featured block */}
+          <div className="mb-12 border border-farm-tan/40 rounded-sm overflow-hidden bg-farm-green/5">
+            <div className="grid md:grid-cols-2">
+              <div className="relative h-56 md:h-auto">
+                <Image
+                  src="/images/garden-build/concetta-placing-bales-golden-hour.jpg"
+                  alt="Concetta placing straw bales at Forevermore Farm"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-8 flex flex-col justify-center">
+                <span className="text-xs font-medium tracking-widest text-farm-tan uppercase">As Seen on PBS</span>
+                <h2 className="font-serif text-2xl text-farm-green mt-2 mb-3">
+                  <em>Volunteer Gardener</em> — Premiering April 30
+                </h2>
+                <p className="text-farm-charcoal/70 text-sm leading-relaxed mb-5">
+                  Concetta&apos;s straw bale garden is featured on PBS <em>Volunteer Gardener</em>. Nashville PBS premiere is Thursday, April 30 at 7:30 PM. Then come see the garden yourself at the Ag &amp; Arts Tour in June.
+                </p>
+                <Link
+                  href="/volunteer-gardener"
+                  className="inline-block self-start bg-farm-green text-farm-cream px-6 py-2.5 rounded-sm text-xs font-medium tracking-widest uppercase hover:bg-farm-green/90 transition-colors"
+                >
+                  Watch Schedule &amp; Visit Info
+                </Link>
+              </div>
+            </div>
+          </div>
+
           {/* Upcoming events */}
           {upcomingEvents.length > 0 ? (
             <div className="grid gap-6">
@@ -177,6 +207,14 @@ export default async function Events() {
           <div className="mt-16 border-t border-farm-tan/30 pt-16">
             <h2 className="font-serif text-3xl text-farm-green mb-2">Forevermore Farm at the Ag &amp; Arts Tour</h2>
             <p className="text-farm-charcoal/50 text-sm mb-10">June 19–20, 2026 · 302 Hickory Trace, Lyles, TN 37098</p>
+
+            {/* PBS volunteer-gardener callout */}
+            <div className="mb-10 p-5 bg-farm-green/5 border-l-4 border-farm-tan rounded-sm">
+              <p className="text-farm-charcoal/80 text-sm leading-relaxed">
+                <strong>Watch before you visit:</strong> Concetta&apos;s straw bale garden is featured on PBS <em>Volunteer Gardener</em> — Nashville PBS premiere April 30 at 7:30 PM.{' '}
+                <Link href="/volunteer-gardener" className="text-farm-green font-medium hover:underline underline-offset-4">Full watch schedule and visit details →</Link>
+              </p>
+            </div>
 
             {/* What's happening */}
             <div className="mb-10">

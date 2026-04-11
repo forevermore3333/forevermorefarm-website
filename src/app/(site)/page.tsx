@@ -66,6 +66,38 @@ export default function Home() {
       </section>
 
 
+      {/* PBS Volunteer Gardener promo */}
+      <section className="py-16 px-4 bg-farm-green">
+        <div className="max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-10 items-center">
+            <div>
+              <span className="text-xs font-medium tracking-widest text-farm-tan uppercase">Coming to PBS</span>
+              <h2 className="font-serif text-3xl text-farm-cream mt-3 mb-4">
+                Forevermore Farm on <em>Volunteer Gardener</em>
+              </h2>
+              <p className="text-farm-cream/80 leading-relaxed mb-6">
+                Concetta&apos;s straw bale garden is featured on PBS <em>Volunteer Gardener</em>. The Nashville premiere is Thursday, April 30 at 7:30 PM — and you can see the garden in person at the Ag &amp; Arts Tour in June.
+              </p>
+              <Link
+                href="/volunteer-gardener"
+                className="inline-block bg-farm-tan text-farm-charcoal px-8 py-3 rounded-sm text-sm font-medium tracking-widest uppercase hover:bg-farm-tan/90 transition-colors"
+              >
+                Watch Schedule &amp; Visit Info
+              </Link>
+            </div>
+            <div className="relative aspect-[4/3] rounded-sm overflow-hidden shadow-md">
+              <Image
+                src="/images/garden-build/garden-pergola-interior-complete.jpg"
+                alt="The straw bale garden at Forevermore Farm featured on PBS Volunteer Gardener"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Press — social proof */}
       <section className="py-16 px-4 bg-farm-charcoal/95">
         <div className="max-w-3xl mx-auto text-center">
@@ -89,8 +121,12 @@ export default function Home() {
             </blockquote>
           </div>
 
-          {/* PBS teaser */}
-          <p className="text-farm-cream/40 text-xs mt-8 max-w-lg mx-auto">Concetta&apos;s straw bale garden at Forevermore is soon to be featured on PBS <em>Volunteer Gardener</em> — the method she teaches, trained directly under creator Joel Karsten.</p>
+          {/* PBS link */}
+          <div className="mt-8">
+            <Link href="/volunteer-gardener" className="text-farm-tan/70 hover:text-farm-tan text-sm transition-colors">
+              Concetta&apos;s straw bale garden on PBS <em>Volunteer Gardener</em> — watch schedule &amp; visit info &rarr;
+            </Link>
+          </div>
         </div>
       </section>
 
