@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from 'react'
 import Image from 'next/image'
 import HeroSection from '@/components/HeroSection'
 
-type Category = 'all' | 'garden' | 'garden-build' | 'animals' | 'land' | 'people' | 'events'
+type Category = 'all' | 'garden' | 'garden-build' | 'animals' | 'hogs' | 'goats' | 'sheep' | 'chickens' | 'rabbits' | 'land' | 'people' | 'events'
 
 interface Photo {
   src: string
@@ -542,13 +542,104 @@ const photos: Photo[] = [
   { src: '/images/garden-build/completed-fabric-rows-farm-animals.jpg', alt: 'Wide view of completed landscape fabric rows with Juliana pig Dorothy Jean the dog and family working in background', category: 'garden-build' },
   { src: '/images/garden-build/straw-bale-garden-construction-compost.jpg', alt: 'Straw bale garden beds under construction with compost and t-posts for support', category: 'garden-build' },
   { src: '/images/garden-build/kubota-tractor-hauling-compost-garden.jpg', alt: 'Kubota tractor hauling compost for straw bale garden preparation on farm', category: 'garden-build' },
+
+
+  // === Animal gallery additions (April 2026) ===
+  { src: '/images/goats/newborn-goat-kids-hay-1.jpg', alt: 'Newborn goat kids resting on hay', category: 'goats' },
+  { src: '/images/goats/tan-goat-kid-clover-1.jpg', alt: 'A tan goat kid standing in clover', category: 'goats' },
+  { src: '/images/goats/gray-goat-kid-tall-grass-1.jpg', alt: 'A gray goat kid in tall grass', category: 'goats' },
+  { src: '/images/goats/nigerian-dwarf-goat-kids-pasture-1.jpg', alt: 'Nigerian Dwarf goat kids out in the pasture', category: 'goats' },
+  { src: '/images/goats/tan-goat-kids-standing-together-1.jpg', alt: 'Two tan goat kids standing shoulder to shoulder', category: 'goats' },
+  { src: '/images/goats/tan-goat-kid-closeup-grass-1.jpg', alt: 'A tan goat kid standing in the grass', category: 'goats' },
+  { src: '/images/goats/boy-holding-goat-kid-by-pen-1.jpg', alt: 'A boy holding a goat kid beside the pen', category: 'goats' },
+  { src: '/images/goats/smiling-boy-holding-goat-kid-1.jpg', alt: 'A smiling boy holding a goat kid', category: 'goats' },
+  { src: '/images/goats/goat-kid-eating-bucket-feeder-1.jpg', alt: 'A goat kid eating from a bucket feeder', category: 'goats' },
+  { src: '/images/goats/goat-kid-standing-in-stall-1.jpg', alt: 'A goat kid standing quietly in the stall', category: 'goats' },
+  { src: '/images/goats/tan-goat-closeup-barn-1.jpg', alt: 'A tan goat close up inside the barn', category: 'goats' },
+  { src: '/images/goats/kids-feeding-goat-kids-pen-1.jpg', alt: 'Kids feeding goat kids in the pen', category: 'goats' },
+  { src: '/images/goats/children-petting-goat-kid-stall-1.jpg', alt: 'Children petting a goat kid in the stall', category: 'goats' },
+
+  { src: '/images/rabbits/black-standard-rex-rabbit-wire-cage-1.jpg', alt: 'A black Standard Rex rabbit standing in a wire cage', category: 'rabbits' },
+  { src: '/images/rabbits/black-white-standard-rex-rabbit-cage-1.jpg', alt: 'A black and white Standard Rex rabbit in its pen', category: 'rabbits' },
+  { src: '/images/rabbits/brown-standard-rex-rabbit-cage-1.jpg', alt: 'A brown Standard Rex rabbit resting in its cage', category: 'rabbits' },
+  { src: '/images/rabbits/kids-holding-rabbit-barn-wall-1.jpg', alt: 'Kids holding a rabbit by the barn wall', category: 'rabbits' },
+  { src: '/images/rabbits/family-sitting-with-rabbit-outside-barn-1.jpg', alt: 'Family sitting outside the barn with a rabbit in their laps', category: 'rabbits' },
+  { src: '/images/rabbits/children-holding-black-rabbit-1.jpg', alt: 'Children holding a black rabbit', category: 'rabbits' },
+  { src: '/images/rabbits/black-standard-rex-rabbit-cage-2.jpg', alt: 'A black Standard Rex rabbit with alert ears in its cage', category: 'rabbits' },
+  { src: '/images/rabbits/brown-standard-rex-rabbit-cage-2.jpg', alt: 'A brown Standard Rex rabbit sitting quietly in its pen', category: 'rabbits' },
+  { src: '/images/rabbits/brown-standard-rex-rabbit-wire-cage-3.jpg', alt: 'A brown Standard Rex rabbit in a wire cage', category: 'rabbits' },
+  { src: '/images/rabbits/brown-standard-rex-rabbit-closeup-1.jpg', alt: 'Close view of a brown Standard Rex rabbit', category: 'rabbits' },
+  { src: '/images/rabbits/brown-standard-rex-rabbit-resting-cage-1.jpg', alt: 'A brown Standard Rex rabbit resting in its cage', category: 'rabbits' },
+  { src: '/images/rabbits/gray-standard-rex-rabbit-on-lap-1.jpg', alt: "A gray Standard Rex rabbit sitting on someone's lap", category: 'rabbits' },
+  { src: '/images/rabbits/brown-standard-rex-rabbit-portrait-1.jpg', alt: 'A brown Standard Rex rabbit in a close portrait', category: 'rabbits' },
+
+  { src: '/images/pigs/pigs-walking-wooded-pen-1.jpg', alt: 'Pigs walking through the wooded pen at Forevermore Farm', category: 'hogs' },
+  { src: '/images/pigs/piglet-closeup-straw-bedding-1.jpg', alt: 'A piglet curled up close in the straw bedding', category: 'hogs' },
+  { src: '/images/pigs/spotted-pig-resting-grass-1.jpg', alt: 'A spotted pig resting in the grass', category: 'hogs' },
+  { src: '/images/pigs/pig-snout-closeup-grass-1.jpg', alt: 'Close view of a pig snout in the grass', category: 'hogs' },
+  { src: '/images/pigs/pig-nose-under-branches-1.jpg', alt: 'A pig nosing around beneath low branches', category: 'hogs' },
+  { src: '/images/pigs/newborn-piglets-sleeping-straw-1.jpg', alt: 'Newborn piglets sleeping together in the straw', category: 'hogs' },
+  { src: '/images/pigs/pigs-resting-straw-paddock-1.jpg', alt: 'Pigs resting in a straw paddock', category: 'hogs' },
+  { src: '/images/pigs/pigs-foraging-wooded-enclosure-1.jpg', alt: 'Pigs foraging through their wooded enclosure', category: 'hogs' },
+  { src: '/images/pigs/sow-nursing-piglets-hay-1.jpg', alt: 'A sow nursing her piglets on fresh hay', category: 'hogs' },
+  { src: '/images/pigs/pig-snout-through-fence-1.jpg', alt: 'A pig snout pressed through the fence', category: 'hogs' },
+  { src: '/images/pigs/woman-cuddling-pig-1.jpg', alt: 'A woman cuddling one of the pigs', category: 'hogs' },
+  { src: '/images/pigs/piglets-resting-indoor-pen-1.jpg', alt: 'Piglets resting together in the indoor pen', category: 'hogs' },
+  { src: '/images/pigs/smiling-pig-portrait-1.jpg', alt: 'A content pig grinning straight at the camera', category: 'hogs' },
+  { src: '/images/pigs/muddy-pig-snout-1.jpg', alt: 'A muddy pig snout up close', category: 'hogs' },
+  { src: '/images/pigs/pigs-gathered-shaded-woods-1.jpg', alt: 'A group of pigs gathered in the shade of the woods', category: 'hogs' },
+  { src: '/images/pigs/large-pigs-standing-shade-1.jpg', alt: 'Large pigs standing together in the shade', category: 'hogs' },
+  { src: '/images/pigs/pigs-gathered-wooded-pen-2.jpg', alt: 'Pigs moving through the wooded pen together', category: 'hogs' },
+  { src: '/images/pigs/piglets-piled-hay-bedding-1.jpg', alt: 'Piglets piled up on the hay bedding', category: 'hogs' },
+  { src: '/images/pigs/sleeping-piglets-closeup-1.jpg', alt: 'Sleeping piglets tucked close together', category: 'hogs' },
+  { src: '/images/pigs/spotted-pig-portrait-1.jpg', alt: 'A spotted pig in a close portrait', category: 'hogs' },
+  { src: '/images/pigs/piglet-standing-straw-1.jpg', alt: 'A piglet standing on the straw and looking up', category: 'hogs' },
+  { src: '/images/pigs/piglets-at-feed-trough-1.jpg', alt: 'Piglets gathered around the feed trough', category: 'hogs' },
+  { src: '/images/pigs/piglet-walking-toward-camera-1.jpg', alt: 'A piglet walking toward the camera through the straw', category: 'hogs' },
+  { src: '/images/pigs/piglet-nibbling-straw-1.jpg', alt: 'A piglet nibbling on straw', category: 'hogs' },
+
+  { src: '/images/sheep/children-meeting-katahdin-sheep-pasture-1.jpg', alt: 'Children meeting Katahdin sheep in a grassy pasture', category: 'sheep' },
+
+  { src: '/images/chickens/mixed-chickens-inside-coop-1.jpg', alt: 'A mixed flock of chickens tucked inside the coop at Forevermore Farm', category: 'chickens' },
+  { src: '/images/chickens/hen-with-black-chicks-grass-1.jpg', alt: 'A brown hen keeping close watch over her black chicks in the grass', category: 'chickens' },
+  { src: '/images/chickens/hen-with-chicks-dirt-1.jpg', alt: 'A hen and her chicks picking through the dirt together', category: 'chickens' },
+  { src: '/images/chickens/black-chicken-perched-tree-1.jpg', alt: 'A black chicken perched high in a leafy tree', category: 'chickens' },
+  { src: '/images/chickens/barred-hens-inside-coop-1.jpg', alt: 'Barred hens gathered together inside the coop', category: 'chickens' },
+  { src: '/images/chickens/fluffy-chicks-under-brooder-lamp-1.jpg', alt: 'A cluster of fluffy chicks warming up beneath the brooder lamp', category: 'chickens' },
+  { src: '/images/chickens/kids-holding-baby-chicks-outdoors-1.jpg', alt: 'Children holding baby chicks outside the barn', category: 'chickens' },
+  { src: '/images/chickens/kids-holding-farm-eggs-porch-1.jpg', alt: 'Children proudly holding fresh eggs on the porch', category: 'chickens' },
+  { src: '/images/chickens/child-holding-buff-hen-1.jpg', alt: 'A child holding a buff hen close to the fence', category: 'chickens' },
+  { src: '/images/chickens/family-sorting-eggs-table-1.jpg', alt: 'Family sorting gathered eggs at the table', category: 'chickens' },
+  { src: '/images/chickens/kids-collecting-eggs-tray-1.jpg', alt: 'Kids collecting eggs from a full tray', category: 'chickens' },
+  { src: '/images/chickens/kids-checking-egg-incubator-1.jpg', alt: 'Children checking on eggs in the incubator', category: 'chickens' },
+  { src: '/images/chickens/kids-holding-chicks-barnyard-1.jpg', alt: 'Children carrying chicks through the barnyard', category: 'chickens' },
+  { src: '/images/chickens/laying-flock-sunlit-yard-1.jpg', alt: 'The laying flock spread out in the sunlit yard', category: 'chickens' },
+  { src: '/images/chickens/child-holding-white-silkie-1.jpg', alt: 'A child holding a white silkie chicken', category: 'chickens' },
+  { src: '/images/chickens/chicks-hatching-incubator-1.jpg', alt: 'Chicks hatching in the incubator', category: 'chickens' },
+  { src: '/images/chickens/mixed-color-chicks-white-backdrop-1.jpg', alt: 'A mix of newly hatched chicks against a white backdrop', category: 'chickens' },
+  { src: '/images/chickens/eggs-on-wire-conveyor-1.jpg', alt: 'Farm eggs lined up on the wire conveyor', category: 'chickens' },
+  { src: '/images/chickens/chick-in-grass-rabbits-behind-1.jpg', alt: 'A chick in the grass with rabbits blurred in the background', category: 'chickens' },
+  { src: '/images/chickens/hand-holding-speckled-egg-1.jpg', alt: "A tiny speckled egg resting in someone's hand", category: 'chickens' },
+  { src: '/images/chickens/barred-hens-grass-1.png', alt: 'Barred hens roaming through the grass', category: 'chickens' },
+  { src: '/images/chickens/barred-hens-by-coop-fence-1.jpg', alt: 'Barred hens gathered along the coop fence', category: 'chickens' },
+  { src: '/images/chickens/white-rooster-grassy-yard-1.jpg', alt: 'A white rooster standing tall in the grassy yard', category: 'chickens' },
+  { src: '/images/chickens/hens-eating-red-feeder-1.jpg', alt: 'Hens eating together from a red feeder', category: 'chickens' },
+  { src: '/images/chickens/buff-rooster-with-barred-hens-1.jpg', alt: 'A buff rooster walking with barred hens nearby', category: 'chickens' },
+  { src: '/images/chickens/chickens-resting-grassy-path-1.jpg', alt: 'Chickens resting along the grassy path', category: 'chickens' },
 ]
+
+const ANIMAL_SUBCATEGORIES: Category[] = ['hogs', 'goats', 'sheep', 'chickens', 'rabbits']
 
 const CATEGORIES: { id: Category; label: string }[] = [
   { id: 'all', label: 'All' },
   { id: 'garden', label: 'Garden' },
   { id: 'garden-build', label: 'Garden Build' },
   { id: 'animals', label: 'Animals' },
+  { id: 'hogs', label: 'Hogs' },
+  { id: 'goats', label: 'Goats' },
+  { id: 'sheep', label: 'Sheep' },
+  { id: 'chickens', label: 'Chickens' },
+  { id: 'rabbits', label: 'Rabbits' },
   { id: 'land', label: 'The Land' },
   { id: 'people', label: 'People' },
   { id: 'events', label: 'Events' },
@@ -560,7 +651,9 @@ export default function GalleryClient() {
 
   const filtered = activeCategory === 'all'
     ? photos
-    : photos.filter(p => p.category === activeCategory)
+    : activeCategory === 'animals'
+      ? photos.filter((p) => p.category === 'animals' || ANIMAL_SUBCATEGORIES.includes(p.category))
+      : photos.filter((p) => p.category === activeCategory)
 
   const closeLightbox = useCallback(() => setLightboxIndex(null), [])
 
