@@ -6,6 +6,7 @@ import Link from 'next/link'
 const links = [
   { href: '/', label: 'Home' },
   { href: '/our-farm', label: 'Our Farm' },
+  { href: '/our-animals', label: 'Our Animals' },
   { href: '/straw-bale-garden', label: 'Garden' },
   { href: '/events', label: 'Events' },
   { href: '/stay', label: 'Stay' },
