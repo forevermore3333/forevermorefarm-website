@@ -8,7 +8,7 @@ const links = [
   { href: '/our-farm', label: 'Our Farm' },
   { href: '/straw-bale-garden', label: 'Garden' },
   { href: '/events', label: 'Events' },
-  { href: '/learning-collective', label: 'Learning' },
+  { href: '/learning-collective', label: 'Programs' },
   { href: '/stay', label: 'Stay' },
   { href: '/gallery', label: 'Gallery' },
   { href: '/contact', label: 'Contact' },

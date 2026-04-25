@@ -24,7 +24,7 @@ export default function Footer() {
           <Link href="/our-farm" className="hover:text-farm-cream transition-colors py-1">Our Farm</Link>
           <Link href="/straw-bale-garden" className="hover:text-farm-cream transition-colors py-1">Garden</Link>
           <Link href="/events" className="hover:text-farm-cream transition-colors py-1">Events</Link>
-          <Link href="/learning-collective" className="hover:text-farm-cream transition-colors py-1">Learning</Link>
+          <Link href="/learning-collective" className="hover:text-farm-cream transition-colors py-1">Programs</Link>
           <Link href="/stay" className="hover:text-farm-cream transition-colors py-1">Stay</Link>
           <Link href="/contact" className="hover:text-farm-cream transition-colors py-1">Contact</Link>
         </div>
