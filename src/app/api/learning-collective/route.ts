@@ -82,7 +82,7 @@ function buildNotificationText(payload: LearningCollectivePayload) {
   }
 
   return [
-    'New Learning Collective interest survey response',
+    'New website form submission',
     '',
     `Parent/Guardian: ${formatValue(payload.parentName)}`,
     `Phone: ${formatValue(payload.phone)}`,
@@ -153,9 +153,9 @@ export async function POST(req: NextRequest) {
 
     const resend = getResend()
     await resend.emails.send({
-      from: 'Forevermore Farm <hello@forevermorefarmtn.com>',
+      from: 'Forevermore Farm Website <hello@forevermorefarmtn.com>',
       to: process.env.LEARNING_COLLECTIVE_EMAIL ?? 'concetta.i.west@gmail.com',
-      subject: `Learning Collective survey: ${parentName}`,
+      subject: `New website form submission: ${parentName}`,
       text: buildNotificationText(responsePayload),
       replyTo: email,
     })
