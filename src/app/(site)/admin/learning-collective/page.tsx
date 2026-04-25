@@ -20,6 +20,8 @@ type LearningCollectiveResponse = {
   created_at: string
 }
 
+type SearchMode = 'all' | 'any'
+
 const responseLabels: Record<string, string> = {
   parentName: 'Parent/Guardian',
   phone: 'Phone',
@@ -84,18 +86,72 @@ function getArrayValue(value: unknown) {
   return Array.isArray(value) ? value.filter((item): item is string => typeof item === 'string' && item.trim().length > 0) : []
 }
 
+function normalizeSearchValue(value: string) {
+  return value
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+}
+
+function parseSearchTerms(value: string) {
+  const trimmed = value.trim()
+  if (!trimmed) return []
+
+  const rawTerms = trimmed.includes(',')
+    ? trimmed.split(',')
+    : Array.from(trimmed.matchAll(/"([^"]+)"|'([^']+)'|([^\s]+)/g), (match) => match[1] ?? match[2] ?? match[3])
+
+  return Array.from(new Set(rawTerms.map((term) => normalizeSearchValue(term.trim())).filter(Boolean)))
+}
+
+function flattenSearchValues(value: unknown): string[] {
+  if (Array.isArray(value)) return value.flatMap(flattenSearchValues)
+
+  if (typeof value === 'object' && value !== null) {
+    return Object.entries(value).flatMap(([key, nestedValue]) => [
+      key,
+      responseLabels[key] ?? '',
+      ...flattenSearchValues(nestedValue),
+    ])
+  }
+
+  return [formatValue(value)]
+}
+
 function responseSearchText(response: LearningCollectiveResponse) {
   return [
+    response.id,
+    formatDate(response.created_at),
     response.parent_name,
     response.phone,
     response.email,
     response.children_names_ages,
     formatChildren(response.children),
     response.preferred_contact ?? '',
-    ...Object.values(response.response).map(formatValue),
+    ...Object.entries(responseLabels).flatMap(([key, label]) => [key, label]),
+    ...flattenSearchValues(response.response),
   ]
     .join(' ')
-    .toLowerCase()
+    .replace(/([a-z])([A-Z])/g, '$1 $2')
+    .replace(/[_-]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+function searchTermMatches(haystack: string, term: string) {
+  if (haystack.includes(term)) return true
+  return term.split(/\s+/).every((word) => haystack.includes(word))
+}
+
+function selectedOptionsMatch(values: string[], selectedValues: string[], mode: SearchMode) {
+  if (selectedValues.length === 0) return true
+  return mode === 'all'
+    ? selectedValues.every((value) => values.includes(value))
+    : selectedValues.some((value) => values.includes(value))
+}
+
+function toggleSelectedValue(values: string[], value: string) {
+  return values.includes(value) ? values.filter((item) => item !== value) : [...values, value]
 }
 
 function exportCSV(responses: LearningCollectiveResponse[]) {
@@ -126,8 +182,11 @@ export default function AdminLearningCollectivePage() {
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const [search, setSearch] = useState('')
-  const [skillFilter, setSkillFilter] = useState('')
-  const [experienceFilter, setExperienceFilter] = useState('')
+  const [searchMode, setSearchMode] = useState<SearchMode>('all')
+  const [selectedSkills, setSelectedSkills] = useState<string[]>([])
+  const [selectedExperiences, setSelectedExperiences] = useState<string[]>([])
+  const [skillMode, setSkillMode] = useState<SearchMode>('any')
+  const [experienceMode, setExperienceMode] = useState<SearchMode>('any')
 
   const skillOptions = useMemo(() => {
     const values = new Set<string>()
@@ -146,14 +205,20 @@ export default function AdminLearningCollectivePage() {
   }, [responses])
 
   const filteredResponses = useMemo(() => {
-    const query = search.trim().toLowerCase()
+    const searchTerms = parseSearchTerms(search)
     return responses.filter((response) => {
-      const matchesSearch = !query || responseSearchText(response).includes(query)
-      const matchesSkill = !skillFilter || getArrayValue(response.response.skills).includes(skillFilter)
-      const matchesExperience = !experienceFilter || getArrayValue(response.response.experience).includes(experienceFilter)
+      const haystack = normalizeSearchValue(responseSearchText(response))
+      const matchesSearch = searchTerms.length === 0 || (searchMode === 'all'
+        ? searchTerms.every((term) => searchTermMatches(haystack, term))
+        : searchTerms.some((term) => searchTermMatches(haystack, term)))
+      const matchesSkill = selectedOptionsMatch(getArrayValue(response.response.skills), selectedSkills, skillMode)
+      const matchesExperience = selectedOptionsMatch(getArrayValue(response.response.experience), selectedExperiences, experienceMode)
       return matchesSearch && matchesSkill && matchesExperience
     })
-  }, [responses, search, skillFilter, experienceFilter])
+  }, [responses, search, searchMode, selectedSkills, selectedExperiences, skillMode, experienceMode])
+
+  const searchTerms = useMemo(() => parseSearchTerms(search), [search])
+  const activeFilterCount = searchTerms.length + selectedSkills.length + selectedExperiences.length
 
   async function handleSubmit(event: React.FormEvent) {
     event.preventDefault()
@@ -228,52 +293,119 @@ export default function AdminLearningCollectivePage() {
         </div>
 
         <div className="bg-white rounded-2xl shadow p-4 md:p-5 mb-6">
-          <div className="grid md:grid-cols-[1.4fr_1fr_1fr_auto] gap-3 items-end">
+          <div className="grid lg:grid-cols-[1.5fr_auto_auto] gap-3 items-end">
             <label className="block">
-              <span className="block text-xs uppercase tracking-wide text-[#8B6914] font-semibold mb-1">Search all submissions</span>
+              <span className="block text-xs uppercase tracking-wide text-[#8B6914] font-semibold mb-1">Search every form item</span>
               <input
                 value={search}
                 onChange={(event) => setSearch(event.target.value)}
-                placeholder="Search goat breeding, alpacas, canning, email, name…"
+                placeholder="Try: goat breeding canning, or: alpacas, fiber, sourdough"
                 className="w-full border border-[#C9A96E]/60 rounded-lg px-4 py-3 text-sm text-[#1C1C1C] focus:outline-none focus:ring-2 focus:ring-[#1B3A2D]"
               />
             </label>
             <label className="block">
-              <span className="block text-xs uppercase tracking-wide text-[#8B6914] font-semibold mb-1">Skill / interest</span>
+              <span className="block text-xs uppercase tracking-wide text-[#8B6914] font-semibold mb-1">Search mode</span>
               <select
-                value={skillFilter}
-                onChange={(event) => setSkillFilter(event.target.value)}
+                value={searchMode}
+                onChange={(event) => setSearchMode(event.target.value as SearchMode)}
                 className="w-full border border-[#C9A96E]/60 rounded-lg px-4 py-3 text-sm text-[#1C1C1C] bg-white focus:outline-none focus:ring-2 focus:ring-[#1B3A2D]"
               >
-                <option value="">All skills</option>
-                {skillOptions.map((skill) => <option key={skill} value={skill}>{skill}</option>)}
-              </select>
-            </label>
-            <label className="block">
-              <span className="block text-xs uppercase tracking-wide text-[#8B6914] font-semibold mb-1">Experience</span>
-              <select
-                value={experienceFilter}
-                onChange={(event) => setExperienceFilter(event.target.value)}
-                className="w-full border border-[#C9A96E]/60 rounded-lg px-4 py-3 text-sm text-[#1C1C1C] bg-white focus:outline-none focus:ring-2 focus:ring-[#1B3A2D]"
-              >
-                <option value="">All experience</option>
-                {experienceOptions.map((experience) => <option key={experience} value={experience}>{experience}</option>)}
+                <option value="all">Match all terms</option>
+                <option value="any">Match any term</option>
               </select>
             </label>
             <button
               type="button"
               onClick={() => {
                 setSearch('')
-                setSkillFilter('')
-                setExperienceFilter('')
+                setSelectedSkills([])
+                setSelectedExperiences([])
               }}
               className="rounded-lg border border-[#C9A96E] px-4 py-3 text-sm font-semibold text-[#8B6914] hover:bg-[#F7F3EC]"
             >
-              Clear
+              Clear{activeFilterCount > 0 ? ` (${activeFilterCount})` : ''}
             </button>
           </div>
+
+          {searchTerms.length > 0 && (
+            <div className="mt-3 flex flex-wrap gap-2">
+              {searchTerms.map((term) => (
+                <span key={term} className="rounded-full bg-[#E9F0E6] px-3 py-1 text-xs font-medium text-[#1B3A2D]">{term}</span>
+              ))}
+            </div>
+          )}
+
+          <div className="mt-5 grid lg:grid-cols-2 gap-4">
+            <div className="rounded-xl bg-[#F7F3EC] p-4">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
+                <p className="text-xs uppercase tracking-wide text-[#8B6914] font-semibold">Skills / interests</p>
+                <select
+                  value={skillMode}
+                  onChange={(event) => setSkillMode(event.target.value as SearchMode)}
+                  className="border border-[#C9A96E]/60 rounded-lg px-3 py-2 text-xs text-[#1C1C1C] bg-white focus:outline-none focus:ring-2 focus:ring-[#1B3A2D]"
+                >
+                  <option value="any">Any selected</option>
+                  <option value="all">All selected</option>
+                </select>
+              </div>
+              {skillOptions.length === 0 ? (
+                <p className="text-sm text-[#4A6741]">Skill filters will appear after responses are submitted.</p>
+              ) : (
+                <div className="flex flex-wrap gap-2">
+                  {skillOptions.map((skill) => {
+                    const selected = selectedSkills.includes(skill)
+                    return (
+                      <button
+                        key={skill}
+                        type="button"
+                        onClick={() => setSelectedSkills((values) => toggleSelectedValue(values, skill))}
+                        className={`rounded-full px-3 py-1.5 text-xs font-semibold transition-colors ${selected ? 'bg-[#1B3A2D] text-white' : 'bg-white text-[#8B6914] hover:bg-[#E9F0E6]'}`}
+                        aria-pressed={selected}
+                      >
+                        {skill}
+                      </button>
+                    )
+                  })}
+                </div>
+              )}
+            </div>
+
+            <div className="rounded-xl bg-[#F7F3EC] p-4">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
+                <p className="text-xs uppercase tracking-wide text-[#8B6914] font-semibold">Experience</p>
+                <select
+                  value={experienceMode}
+                  onChange={(event) => setExperienceMode(event.target.value as SearchMode)}
+                  className="border border-[#C9A96E]/60 rounded-lg px-3 py-2 text-xs text-[#1C1C1C] bg-white focus:outline-none focus:ring-2 focus:ring-[#1B3A2D]"
+                >
+                  <option value="any">Any selected</option>
+                  <option value="all">All selected</option>
+                </select>
+              </div>
+              {experienceOptions.length === 0 ? (
+                <p className="text-sm text-[#4A6741]">Experience filters will appear after responses are submitted.</p>
+              ) : (
+                <div className="flex flex-wrap gap-2">
+                  {experienceOptions.map((experience) => {
+                    const selected = selectedExperiences.includes(experience)
+                    return (
+                      <button
+                        key={experience}
+                        type="button"
+                        onClick={() => setSelectedExperiences((values) => toggleSelectedValue(values, experience))}
+                        className={`rounded-full px-3 py-1.5 text-xs font-semibold transition-colors ${selected ? 'bg-[#1B3A2D] text-white' : 'bg-white text-[#8B6914] hover:bg-[#E9F0E6]'}`}
+                        aria-pressed={selected}
+                      >
+                        {experience}
+                      </button>
+                    )
+                  })}
+                </div>
+              )}
+            </div>
+          </div>
           <p className="mt-3 text-xs text-[#4A6741]">
-            Searches names, contact info, children, skills, experience, notes, and every survey answer.
+            Search covers every stored form value, field label, contact field, child entry, note, skill, experience level, submission date, and ID. Use spaces or commas for multiple terms; switch between matching all terms or any term.
           </p>
         </div>
 
