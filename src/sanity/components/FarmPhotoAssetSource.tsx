@@ -70,9 +70,15 @@ export function FarmPhotoAssetSource({ onSelect, onClose }: AssetSourceComponent
   const totalPages = Math.ceil(filtered.length / PAGE_SIZE)
   const paged = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE)
 
-  useEffect(() => {
+  const handleSearchChange = useCallback((value: string) => {
+    setSearch(value)
     setPage(1)
-  }, [activeCategory, search])
+  }, [])
+
+  const handleCategoryChange = useCallback((category: string) => {
+    setActiveCategory(category)
+    setPage(1)
+  }, [])
 
   const handleSelect = useCallback(async (img: ImageEntry) => {
     if (selecting) return
@@ -257,14 +263,14 @@ export function FarmPhotoAssetSource({ onSelect, onClose }: AssetSourceComponent
               type="text"
               placeholder="Search by filename…"
               value={search}
-              onChange={(e) => setSearch(e.target.value)}
+              onChange={(e) => handleSearchChange(e.target.value)}
             />
             <span style={styles.countLabel}>{filtered.length} photos</span>
           </div>
           <div style={styles.tabs}>
             <button
               style={styles.tab(activeCategory === 'all')}
-              onClick={() => setActiveCategory('all')}
+              onClick={() => handleCategoryChange('all')}
             >
               All
             </button>
@@ -272,7 +278,7 @@ export function FarmPhotoAssetSource({ onSelect, onClose }: AssetSourceComponent
               <button
                 key={c.name}
                 style={styles.tab(activeCategory === c.name)}
-                onClick={() => setActiveCategory(c.name)}
+                onClick={() => handleCategoryChange(c.name)}
               >
                 {c.name} ({c.images.length})
               </button>
