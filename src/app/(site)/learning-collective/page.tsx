@@ -37,7 +37,6 @@ const programPoints = [
   'Clear expectations and structure provided',
   'Adults can grow into leadership roles over time',
   'No age limit',
-  'Families who miss the first meeting can sign up online for more information',
 ]
 
 export default function LearningCollectivePage() {
