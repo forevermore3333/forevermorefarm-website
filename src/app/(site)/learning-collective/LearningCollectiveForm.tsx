@@ -2,14 +2,17 @@
 
 import { useState } from 'react'
 
+type ChildEntry = {
+  name: string
+  age: string
+}
+
 type FormState = {
   parentName: string
   phone: string
   email: string
-  children: string
+  children: ChildEntry[]
   preferredContact: string[]
-  attendingFirstMeeting: string
-  wantsFollowUp: string
   involvement: string[]
   comfortGuiding: string
   leadershipGrowth: string
@@ -34,14 +37,13 @@ type SkillGroup = {
   options: string[]
 }
 
-const initialForm: FormState = {
-  parentName: '',
-  phone: '',
-  email: '',
-  children: '',
-  preferredContact: [],
-  attendingFirstMeeting: '',
-  wantsFollowUp: '',
+function createInitialForm(): FormState {
+  return {
+    parentName: '',
+    phone: '',
+    email: '',
+    children: [{ name: '', age: '' }],
+    preferredContact: [],
   involvement: [],
   comfortGuiding: '',
   leadershipGrowth: '',
@@ -58,11 +60,11 @@ const initialForm: FormState = {
   preferredRole: '',
   childOpportunities: '',
   parentLeadershipSupport: '',
-  anythingElse: '',
+    anythingElse: '',
+  }
 }
 
 const preferredContactOptions = ['Text', 'Email', 'Phone']
-const attendanceOptions = ['Yes', 'No', 'Unsure']
 const yesNoOptions = ['Yes', 'No']
 
 const involvementOptions = [
@@ -235,7 +237,7 @@ function FieldLabel({ children, required = false }: { children: React.ReactNode;
 }
 
 export default function LearningCollectiveForm() {
-  const [form, setForm] = useState<FormState>(initialForm)
+  const [form, setForm] = useState<FormState>(() => createInitialForm())
   const [loading, setLoading] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState('')
@@ -244,9 +246,36 @@ export default function LearningCollectiveForm() {
     setForm((current) => ({ ...current, [field]: value }))
   }
 
+  function setChildField(index: number, field: keyof ChildEntry, value: string) {
+    setForm((current) => ({
+      ...current,
+      children: current.children.map((child, childIndex) => (childIndex === index ? { ...child, [field]: value } : child)),
+    }))
+  }
+
+  function addChild() {
+    setForm((current) => ({ ...current, children: [...current.children, { name: '', age: '' }] }))
+  }
+
+  function removeChild(index: number) {
+    setForm((current) => ({
+      ...current,
+      children: current.children.length > 1 ? current.children.filter((_, childIndex) => childIndex !== index) : current.children,
+    }))
+  }
+
   async function handleSubmit(event: React.FormEvent) {
     event.preventDefault()
     setError('')
+
+    const normalizedChildren = form.children
+      .map((child) => ({ name: child.name.trim(), age: child.age.trim() }))
+      .filter((child) => child.name || child.age)
+
+    if (normalizedChildren.length === 0 || normalizedChildren.some((child) => !child.name || !child.age)) {
+      setError('Please enter each child with a separate name and age.')
+      return
+    }
 
     const missingCheckboxGroups = [
       ['Preferred Contact Method', form.preferredContact],
@@ -266,7 +295,7 @@ export default function LearningCollectiveForm() {
       const response = await fetch('/api/learning-collective', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, children: normalizedChildren }),
       })
 
       if (!response.ok) {
@@ -274,7 +303,7 @@ export default function LearningCollectiveForm() {
       }
 
       setSubmitted(true)
-      setForm(initialForm)
+      setForm(createInitialForm())
     } catch {
       setError('Something went wrong while sending your survey. Please try again, or contact Forevermore Farm directly.')
     } finally {
@@ -314,10 +343,34 @@ export default function LearningCollectiveForm() {
             <FieldLabel required>Email Address</FieldLabel>
             <input className={inputClass} required type="email" value={form.email} onChange={(e) => setField('email', e.target.value)} />
           </label>
-          <label>
-            <FieldLabel required>Child(ren)&apos;s Name(s) and Age(s)</FieldLabel>
-            <input className={inputClass} required value={form.children} onChange={(e) => setField('children', e.target.value)} />
-          </label>
+        </div>
+        <div className="mt-5">
+          <FieldLabel required>Children</FieldLabel>
+          <div className="space-y-3">
+            {form.children.map((child, index) => (
+              <div key={index} className="grid md:grid-cols-[1fr_180px_auto] gap-3 items-end">
+                <label>
+                  <span className="block text-xs uppercase tracking-wide text-farm-charcoal/50 mb-1">Name</span>
+                  <input className={inputClass} required value={child.name} onChange={(e) => setChildField(index, 'name', e.target.value)} />
+                </label>
+                <label>
+                  <span className="block text-xs uppercase tracking-wide text-farm-charcoal/50 mb-1">Age</span>
+                  <input className={inputClass} required value={child.age} onChange={(e) => setChildField(index, 'age', e.target.value)} />
+                </label>
+                <button
+                  type="button"
+                  onClick={() => removeChild(index)}
+                  disabled={form.children.length === 1}
+                  className="rounded-sm border border-farm-tan px-4 py-3 text-xs font-medium uppercase tracking-widest text-farm-brown hover:bg-farm-cream disabled:opacity-40 disabled:hover:bg-transparent"
+                >
+                  Remove
+                </button>
+              </div>
+            ))}
+          </div>
+          <button type="button" onClick={addChild} className="mt-3 rounded-sm bg-farm-brown px-4 py-2 text-xs font-medium uppercase tracking-widest text-white hover:bg-farm-brown/90">
+            Add Child
+          </button>
         </div>
         <CheckboxGroup
           title="Preferred Contact Method"
@@ -326,8 +379,6 @@ export default function LearningCollectiveForm() {
           values={form.preferredContact}
           onChange={(option) => setField('preferredContact', toggleValue(form.preferredContact, option))}
         />
-        <RadioGroup title="Do you plan to attend the first meeting?" required options={attendanceOptions} value={form.attendingFirstMeeting} onChange={(value) => setField('attendingFirstMeeting', value)} />
-        <RadioGroup title="If you cannot attend the first meeting, would you like follow-up information through the website sign-up list?" options={yesNoOptions} value={form.wantsFollowUp} onChange={(value) => setField('wantsFollowUp', value)} />
       </section>
 
       <section className={groupClass}>

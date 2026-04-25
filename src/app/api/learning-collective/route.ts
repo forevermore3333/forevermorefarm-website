@@ -2,13 +2,17 @@ import { NextRequest, NextResponse } from 'next/server'
 import { sql } from '@vercel/postgres'
 import { getResend } from '@/lib/resend'
 
+type ChildPayload = {
+  name?: unknown
+  age?: unknown
+}
+
 type LearningCollectivePayload = {
   parentName?: string
   phone?: string
   email?: string
-  children?: string
+  children?: ChildPayload[]
   preferredContact?: string[]
-  attendingFirstMeeting?: string
   [key: string]: unknown
 }
 
@@ -16,9 +20,7 @@ const REQUIRED_FIELDS = [
   'parentName',
   'phone',
   'email',
-  'children',
   'preferredContact',
-  'attendingFirstMeeting',
   'involvement',
   'comfortGuiding',
   'leadershipGrowth',
@@ -44,12 +46,31 @@ async function initLearningCollectiveDb() {
       phone TEXT NOT NULL,
       email TEXT NOT NULL,
       children_names_ages TEXT NOT NULL,
+      children JSONB,
       preferred_contact TEXT,
       attending_first_meeting TEXT,
       response JSONB NOT NULL,
       created_at TIMESTAMPTZ DEFAULT NOW()
     )
   `
+
+  await sql`
+    ALTER TABLE learning_collective_responses
+    ADD COLUMN IF NOT EXISTS children JSONB
+  `
+}
+
+function formatChildren(children: ChildPayload[] | undefined) {
+  if (!Array.isArray(children)) return ''
+  return children
+    .map((child) => {
+      const name = typeof child.name === 'string' ? child.name.trim() : ''
+      const age = typeof child.age === 'string' ? child.age.trim() : ''
+      if (!name && !age) return ''
+      return `${name}${age ? ` (${age})` : ''}`
+    })
+    .filter(Boolean)
+    .join('; ')
 }
 
 function buildNotificationText(payload: LearningCollectivePayload) {
@@ -66,9 +87,8 @@ function buildNotificationText(payload: LearningCollectivePayload) {
     `Parent/Guardian: ${formatValue(payload.parentName)}`,
     `Phone: ${formatValue(payload.phone)}`,
     `Email: ${formatValue(payload.email)}`,
-    `Child(ren): ${formatValue(payload.children)}`,
+    `Child(ren): ${formatChildren(payload.children)}`,
     `Preferred contact: ${formatValue(payload.preferredContact)}`,
-    `Plans to attend first meeting: ${formatValue(payload.attendingFirstMeeting)}`,
     '',
     'Full response:',
     JSON.stringify(payload, null, 2),
@@ -78,6 +98,17 @@ function buildNotificationText(payload: LearningCollectivePayload) {
 export async function POST(req: NextRequest) {
   try {
     const payload = (await req.json()) as LearningCollectivePayload
+
+    const normalizedChildren = Array.isArray(payload.children)
+      ? payload.children.map((child) => ({
+          name: typeof child.name === 'string' ? child.name.trim() : '',
+          age: typeof child.age === 'string' ? child.age.trim() : '',
+        })).filter((child) => child.name || child.age)
+      : []
+
+    if (normalizedChildren.length === 0 || normalizedChildren.some((child) => !child.name || !child.age)) {
+      return NextResponse.json({ error: 'Missing required field: children' }, { status: 400 })
+    }
 
     for (const field of REQUIRED_FIELDS) {
       const value = payload[field]
@@ -90,10 +121,11 @@ export async function POST(req: NextRequest) {
     const parentName = payload.parentName!.trim()
     const phone = payload.phone!.trim()
     const email = payload.email!.trim()
-    const children = payload.children!.trim()
+    const children = formatChildren(normalizedChildren)
+    const childrenJson = JSON.stringify(normalizedChildren)
     const preferredContact = payload.preferredContact!.join(', ')
-    const attendingFirstMeeting = payload.attendingFirstMeeting?.trim() ?? null
-    const responseJson = JSON.stringify(payload)
+    const responsePayload = { ...payload, children: normalizedChildren }
+    const responseJson = JSON.stringify(responsePayload)
 
     await initLearningCollectiveDb()
 
@@ -103,6 +135,7 @@ export async function POST(req: NextRequest) {
         phone,
         email,
         children_names_ages,
+        children,
         preferred_contact,
         attending_first_meeting,
         response
@@ -111,8 +144,9 @@ export async function POST(req: NextRequest) {
         ${phone},
         ${email},
         ${children},
+        ${childrenJson}::jsonb,
         ${preferredContact},
-        ${attendingFirstMeeting},
+        ${null},
         ${responseJson}::jsonb
       )
     `
@@ -122,7 +156,7 @@ export async function POST(req: NextRequest) {
       from: 'Forevermore Farm <hello@forevermorefarmtn.com>',
       to: process.env.LEARNING_COLLECTIVE_EMAIL ?? 'concetta.i.west@gmail.com',
       subject: `Learning Collective survey: ${parentName}`,
-      text: buildNotificationText(payload),
+      text: buildNotificationText(responsePayload),
       replyTo: email,
     })
 

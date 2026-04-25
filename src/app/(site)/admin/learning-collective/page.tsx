@@ -2,12 +2,18 @@
 
 import { useState } from 'react'
 
+type ChildEntry = {
+  name: string
+  age: string
+}
+
 type LearningCollectiveResponse = {
   id: number
   parent_name: string
   phone: string
   email: string
   children_names_ages: string
+  children: ChildEntry[] | null
   preferred_contact: string | null
   attending_first_meeting: string | null
   response: Record<string, unknown>
@@ -20,8 +26,6 @@ const responseLabels: Record<string, string> = {
   email: 'Email',
   children: 'Children',
   preferredContact: 'Preferred Contact',
-  attendingFirstMeeting: 'Attending First Meeting',
-  wantsFollowUp: 'Follow-Up Info',
   involvement: 'Involvement',
   comfortGuiding: 'Comfort Guiding',
   leadershipGrowth: 'Leadership Growth',
@@ -51,8 +55,26 @@ function formatDate(dateStr: string) {
   })
 }
 
+function formatChildren(value: unknown) {
+  if (!Array.isArray(value)) return ''
+  return value
+    .map((child) => {
+      if (typeof child !== 'object' || child === null) return ''
+      const entry = child as Partial<ChildEntry>
+      const name = typeof entry.name === 'string' ? entry.name.trim() : ''
+      const age = typeof entry.age === 'string' ? entry.age.trim() : ''
+      if (!name && !age) return ''
+      return `${name}${age ? ` (${age})` : ''}`
+    })
+    .filter(Boolean)
+    .join('; ')
+}
+
 function formatValue(value: unknown) {
-  if (Array.isArray(value)) return value.join('; ')
+  if (Array.isArray(value)) {
+    const children = formatChildren(value)
+    return children || value.join('; ')
+  }
   if (typeof value === 'string') return value
   if (value == null) return ''
   return String(value)
@@ -169,11 +191,10 @@ export default function AdminLearningCollectivePage() {
                     <div>
                       <h2 className="font-serif text-xl font-semibold text-[#1B3A2D]">{response.parent_name}</h2>
                       <p className="text-sm text-[#4A6741] break-all">{response.email} · {response.phone}</p>
-                      <p className="text-sm text-[#1C1C1C]/70 mt-1">Children: {response.children_names_ages}</p>
+                      <p className="text-sm text-[#1C1C1C]/70 mt-1">Children: {formatChildren(response.children) || response.children_names_ages}</p>
                     </div>
                     <div className="text-sm md:text-right text-[#1C1C1C]/60">
                       <p>{formatDate(response.created_at)}</p>
-                      <p>First meeting: {response.attending_first_meeting ?? '—'}</p>
                       <p>Contact: {response.preferred_contact ?? '—'}</p>
                     </div>
                   </div>
