@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 
 type ChildEntry = {
   name: string
@@ -80,6 +80,24 @@ function formatValue(value: unknown) {
   return String(value)
 }
 
+function getArrayValue(value: unknown) {
+  return Array.isArray(value) ? value.filter((item): item is string => typeof item === 'string' && item.trim().length > 0) : []
+}
+
+function responseSearchText(response: LearningCollectiveResponse) {
+  return [
+    response.parent_name,
+    response.phone,
+    response.email,
+    response.children_names_ages,
+    formatChildren(response.children),
+    response.preferred_contact ?? '',
+    ...Object.values(response.response).map(formatValue),
+  ]
+    .join(' ')
+    .toLowerCase()
+}
+
 function exportCSV(responses: LearningCollectiveResponse[]) {
   const keys = Object.keys(responseLabels)
   const headers = ['ID', 'Submitted', ...keys.map((key) => responseLabels[key])]
@@ -107,6 +125,35 @@ export default function AdminLearningCollectivePage() {
   const [expandedId, setExpandedId] = useState<number | null>(null)
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
+  const [search, setSearch] = useState('')
+  const [skillFilter, setSkillFilter] = useState('')
+  const [experienceFilter, setExperienceFilter] = useState('')
+
+  const skillOptions = useMemo(() => {
+    const values = new Set<string>()
+    responses.forEach((response) => {
+      getArrayValue(response.response.skills).forEach((skill) => values.add(skill))
+    })
+    return Array.from(values).sort((a, b) => a.localeCompare(b))
+  }, [responses])
+
+  const experienceOptions = useMemo(() => {
+    const values = new Set<string>()
+    responses.forEach((response) => {
+      getArrayValue(response.response.experience).forEach((experience) => values.add(experience))
+    })
+    return Array.from(values).sort((a, b) => a.localeCompare(b))
+  }, [responses])
+
+  const filteredResponses = useMemo(() => {
+    const query = search.trim().toLowerCase()
+    return responses.filter((response) => {
+      const matchesSearch = !query || responseSearchText(response).includes(query)
+      const matchesSkill = !skillFilter || getArrayValue(response.response.skills).includes(skillFilter)
+      const matchesExperience = !experienceFilter || getArrayValue(response.response.experience).includes(experienceFilter)
+      return matchesSearch && matchesSkill && matchesExperience
+    })
+  }, [responses, search, skillFilter, experienceFilter])
 
   async function handleSubmit(event: React.FormEvent) {
     event.preventDefault()
@@ -171,19 +218,78 @@ export default function AdminLearningCollectivePage() {
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
           <div>
             <h1 className="text-3xl font-serif font-bold text-[#1B3A2D] tracking-tight">Learning Collective Responses</h1>
-            <p className="text-[#4A6741] mt-1 text-sm">{responses.length} response{responses.length !== 1 ? 's' : ''}</p>
+            <p className="text-[#4A6741] mt-1 text-sm">
+              {filteredResponses.length} of {responses.length} response{responses.length !== 1 ? 's' : ''}
+            </p>
           </div>
-          <button onClick={() => exportCSV(responses)} className="bg-[#C9A96E] hover:bg-[#8B6914] text-white font-semibold rounded-lg px-4 py-2.5 text-sm transition-colors">
-            Export CSV
+          <button onClick={() => exportCSV(filteredResponses)} className="bg-[#C9A96E] hover:bg-[#8B6914] text-white font-semibold rounded-lg px-4 py-2.5 text-sm transition-colors">
+            Export Filtered CSV
           </button>
+        </div>
+
+        <div className="bg-white rounded-2xl shadow p-4 md:p-5 mb-6">
+          <div className="grid md:grid-cols-[1.4fr_1fr_1fr_auto] gap-3 items-end">
+            <label className="block">
+              <span className="block text-xs uppercase tracking-wide text-[#8B6914] font-semibold mb-1">Search all submissions</span>
+              <input
+                value={search}
+                onChange={(event) => setSearch(event.target.value)}
+                placeholder="Search goat breeding, alpacas, canning, email, name…"
+                className="w-full border border-[#C9A96E]/60 rounded-lg px-4 py-3 text-sm text-[#1C1C1C] focus:outline-none focus:ring-2 focus:ring-[#1B3A2D]"
+              />
+            </label>
+            <label className="block">
+              <span className="block text-xs uppercase tracking-wide text-[#8B6914] font-semibold mb-1">Skill / interest</span>
+              <select
+                value={skillFilter}
+                onChange={(event) => setSkillFilter(event.target.value)}
+                className="w-full border border-[#C9A96E]/60 rounded-lg px-4 py-3 text-sm text-[#1C1C1C] bg-white focus:outline-none focus:ring-2 focus:ring-[#1B3A2D]"
+              >
+                <option value="">All skills</option>
+                {skillOptions.map((skill) => <option key={skill} value={skill}>{skill}</option>)}
+              </select>
+            </label>
+            <label className="block">
+              <span className="block text-xs uppercase tracking-wide text-[#8B6914] font-semibold mb-1">Experience</span>
+              <select
+                value={experienceFilter}
+                onChange={(event) => setExperienceFilter(event.target.value)}
+                className="w-full border border-[#C9A96E]/60 rounded-lg px-4 py-3 text-sm text-[#1C1C1C] bg-white focus:outline-none focus:ring-2 focus:ring-[#1B3A2D]"
+              >
+                <option value="">All experience</option>
+                {experienceOptions.map((experience) => <option key={experience} value={experience}>{experience}</option>)}
+              </select>
+            </label>
+            <button
+              type="button"
+              onClick={() => {
+                setSearch('')
+                setSkillFilter('')
+                setExperienceFilter('')
+              }}
+              className="rounded-lg border border-[#C9A96E] px-4 py-3 text-sm font-semibold text-[#8B6914] hover:bg-[#F7F3EC]"
+            >
+              Clear
+            </button>
+          </div>
+          <p className="mt-3 text-xs text-[#4A6741]">
+            Searches names, contact info, children, skills, experience, notes, and every survey answer.
+          </p>
         </div>
 
         <div className="space-y-4">
           {responses.length === 0 && (
             <div className="bg-white rounded-2xl shadow p-8 text-center text-[#C9A96E]">No Learning Collective responses yet.</div>
           )}
-          {responses.map((response) => {
+          {responses.length > 0 && filteredResponses.length === 0 && (
+            <div className="bg-white rounded-2xl shadow p-8 text-center text-[#C9A96E]">
+              No matching responses. Try a broader search or clear filters.
+            </div>
+          )}
+          {filteredResponses.map((response) => {
             const expanded = expandedId === response.id
+            const skills = getArrayValue(response.response.skills)
+            const otherSkills = formatValue(response.response.otherSkills)
             return (
               <article key={response.id} className="bg-white rounded-2xl shadow overflow-hidden">
                 <button type="button" onClick={() => setExpandedId(expanded ? null : response.id)} className="w-full text-left p-5 hover:bg-[#F7F3EC] transition-colors">
@@ -192,6 +298,14 @@ export default function AdminLearningCollectivePage() {
                       <h2 className="font-serif text-xl font-semibold text-[#1B3A2D]">{response.parent_name}</h2>
                       <p className="text-sm text-[#4A6741] break-all">{response.email} · {response.phone}</p>
                       <p className="text-sm text-[#1C1C1C]/70 mt-1">Children: {formatChildren(response.children) || response.children_names_ages}</p>
+                      {(skills.length > 0 || otherSkills) && (
+                        <div className="mt-3 flex flex-wrap gap-2">
+                          {skills.slice(0, 6).map((skill) => (
+                            <span key={skill} className="rounded-full bg-[#F7F3EC] px-3 py-1 text-xs font-medium text-[#8B6914]">{skill}</span>
+                          ))}
+                          {otherSkills && <span className="rounded-full bg-[#E9F0E6] px-3 py-1 text-xs font-medium text-[#1B3A2D]">{otherSkills}</span>}
+                        </div>
+                      )}
                     </div>
                     <div className="text-sm md:text-right text-[#1C1C1C]/60">
                       <p>{formatDate(response.created_at)}</p>

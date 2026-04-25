@@ -73,13 +73,49 @@ function formatChildren(children: ChildPayload[] | undefined) {
     .join('; ')
 }
 
+const responseLabels: Record<string, string> = {
+  involvement: 'How they want to be involved',
+  comfortGuiding: 'Comfort guiding a small group',
+  leadershipGrowth: 'Open to growing into leadership',
+  skills: 'Skills, experience, and interests',
+  otherSkills: 'Other skills or interests',
+  experience: 'Experience level',
+  confidentTopics: 'Topics they feel confident sharing',
+  learningTopics: 'Topics they want to learn',
+  practicalSupport: 'Practical support they can offer',
+  resourcesAccess: 'Access to resources or space',
+  sharedResources: 'Resources they may be willing to share',
+  helpFrequency: 'How often they can help',
+  availability: 'Best availability',
+  preferredRole: 'Preferred role',
+  childOpportunities: 'Opportunities they want for children',
+  parentLeadershipSupport: 'Support needed to help lead',
+  anythingElse: 'Anything else',
+}
+
+function formatValue(value: unknown): string {
+  if (Array.isArray(value)) return value.join(', ')
+  if (typeof value === 'string') return value.trim()
+  if (value == null) return ''
+  return String(value)
+}
+
+function escapeHtml(value: string) {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;')
+}
+
 function buildNotificationText(payload: LearningCollectivePayload) {
-  const formatValue = (value: unknown): string => {
-    if (Array.isArray(value)) return value.join(', ')
-    if (typeof value === 'string') return value
-    if (value == null) return ''
-    return String(value)
-  }
+  const details = Object.entries(responseLabels)
+    .map(([key, label]) => {
+      const value = formatValue(payload[key])
+      return value ? `${label}: ${value}` : ''
+    })
+    .filter(Boolean)
 
   return [
     'New website form submission',
@@ -87,12 +123,62 @@ function buildNotificationText(payload: LearningCollectivePayload) {
     `Parent/Guardian: ${formatValue(payload.parentName)}`,
     `Phone: ${formatValue(payload.phone)}`,
     `Email: ${formatValue(payload.email)}`,
-    `Child(ren): ${formatChildren(payload.children)}`,
+    `Children: ${formatChildren(payload.children)}`,
     `Preferred contact: ${formatValue(payload.preferredContact)}`,
     '',
-    'Full response:',
-    JSON.stringify(payload, null, 2),
+    ...details,
   ].join('\n')
+}
+
+function buildDetailRows(payload: LearningCollectivePayload) {
+  return Object.entries(responseLabels)
+    .map(([key, label]) => {
+      const value = formatValue(payload[key])
+      if (!value) return ''
+      return `
+        <tr>
+          <td style="padding:14px 16px;border-top:1px solid #eadfcd;vertical-align:top;width:34%;font-size:12px;line-height:1.4;text-transform:uppercase;letter-spacing:.08em;color:#8B6914;font-weight:700;">${escapeHtml(label)}</td>
+          <td style="padding:14px 16px;border-top:1px solid #eadfcd;vertical-align:top;font-size:15px;line-height:1.55;color:#1C1C1C;white-space:pre-line;">${escapeHtml(value)}</td>
+        </tr>`
+    })
+    .filter(Boolean)
+    .join('')
+}
+
+function buildNotificationHtml(payload: LearningCollectivePayload) {
+  const children = formatChildren(payload.children)
+  const parentName = formatValue(payload.parentName)
+  const phone = formatValue(payload.phone)
+  const email = formatValue(payload.email)
+  const preferredContact = formatValue(payload.preferredContact)
+
+  return `<!doctype html>
+<html>
+  <body style="margin:0;padding:0;background:#F7F3EC;font-family:Arial,Helvetica,sans-serif;color:#1C1C1C;">
+    <div style="max-width:720px;margin:0 auto;padding:28px 16px;">
+      <div style="background:#1B3A2D;color:#F7F3EC;border-radius:18px 18px 0 0;padding:24px 28px;">
+        <p style="margin:0 0 6px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#C9A96E;font-weight:700;">Forevermore Farm Website</p>
+        <h1 style="margin:0;font-family:Georgia,serif;font-size:28px;line-height:1.2;">New Programs Form Submission</h1>
+      </div>
+      <div style="background:#ffffff;border:1px solid #eadfcd;border-top:0;border-radius:0 0 18px 18px;overflow:hidden;">
+        <div style="padding:24px 28px;">
+          <h2 style="margin:0 0 14px;font-family:Georgia,serif;font-size:22px;color:#1B3A2D;">${escapeHtml(parentName)}</h2>
+          <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;">
+            <tr><td style="padding:8px 0;font-size:13px;color:#8B6914;font-weight:700;width:140px;">Phone</td><td style="padding:8px 0;font-size:15px;color:#1C1C1C;">${escapeHtml(phone)}</td></tr>
+            <tr><td style="padding:8px 0;font-size:13px;color:#8B6914;font-weight:700;width:140px;">Email</td><td style="padding:8px 0;font-size:15px;color:#1C1C1C;"><a href="mailto:${escapeHtml(email)}" style="color:#1B3A2D;">${escapeHtml(email)}</a></td></tr>
+            <tr><td style="padding:8px 0;font-size:13px;color:#8B6914;font-weight:700;width:140px;">Children</td><td style="padding:8px 0;font-size:15px;color:#1C1C1C;">${escapeHtml(children)}</td></tr>
+            <tr><td style="padding:8px 0;font-size:13px;color:#8B6914;font-weight:700;width:140px;">Preferred contact</td><td style="padding:8px 0;font-size:15px;color:#1C1C1C;">${escapeHtml(preferredContact)}</td></tr>
+          </table>
+        </div>
+        <div style="padding:0 28px 28px;">
+          <h3 style="margin:0 0 12px;font-family:Georgia,serif;font-size:20px;color:#1B3A2D;">Survey details</h3>
+          <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;background:#FBF8F1;border:1px solid #eadfcd;border-radius:12px;overflow:hidden;">${buildDetailRows(payload)}</table>
+        </div>
+        <div style="background:#F7F3EC;padding:16px 28px;font-size:13px;line-height:1.5;color:#4A6741;">This response is also saved in the Forevermore Farm admin page at /admin/learning-collective.</div>
+      </div>
+    </div>
+  </body>
+</html>`
 }
 
 export async function POST(req: NextRequest) {
@@ -157,6 +243,7 @@ export async function POST(req: NextRequest) {
       to: process.env.LEARNING_COLLECTIVE_EMAIL ?? 'concetta.i.west@gmail.com',
       subject: `New website form submission: ${parentName}`,
       text: buildNotificationText(responsePayload),
+      html: buildNotificationHtml(responsePayload),
       replyTo: email,
     })
 
