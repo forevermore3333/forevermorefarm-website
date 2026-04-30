@@ -71,18 +71,18 @@ export default function Home() {
         <div className="max-w-4xl mx-auto">
           <div className="grid md:grid-cols-2 gap-10 items-center">
             <div>
-              <span className="text-xs font-medium tracking-widest text-farm-tan uppercase">Coming to PBS</span>
+              <span className="text-xs font-medium tracking-widest text-farm-tan uppercase">Now streaming on PBS</span>
               <h2 className="font-serif text-3xl text-farm-cream mt-3 mb-4">
                 Forevermore Farm on <em>Volunteer Gardener</em>
               </h2>
               <p className="text-farm-cream/80 leading-relaxed mb-6">
-                Concetta&apos;s straw bale garden is featured on PBS <em>Volunteer Gardener</em>. The Nashville premiere is Thursday, April 30 at 7:30 PM — and you can see the garden in person at the Ag &amp; Arts Tour in June.
+                Concetta&apos;s straw bale garden is featured on PBS <em>Volunteer Gardener</em>, and the episode is online now. Watch it, then come see the garden in person at the Ag &amp; Arts Tour in June.
               </p>
               <Link
                 href="/volunteer-gardener"
                 className="inline-block bg-farm-tan text-farm-charcoal px-8 py-3 rounded-sm text-sm font-medium tracking-widest uppercase hover:bg-farm-tan/90 transition-colors"
               >
-                Watch Schedule &amp; Visit Info
+                Watch the Episode &amp; Visit Info
               </Link>
             </div>
             <div className="relative aspect-[4/3] rounded-sm overflow-hidden shadow-md">
@@ -124,7 +124,7 @@ export default function Home() {
           {/* PBS link */}
           <div className="mt-8">
             <Link href="/volunteer-gardener" className="text-farm-tan/70 hover:text-farm-tan text-sm transition-colors">
-              Concetta&apos;s straw bale garden on PBS <em>Volunteer Gardener</em> — watch schedule &amp; visit info &rarr;
+              Concetta&apos;s straw bale garden on PBS <em>Volunteer Gardener</em> — watch the episode &amp; visit info &rarr;
             </Link>
           </div>
         </div>
@@ -135,13 +135,13 @@ export default function Home() {
         <div className="max-w-6xl mx-auto grid md:grid-cols-[1.05fr_0.95fr] gap-10 items-center">
           <div>
             <span className="text-xs font-medium tracking-widest text-farm-cream/60 uppercase">PBS Feature</span>
-            <h2 className="font-serif text-3xl md:text-4xl text-farm-cream mt-3 mb-5">Volunteer Gardener is featuring Forevermore Farm.</h2>
+            <h2 className="font-serif text-3xl md:text-4xl text-farm-cream mt-3 mb-5">Volunteer Gardener is streaming now.</h2>
             <p className="text-farm-cream/80 text-lg leading-relaxed max-w-2xl">
-              We pulled the full watch schedule into one place, plus everything you need to know before visiting the farm during the June 19–20, 2026 Ag &amp; Arts Tour.
+              PBS has posted the full Forevermore Farm feature online. Watch it now, then get everything you need before visiting during the June 19–20, 2026 Ag &amp; Arts Tour.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
               <Link href="/volunteer-gardener" className="inline-block bg-farm-cream text-farm-green px-6 py-3 rounded-sm text-sm font-medium tracking-widest uppercase hover:bg-farm-cream/90 transition-colors text-center">
-                See the PBS feature page
+                Watch the PBS episode
               </Link>
               <Link href="/events" className="inline-block border border-farm-cream/25 text-farm-cream px-6 py-3 rounded-sm text-sm font-medium tracking-widest uppercase hover:bg-farm-cream/10 transition-colors text-center">
                 View upcoming events
@@ -323,7 +323,7 @@ export default function Home() {
               </div>
               <span className="text-xs font-medium tracking-widest text-farm-tan uppercase">As Seen On TV</span>
               <h3 className="font-serif text-2xl text-farm-cream mt-2">Off-Grid Living</h3>
-              <p className="text-farm-cream/60 text-sm mt-3 leading-relaxed">The farm runs almost entirely on solar power — no grid electricity. WKRN News 2 covered how this family lives off-grid in Hickman County, and Concetta&apos;s straw bale garden is soon to be featured on PBS Volunteer Gardener.</p>
+              <p className="text-farm-cream/60 text-sm mt-3 leading-relaxed">The farm runs almost entirely on solar power — no grid electricity. WKRN News 2 covered how this family lives off-grid in Hickman County, and Concetta&apos;s straw bale garden is featured on PBS Volunteer Gardener.</p>
             </div>
           </div>
         </div>

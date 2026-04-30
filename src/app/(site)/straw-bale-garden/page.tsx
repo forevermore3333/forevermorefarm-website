@@ -281,13 +281,13 @@ export default async function StrawBaleGarden() {
         <div className="max-w-5xl mx-auto rounded-sm border border-farm-tan/25 bg-farm-green p-8 md:p-10 text-farm-cream shadow-md">
           <div className="max-w-3xl">
             <span className="text-xs font-medium tracking-widest text-farm-cream/60 uppercase">PBS Feature</span>
-            <h2 className="font-serif text-3xl mt-3 mb-4">Volunteer Gardener is featuring this garden.</h2>
+            <h2 className="font-serif text-3xl mt-3 mb-4">Volunteer Gardener is streaming now.</h2>
             <p className="text-farm-cream/80 leading-relaxed text-lg">
-              Want the air dates, online watch details, and the Ag &amp; Arts Tour plan for seeing the garden in person? We built a single page for that so it&apos;s actually easy to find.
+              Want the PBS episode link, remaining air dates, and the Ag &amp; Arts Tour plan for seeing the garden in person? We built a single page for that so it&apos;s actually easy to find.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
               <Link href="/volunteer-gardener" className="inline-block bg-farm-cream text-farm-green px-6 py-3 rounded-sm text-sm font-medium tracking-widest uppercase hover:bg-farm-cream/90 transition-colors text-center">
-                See the Volunteer Gardener page
+                Watch the Volunteer Gardener episode
               </Link>
               <Link href="/events" className="inline-block border border-farm-cream/25 text-farm-cream px-6 py-3 rounded-sm text-sm font-medium tracking-widest uppercase hover:bg-farm-cream/10 transition-colors text-center">
                 Check upcoming events
@@ -369,13 +369,13 @@ export default async function StrawBaleGarden() {
                 This Garden Is on <em>Volunteer Gardener</em>
               </h2>
               <p className="text-farm-cream/75 leading-relaxed mb-6">
-                Nashville PBS is airing a feature on Forevermore&apos;s straw bale garden. The premiere is Thursday, April 30 at 7:30 PM — or come see the real thing at the Hickman County Ag &amp; Arts Tour in June.
+                Nashville PBS aired a feature on Forevermore&apos;s straw bale garden, and the episode is online now — or come see the real thing at the Hickman County Ag &amp; Arts Tour in June.
               </p>
               <Link
                 href="/volunteer-gardener"
                 className="inline-block bg-farm-tan text-farm-charcoal px-8 py-3 rounded-sm text-sm font-medium tracking-widest uppercase hover:bg-farm-tan/90 transition-colors"
               >
-                Watch Schedule &amp; Visit Info
+                Watch Episode &amp; Visit Info
               </Link>
             </div>
             <div className="relative aspect-[4/3] rounded-sm overflow-hidden shadow-md">

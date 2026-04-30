@@ -137,15 +137,15 @@ export default async function Events() {
               </div>
               <div className="p-8 md:p-10">
                 <span className="text-xs font-medium tracking-widest text-farm-tan uppercase">Featured</span>
-                <h2 className="font-serif text-3xl text-farm-green mt-3 mb-4">Volunteer Gardener is coming to Forevermore Farm.</h2>
+                <h2 className="font-serif text-3xl text-farm-green mt-3 mb-4">Volunteer Gardener is streaming now.</h2>
                 <p className="text-farm-charcoal/70 leading-relaxed mb-4">
-                  Get the exact PBS air dates, online watch details, and the Ag &amp; Arts Tour visit plan in one place.
+                  Get the PBS episode link, remaining air dates, and the Ag &amp; Arts Tour visit plan in one place.
                 </p>
                 <p className="text-farm-charcoal/60 leading-relaxed mb-6">
-                  If you want to watch the feature and then come see the straw bale garden in person, start here.
+                  If you want to watch the feature online and then come see the straw bale garden in person, start here.
                 </p>
                 <Link href="/volunteer-gardener" className="inline-block bg-farm-green text-farm-cream px-6 py-3 rounded-sm text-sm font-medium tracking-widest uppercase hover:bg-farm-green/90 transition-colors">
-                  Open the feature page
+                  Watch episode & visit info
                 </Link>
               </div>
             </div>
@@ -166,16 +166,16 @@ export default async function Events() {
               <div className="p-8 flex flex-col justify-center">
                 <span className="text-xs font-medium tracking-widest text-farm-tan uppercase">As Seen on PBS</span>
                 <h2 className="font-serif text-2xl text-farm-green mt-2 mb-3">
-                  <em>Volunteer Gardener</em> — Premiering April 30
+                  <em>Volunteer Gardener</em> — Watch Online Now
                 </h2>
                 <p className="text-farm-charcoal/70 text-sm leading-relaxed mb-5">
-                  Concetta&apos;s straw bale garden is featured on PBS <em>Volunteer Gardener</em>. Nashville PBS premiere is Thursday, April 30 at 7:30 PM. Then come see the garden yourself at the Ag &amp; Arts Tour in June.
+                  Concetta&apos;s straw bale garden is featured on PBS <em>Volunteer Gardener</em>, and the episode is online now. Then come see the garden yourself at the Ag &amp; Arts Tour in June.
                 </p>
                 <Link
                   href="/volunteer-gardener"
                   className="inline-block self-start bg-farm-green text-farm-cream px-6 py-2.5 rounded-sm text-xs font-medium tracking-widest uppercase hover:bg-farm-green/90 transition-colors"
                 >
-                  Watch Schedule &amp; Visit Info
+                  Watch Episode &amp; Visit Info
                 </Link>
               </div>
             </div>
@@ -211,7 +211,7 @@ export default async function Events() {
             {/* PBS volunteer-gardener callout */}
             <div className="mb-10 p-5 bg-farm-green/5 border-l-4 border-farm-tan rounded-sm">
               <p className="text-farm-charcoal/80 text-sm leading-relaxed">
-                <strong>Watch before you visit:</strong> Concetta&apos;s straw bale garden is featured on PBS <em>Volunteer Gardener</em> — Nashville PBS premiere April 30 at 7:30 PM.{' '}
+                <strong>Watch before you visit:</strong> Concetta&apos;s straw bale garden is featured on PBS <em>Volunteer Gardener</em>, and the episode is online now.{' '}
                 <Link href="/volunteer-gardener" className="text-farm-green font-medium hover:underline underline-offset-4">Full watch schedule and visit details →</Link>
               </p>
             </div>
@@ -220,7 +220,7 @@ export default async function Events() {
             <div className="mb-10">
               <h3 className="font-serif text-xl text-farm-green mb-3">What&apos;s Happening</h3>
               <p className="text-farm-charcoal/70 leading-relaxed mb-4">The barn has been fully renovated and filled with vendors — handmade goods, crafts, and local makers all under one roof. Step outside and you&apos;re on a working homestead: free-range Berkshire pigs, Nigerian Dwarf goats, chickens, rabbits, and — if you&apos;re lucky — Clementine, our miniature pig who lives in the house and occasionally makes her rounds.</p>
-              <p className="text-farm-charcoal/70 leading-relaxed">Concetta will be giving straw bale garden demos throughout the weekend. She trained directly under Joel Karsten, the method&apos;s creator, and the garden is soon to be featured on PBS <em>Volunteer Gardener</em> — so you&apos;ll be seeing it before most people even know it exists.</p>
+              <p className="text-farm-charcoal/70 leading-relaxed">Concetta will be giving straw bale garden demos throughout the weekend. She trained directly under Joel Karsten, the method&apos;s creator, and the garden is featured on PBS <em>Volunteer Gardener</em> — so you&apos;ll be seeing the real thing after watching the story online.</p>
             </div>
 
             {/* Don't miss */}

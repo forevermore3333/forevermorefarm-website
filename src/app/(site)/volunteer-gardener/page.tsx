@@ -4,6 +4,9 @@ import Link from 'next/link'
 
 import HeroSection from '@/components/HeroSection'
 
+const pbsVideoUrl = 'https://www.pbs.org/video/volunteer-gardener-3417-ehycpx/'
+const pbsEmbedUrl = 'https://player.pbs.org/viralplayer/3108801736/'
+
 const broadcastSchedule = [
   {
     outlet: 'Nashville PBS debut',
@@ -68,8 +71,8 @@ const confirmedVendors: ConfirmedVendor[] = [
 const pressLinks = [
   {
     title: 'Watch Volunteer Gardener online',
-    href: 'https://volunteergardener.org/',
-    description: 'Online availability begins April 30 at volunteergardener.org.',
+    href: pbsVideoUrl,
+    description: 'The Forevermore Farm episode is online now at PBS.org.',
   },
   {
     title: 'WKRN News 2, “Hickman County Homesteaders Living Off Grid”',
@@ -112,9 +115,9 @@ export default function VolunteerGardenerPage() {
   return (
     <>
       <HeroSection
-        title="Volunteer Gardener is coming to Forevermore Farm"
-        subtitle="Watch the PBS feature, then come see the straw bale garden in person during the June 19–20, 2026 Ag & Arts Tour at Forevermore Farm."
-        ctaText="See the watch schedule"
+        title="Volunteer Gardener is streaming now"
+        subtitle="Watch the PBS feature online, then come see the straw bale garden in person during the June 19–20, 2026 Ag & Arts Tour at Forevermore Farm."
+        ctaText="Watch the episode"
         ctaHref="#watch-schedule"
         bgImage="/images/garden/zinnias-sunflowers-white-tent.jpg"
         bgPositionMobile="50% 52%"
@@ -153,11 +156,19 @@ export default function VolunteerGardenerPage() {
       <section id="watch-schedule" className="bg-farm-cream px-4 py-20">
         <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
           <div>
-            <span className="text-xs font-medium uppercase tracking-[0.3em] text-farm-tan">Broadcast / Watch Schedule</span>
-            <h2 className="mt-3 font-serif text-3xl text-farm-green md:text-4xl">Here&apos;s exactly when to watch.</h2>
+            <span className="text-xs font-medium uppercase tracking-[0.3em] text-farm-tan">Watch Online + Broadcast Schedule</span>
+            <h2 className="mt-3 font-serif text-3xl text-farm-green md:text-4xl">The episode is online now.</h2>
             <p className="mt-4 max-w-2xl text-lg leading-relaxed text-farm-charcoal/70">
-              No hunting for listings, no vague “coming soon.” These are the confirmed Volunteer Gardener air dates for the Forevermore Farm feature.
+              PBS has posted the Forevermore Farm feature online. You can watch it now, then catch the remaining broadcast airings or come see the garden in person during Ag &amp; Arts Tour weekend.
             </p>
+            <a
+              href={pbsVideoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-block rounded-sm bg-farm-green px-6 py-3 text-sm font-medium uppercase tracking-widest text-farm-cream transition-colors hover:bg-farm-green/90"
+            >
+              Watch the PBS episode →
+            </a>
             <div className="mt-10 grid gap-4">
               {broadcastSchedule.map((item) => (
                 <div key={item.outlet} className="rounded-sm border border-farm-tan/25 bg-white/70 p-5 shadow-sm">
@@ -169,28 +180,19 @@ export default function VolunteerGardenerPage() {
           </div>
 
           <div className="rounded-sm bg-farm-green p-8 text-farm-cream shadow-md">
-            <span className="text-xs font-medium uppercase tracking-[0.3em] text-farm-cream/60">Online Availability</span>
-            <h3 className="mt-3 font-serif text-3xl">Stream it after the debut.</h3>
+            <span className="text-xs font-medium uppercase tracking-[0.3em] text-farm-cream/60">Watch Now</span>
+            <h3 className="mt-3 font-serif text-3xl">The full episode is online.</h3>
             <p className="mt-4 leading-relaxed text-farm-cream/80">
-              Online availability begins April 30 at{' '}
-              <a
-                href="https://volunteergardener.org/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline decoration-farm-cream/40 underline-offset-4 transition-colors hover:text-farm-cream"
-              >
-                volunteergardener.org
-              </a>
-              .
+              Watch <em>Volunteer Gardener 3417</em> on PBS now. The episode description: “Straw bale farming of fruits and vegetables; growing citrus in marginal zones.”
             </p>
             <div className="mt-8 overflow-hidden rounded-sm border border-farm-cream/15 bg-farm-charcoal/20 shadow-lg">
-              <div className="relative aspect-[16/9]">
-                <Image
-                  src="/images/press/volunteer-gardener-seo.png"
-                  alt="Volunteer Gardener feature graphic for Forevermore Farm"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 34vw"
-                  className="object-cover"
+              <div className="relative aspect-video bg-farm-charcoal">
+                <iframe
+                  src={pbsEmbedUrl}
+                  title="PBS Volunteer Gardener 3417 video player"
+                  allow="encrypted-media"
+                  allowFullScreen
+                  className="absolute inset-0 h-full w-full border-0"
                 />
               </div>
               <div className="flex items-center gap-3 border-t border-farm-cream/10 px-4 py-4">
@@ -375,12 +377,12 @@ export default function VolunteerGardenerPage() {
                 Read more about the straw bale garden →
               </Link>
               <a
-                href="https://volunteergardener.org/"
+                href={pbsVideoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block text-farm-cream transition-colors hover:text-farm-tan"
               >
-                Watch Volunteer Gardener online →
+                Watch the PBS episode online →
               </a>
             </div>
           </div>
