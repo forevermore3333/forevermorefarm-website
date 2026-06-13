@@ -206,7 +206,10 @@ export default async function Events() {
           {/* Ag & Arts Tour Detail */}
           <div className="mt-16 border-t border-farm-tan/30 pt-16">
             <h2 className="font-serif text-3xl text-farm-green mb-2">Forevermore Farm at the Ag &amp; Arts Tour</h2>
-            <p className="text-farm-charcoal/50 text-sm mb-10">June 19–20, 2026 · 302 Hickory Trace, Lyles, TN 37098</p>
+            <p className="text-farm-charcoal/50 text-sm mb-6">June 19–20, 2026 · 302 Hickory Trace, Lyles, TN 37098</p>
+            <a href="/ag-arts-tour/" className="inline-block mb-10 bg-farm-green text-farm-cream px-6 py-3 rounded-sm text-sm font-medium tracking-widest uppercase hover:bg-farm-green/90 transition-colors">
+              View the Interactive Stop Map →
+            </a>
 
             {/* PBS volunteer-gardener callout */}
             <div className="mb-10 p-5 bg-farm-green/5 border-l-4 border-farm-tan rounded-sm">
