@@ -76,13 +76,13 @@ export default function Home() {
                 Forevermore Farm on <em>Volunteer Gardener</em>
               </h2>
               <p className="text-farm-cream/80 leading-relaxed mb-6">
-                Concetta&apos;s straw bale garden is featured on PBS <em>Volunteer Gardener</em>, and the episode is online now.
+                Concetta&apos;s straw bale garden is featured on PBS <em>Volunteer Gardener</em>, and the episode is online now. Watch it, then come see the garden in person at the Ag &amp; Arts Tour in June.
               </p>
               <Link
                 href="/volunteer-gardener"
                 className="inline-block bg-farm-tan text-farm-charcoal px-8 py-3 rounded-sm text-sm font-medium tracking-widest uppercase hover:bg-farm-tan/90 transition-colors"
               >
-                Watch the Episode
+                Watch the Episode &amp; Visit Info
               </Link>
             </div>
             <div className="relative aspect-[4/3] rounded-sm overflow-hidden shadow-md">
@@ -124,7 +124,7 @@ export default function Home() {
           {/* PBS link */}
           <div className="mt-8">
             <Link href="/volunteer-gardener" className="text-farm-tan/70 hover:text-farm-tan text-sm transition-colors">
-              Concetta&apos;s straw bale garden on PBS <em>Volunteer Gardener</em> — watch the episode &rarr;
+              Concetta&apos;s straw bale garden on PBS <em>Volunteer Gardener</em> — watch the episode &amp; visit info &rarr;
             </Link>
           </div>
         </div>
@@ -137,7 +137,7 @@ export default function Home() {
             <span className="text-xs font-medium tracking-widest text-farm-cream/60 uppercase">PBS Feature</span>
             <h2 className="font-serif text-3xl md:text-4xl text-farm-cream mt-3 mb-5">Volunteer Gardener is streaming now.</h2>
             <p className="text-farm-cream/80 text-lg leading-relaxed max-w-2xl">
-              PBS has posted the full Forevermore Farm feature online. Watch it now, then check the events page for current farm updates.
+              PBS has posted the full Forevermore Farm feature online. Watch it now, then get everything you need before visiting during the June 19–20, 2026 Ag &amp; Arts Tour.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
               <Link href="/volunteer-gardener" className="inline-block bg-farm-cream text-farm-green px-6 py-3 rounded-sm text-sm font-medium tracking-widest uppercase hover:bg-farm-cream/90 transition-colors text-center">

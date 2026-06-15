@@ -145,7 +145,7 @@ export default async function Events() {
                   If you want to watch the feature online and then come see the straw bale garden in person, start here.
                 </p>
                 <Link href="/volunteer-gardener" className="inline-block bg-farm-green text-farm-cream px-6 py-3 rounded-sm text-sm font-medium tracking-widest uppercase hover:bg-farm-green/90 transition-colors">
-                  Watch episode
+                  Watch episode & visit info
                 </Link>
               </div>
             </div>
@@ -169,13 +169,13 @@ export default async function Events() {
                   <em>Volunteer Gardener</em> — Watch Online Now
                 </h2>
                 <p className="text-farm-charcoal/70 text-sm leading-relaxed mb-5">
-                  Concetta&apos;s straw bale garden is featured on PBS <em>Volunteer Gardener</em>, and the episode is online now.
+                  Concetta&apos;s straw bale garden is featured on PBS <em>Volunteer Gardener</em>, and the episode is online now. Then come see the garden yourself at the Ag &amp; Arts Tour in June.
                 </p>
                 <Link
                   href="/volunteer-gardener"
                   className="inline-block self-start bg-farm-green text-farm-cream px-6 py-2.5 rounded-sm text-xs font-medium tracking-widest uppercase hover:bg-farm-green/90 transition-colors"
                 >
-                  Watch Episode
+                  Watch Episode &amp; Visit Info
                 </Link>
               </div>
             </div>
@@ -205,14 +205,61 @@ export default async function Events() {
 
           {/* Ag & Arts Tour Detail */}
           <div className="mt-16 border-t border-farm-tan/30 pt-16">
-            <h2 className="font-serif text-3xl text-farm-green mb-2">Hickman County Ag &amp; Arts Tour</h2>
-            <p className="text-farm-charcoal/50 text-sm mb-6">June 19–20, 2026</p>
-            <p className="max-w-2xl text-farm-charcoal/70 leading-relaxed mb-6">
-              Details for the Hickman County Ag &amp; Arts Tour are being finalized by the organizers. For the current stop list, times, and directions, please visit the official Ag &amp; Arts Tour site.
-            </p>
-            <a href="https://www.agandartstour.com/" target="_blank" rel="noopener noreferrer" className="inline-block mb-10 bg-farm-green text-farm-cream px-6 py-3 rounded-sm text-sm font-medium tracking-widest uppercase hover:bg-farm-green/90 transition-colors">
-              Visit agandartstour.com →
+            <h2 className="font-serif text-3xl text-farm-green mb-2">Forevermore Farm at the Ag &amp; Arts Tour</h2>
+            <p className="text-farm-charcoal/50 text-sm mb-6">June 19–20, 2026 · 302 Hickory Trace, Lyles, TN 37098</p>
+            <a href="/ag-arts-tour/" className="inline-block mb-10 bg-farm-green text-farm-cream px-6 py-3 rounded-sm text-sm font-medium tracking-widest uppercase hover:bg-farm-green/90 transition-colors">
+              View the Interactive Stop Map →
             </a>
+
+            {/* PBS volunteer-gardener callout */}
+            <div className="mb-10 p-5 bg-farm-green/5 border-l-4 border-farm-tan rounded-sm">
+              <p className="text-farm-charcoal/80 text-sm leading-relaxed">
+                <strong>Watch before you visit:</strong> Concetta&apos;s straw bale garden is featured on PBS <em>Volunteer Gardener</em>, and the episode is online now.{' '}
+                <Link href="/volunteer-gardener" className="text-farm-green font-medium hover:underline underline-offset-4">Full watch schedule and visit details →</Link>
+              </p>
+            </div>
+
+            {/* What's happening */}
+            <div className="mb-10">
+              <h3 className="font-serif text-xl text-farm-green mb-3">What&apos;s Happening</h3>
+              <p className="text-farm-charcoal/70 leading-relaxed mb-4">The barn has been fully renovated and filled with vendors — handmade goods, crafts, and local makers all under one roof. Step outside and you&apos;re on a working homestead: free-range Berkshire pigs, Nigerian Dwarf goats, chickens, rabbits, and — if you&apos;re lucky — Clementine, our miniature pig who lives in the house and occasionally makes her rounds.</p>
+              <p className="text-farm-charcoal/70 leading-relaxed">Concetta will be giving straw bale garden demos throughout the weekend. She trained directly under Joel Karsten, the method&apos;s creator, and the garden is featured on PBS <em>Volunteer Gardener</em> — so you&apos;ll be seeing the real thing after watching the story online.</p>
+            </div>
+
+            {/* Don't miss */}
+            <div className="mb-10">
+              <h3 className="font-serif text-xl text-farm-green mb-3">Don&apos;t Miss</h3>
+              <ul className="space-y-3">
+                <li className="flex gap-3"><span className="text-farm-tan mt-1">→</span><div><strong className="text-farm-charcoal">The Straw Bale Garden</strong><span className="text-farm-charcoal/60"> — Concetta&apos;s certified straw bale setup is genuinely one of a kind. Come find out why PBS came calling.</span></div></li>
+                <li className="flex gap-3"><span className="text-farm-tan mt-1">→</span><div><strong className="text-farm-charcoal">The Sunflower Fields</strong><span className="text-farm-charcoal/60"> — Bring your camera. Seriously. This is the shot.</span></div></li>
+                <li className="flex gap-3"><span className="text-farm-tan mt-1">→</span><div><strong className="text-farm-charcoal">Clementine</strong><span className="text-farm-charcoal/60"> — She&apos;s a free-roaming miniature pig. She lives in the house. She has opinions. Enough said.</span></div></li>
+                <li className="flex gap-3"><span className="text-farm-tan mt-1">→</span><div><strong className="text-farm-charcoal">The Solar Barn</strong><span className="text-farm-charcoal/60"> — The farm runs almost entirely on solar power. No grid electricity. We&apos;ll show you what that actually looks like.</span></div></li>
+              </ul>
+            </div>
+
+            {/* 2-col: purchase + practical */}
+            <div className="grid md:grid-cols-2 gap-10 mb-10">
+              <div>
+                <h3 className="font-serif text-xl text-farm-green mb-3">Available to Purchase</h3>
+                <ul className="space-y-2 text-farm-charcoal/70">
+                  <li>→ <strong>Heritage Pork Sausage</strong> — USDA-processed, raised right here on pasture. <em>Bring a cooler.</em></li>
+                  <li>→ Frozen chocolate-dipped bananas</li>
+                  <li>→ Food from The LOCAL Place café</li>
+                  <li>→ Baked goods</li>
+                  <li>→ Handmade crafts from barn vendors</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-serif text-xl text-farm-green mb-3">Good to Know</h3>
+                <ul className="space-y-2 text-farm-charcoal/70">
+                  <li>→ Parking on-site — follow signage from the road</li>
+                  <li>→ Restrooms available</li>
+                  <li>→ Kid-friendly — animals, open space, frozen bananas</li>
+                  <li>→ <strong>Wear shoes you don&apos;t mind getting dirty.</strong> This is a working farm.</li>
+                  <li>→ Free and open to the public</li>
+                </ul>
+              </div>
+            </div>
           </div>
 
           {/* Past Events */}
