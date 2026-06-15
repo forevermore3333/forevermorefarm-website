@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Nav from "@/components/Nav"
 import Footer from "@/components/Footer"
 import FarmSchema from "@/components/FarmSchema"
+import AgArtsTourPopup from "@/components/AgArtsTourPopup"
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://forevermorefarmtn.com"),
@@ -53,6 +54,7 @@ export default function SiteLayout({
       <Nav />
       <main>{children}</main>
       <Footer />
+      <AgArtsTourPopup />
     </>
   )
 }
