@@ -3,44 +3,270 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About the Ag &amp; Arts Tour | Forevermore Farm</title>
-<meta name="description" content="Ag &amp; Arts Tour details are being finalized by the organizers. Visit the official Ag &amp; Arts Tour site for current stops, times, and directions.">
+<title>Forevermore Farm | Hickman County Ag &amp; Arts Tour</title>
+<meta name="description" content="Forevermore Farm details for the 2026 Hickman County Ag &amp; Arts Tour in Lyles, Tennessee.">
 <link rel="canonical" href="https://forevermorefarmtn.com/ag-arts-tour">
+<!-- Open Graph / social share -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Forevermore Farm">
 <meta property="og:url" content="https://forevermorefarmtn.com/ag-arts-tour">
-<meta property="og:title" content="About the Ag &amp; Arts Tour | Forevermore Farm">
-<meta property="og:description" content="Ag &amp; Arts Tour details are being finalized by the organizers. Visit the official site for current stops, times, and directions.">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="About the Ag &amp; Arts Tour | Forevermore Farm">
-<meta name="twitter:description" content="Ag &amp; Arts Tour details are being finalized by the organizers. Visit the official site for current stops, times, and directions.">
+<meta property="og:title" content="Forevermore Farm | Hickman County Ag &amp; Arts Tour">
+<meta property="og:description" content="Visit Forevermore Farm during the 2026 Hickman County Ag &amp; Arts Tour, then use the official tour site for every other stop.">
+<meta property="og:image" content="https://forevermorefarmtn.com/ag-arts-tour/forevermore-farm.jpg">
+<meta property="og:image:width" content="820">
+<meta property="og:image:height" content="459">
+<meta property="og:image:alt" content="Forevermore Farm during the 2026 Hickman County Ag & Arts Tour">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Forevermore Farm | Hickman County Ag &amp; Arts Tour">
+<meta name="twitter:description" content="Visit Forevermore Farm during the 2026 Hickman County Ag &amp; Arts Tour, then use the official tour site for every other stop.">
+<meta name="twitter:image" content="https://forevermorefarmtn.com/ag-arts-tour/forevermore-farm.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
 <style>
-  :root{--paper:#f4ecd9;--red:#9e2f2f;--navy:#22395c;--gold:#d9a833;--ink:#2e2a24;--card:#faf5e8}
+  :root{
+    --paper:#f4ecd9; --paper2:#efe3c8; --red:#9e2f2f; --navy:#22395c;
+    --gold:#d9a833; --ink:#2e2a24; --card:#faf5e8;
+  }
   *{margin:0;padding:0;box-sizing:border-box}
-  body{min-height:100vh;font-family:'EB Garamond',Georgia,serif;background:var(--paper);color:var(--ink);line-height:1.6;display:flex;flex-direction:column}
-  .hero{background:linear-gradient(rgba(34,57,92,.3),rgba(34,57,92,.5)),url('https://static.wixstatic.com/media/cfc394_da3a820e23204d2a920613d2d146cdc2~mv2.png/v1/fill/w_1600,h_700,al_c,q_80/bg.jpg') center/cover;text-align:center;padding:64px 16px 56px;border-bottom:6px double var(--gold)}
+  body{font-family:'EB Garamond',Georgia,serif;background:var(--paper);color:var(--ink);line-height:1.55}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 16px}
+
+  /* HERO */
+  .hero{background:linear-gradient(rgba(34,57,92,.25),rgba(34,57,92,.45)),url('https://static.wixstatic.com/media/cfc394_da3a820e23204d2a920613d2d146cdc2~mv2.png/v1/fill/w_1600,h_700,al_c,q_80/bg.jpg') center/cover;text-align:center;padding:64px 16px 56px;border-bottom:6px double var(--gold)}
   .hero .script{font-family:'Kaushan Script',cursive;font-size:clamp(2.6rem,6vw,4.5rem);color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.55)}
-  .hero .sub{margin-top:10px;font-family:'Oswald',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#ffe9b0;font-size:clamp(.85rem,2vw,1.05rem);text-shadow:0 1px 6px rgba(0,0,0,.6)}
-  .stopnav{background:var(--navy);box-shadow:0 2px 8px rgba(0,0,0,.25);padding:12px 8px;text-align:center}
-  .stopnav a{display:inline-block;color:#fff;font-family:'Oswald',sans-serif;font-size:.95rem;letter-spacing:.08em;text-decoration:none;text-transform:uppercase}
-  main{flex:1;display:grid;place-items:center;padding:64px 16px}
-  .notice{width:min(720px,100%);text-align:center;background:var(--card);border:1px solid #d9c9a3;border-radius:6px;box-shadow:0 3px 12px rgba(70,50,20,.12);padding:clamp(32px,7vw,56px)}
-  .notice h1{font-family:'Oswald',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--red);font-size:clamp(1.5rem,3.5vw,2.2rem)}
-  .secline{width:140px;height:3px;background:var(--gold);margin:18px auto 28px;position:relative}
-  .secline:after{content:'*';position:absolute;top:-15px;left:50%;transform:translateX(-50%);color:var(--gold);background:var(--card);padding:0 8px}
-  .notice p{max-width:600px;margin:0 auto;font-size:1.15rem}
-  .button{display:inline-block;margin-top:28px;background:var(--navy);color:#fff;font-family:'Oswald',sans-serif;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:12px 24px;border-radius:4px;transition:background .15s ease}
-  .button:hover{background:var(--red)}
+  .hero .sub{font-family:'Oswald',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#ffe9b0;font-size:clamp(.85rem,2vw,1.05rem);margin-top:10px;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+  .hero .dates{display:inline-block;margin-top:18px;background:var(--red);color:#fff;font-family:'Oswald',sans-serif;letter-spacing:.08em;padding:10px 26px;border-radius:4px;font-size:1.05rem;box-shadow:0 3px 10px rgba(0,0,0,.35)}
+  .hero p.free{color:#fff;margin-top:12px;font-style:italic;font-size:1.05rem;text-shadow:0 1px 6px rgba(0,0,0,.7)}
+
+  /* STICKY NAV */
+  .stopnav{position:sticky;top:0;z-index:50;background:var(--navy);box-shadow:0 2px 8px rgba(0,0,0,.25);padding:10px 8px;text-align:center}
+  .stopnav a{display:inline-block;width:34px;height:34px;line-height:34px;margin:3px;border-radius:50%;background:#33507e;color:#fff;font-family:'Oswald',sans-serif;font-size:.95rem;text-decoration:none;transition:.15s}
+  .stopnav a:hover{background:var(--gold);color:var(--navy)}
+  .stopnav a.maplink{width:auto;border-radius:18px;padding:0 14px;background:var(--red)}
+  .stopnav a.maplink:hover{background:var(--gold);color:var(--navy)}
+
+  /* SECTION HEADS */
+  h2.sec{font-family:'Oswald',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--red);text-align:center;font-size:clamp(1.5rem,3.5vw,2.2rem);margin:48px 0 8px}
+  .secline{width:140px;height:3px;background:var(--gold);margin:0 auto 28px;position:relative}
+  .secline:after{content:'★';position:absolute;top:-13px;left:50%;transform:translateX(-50%);color:var(--gold);background:var(--paper);padding:0 8px}
+
+  /* MAP */
+  .maps{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+  .maps img{width:min(440px,94vw);border:6px solid #fff;box-shadow:0 4px 14px rgba(0,0,0,.18);border-radius:3px}
+  .mapnote{text-align:center;font-style:italic;margin-top:12px;color:#6b6253}
+
+  /* CARDS */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:22px;margin-bottom:40px}.grid.single-stop{max-width:760px;margin-left:auto;margin-right:auto}
+  .card{background:var(--card);border:1px solid #d9c9a3;border-radius:6px;overflow:hidden;box-shadow:0 3px 12px rgba(70,50,20,.12);display:flex;flex-direction:column;scroll-margin-top:70px}
+  .card .imgwrap{position:relative;height:190px;overflow:hidden}
+  .card .imgwrap img{width:100%;height:100%;object-fit:cover;object-position:top center}
+  .badge{position:absolute;top:10px;left:10px;width:46px;height:46px;background:var(--gold);color:var(--navy);font-family:'Oswald',sans-serif;font-size:1.35rem;font-weight:600;display:flex;align-items:center;justify-content:center;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);text-shadow:none}
+  .food{position:absolute;top:10px;right:10px;background:rgba(158,47,47,.93);color:#fff;font-family:'Oswald',sans-serif;font-size:.72rem;letter-spacing:.06em;padding:5px 10px;border-radius:14px;max-width:60%;text-align:center}
+  .card h3{font-family:'Kaushan Script',cursive;font-size:1.75rem;color:var(--red);padding:14px 18px 2px}
+  .addr{padding:0 18px;font-family:'Oswald',sans-serif;font-size:.85rem;letter-spacing:.04em;text-transform:uppercase;color:var(--navy)}
+  .addr a{color:var(--navy);text-decoration:none;border-bottom:1px dotted var(--navy)}
+  .addr a:hover{color:var(--red);border-color:var(--red)}
+  .chips{padding:10px 18px 4px}
+  .chip{display:inline-block;background:var(--navy);color:#fff;font-family:'Oswald',sans-serif;font-size:.72rem;letter-spacing:.05em;padding:4px 11px;border-radius:13px;margin:0 5px 6px 0}
+  .desc{padding:8px 18px 4px;font-size:1.02rem}
+  .desc .more{display:none}
+  .desc.open .more{display:inline}
+  .readmore{background:none;border:none;color:var(--red);font-family:'EB Garamond',serif;font-size:1rem;font-style:italic;cursor:pointer;padding:0 18px 6px;text-align:left}
+  .vendors{padding:6px 18px;font-size:.97rem}
+  .vendors b{font-family:'Kaushan Script',cursive;color:var(--red);font-weight:400;font-size:1.08rem}
+  .amen{margin-top:auto;background:var(--navy);color:#f3e9d2;padding:10px 18px;font-size:.88rem;font-family:'Oswald',sans-serif;letter-spacing:.03em;font-weight:300}
+
+  .rufus{background:linear-gradient(rgba(125,148,113,.92),rgba(125,148,113,.92)),url('https://static.wixstatic.com/media/cfc394_da3a820e23204d2a920613d2d146cdc2~mv2.png/v1/fill/w_1400,h_400,al_b,q_75/r.jpg') center/cover;margin:40px 0;padding:34px 16px;text-align:center;color:#fff}
+  .rufus img{width:130px;border-radius:50%;border:4px solid var(--gold);margin-bottom:12px}
+  .rufus h2{font-family:'Oswald',sans-serif;letter-spacing:.12em;font-size:1.6rem}
+  .rufus p{max-width:640px;margin:10px auto 0;font-size:1.08rem}
+
+  /* TIPS */
+  .tips{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-bottom:46px}
+  .tip{background:var(--paper2);border:1px solid #d9c9a3;border-radius:6px;padding:14px 16px;font-size:1rem;display:flex;gap:10px}
+  .tip:before{content:'★';color:var(--red);font-size:1.1rem;line-height:1.4}
+
+  /* FOOTER */
   footer{background:var(--navy);color:#e8e0cd;text-align:center;padding:30px 16px;font-size:.98rem}
   footer a{color:var(--gold);text-decoration:none}
+  .hidden{display:none!important}
+
+  /* INTERACTIVE FULL MAP (v2) */
+  html{scroll-behavior:smooth}
+  .maps{display:flex;justify-content:center}
+  .mapwrap{position:relative;width:min(960px,94vw)}
+  .mapviewport{position:relative;overflow:auto;border:6px solid #fff;border-radius:3px;background:var(--paper);box-shadow:0 4px 14px rgba(0,0,0,.18);-webkit-overflow-scrolling:touch;cursor:grab}
+  .mapviewport.grabbing{cursor:grabbing}
+  .mapcanvas{position:relative;width:calc(var(--z,1)*100%);line-height:0;transition:width .16s ease}
+  .mapcanvas img{width:100%;display:block;border:0;-webkit-user-drag:none;user-select:none}
+  .pin{position:absolute;transform:translate(-50%,-50%);width:3.2%;aspect-ratio:1;border-radius:50%;text-indent:-200vw;overflow:hidden;white-space:nowrap;cursor:pointer;-webkit-tap-highlight-color:transparent;animation:pinpulse 1.9s ease 3}
+  .pin::after{content:'';position:absolute;inset:0;border-radius:50%;background:rgba(217,168,51,.95);box-shadow:0 0 0 3px #22395c,0 2px 8px rgba(0,0,0,.35);transition:box-shadow .15s}
+  .pin-forevermore{z-index:8;width:6.4%;display:flex;align-items:center;justify-content:center;overflow:visible;text-indent:0;color:var(--navy);font-family:'Oswald',sans-serif;font-size:clamp(.8rem,1.8vw,1.35rem);font-weight:600;letter-spacing:.02em;text-decoration:none;text-shadow:0 1px 0 rgba(255,255,255,.55);animation:featuredpulse 2.2s ease 4}
+  .pin-forevermore::after{inset:-6%;background:var(--gold);box-shadow:0 0 0 3px #fff,0 0 0 8px rgba(217,168,51,.5),0 0 26px rgba(217,168,51,.9),0 3px 12px rgba(0,0,0,.38)}
+  .pin-forevermore::before{content:'Forevermore Farm';position:absolute;left:50%;top:calc(100% + 7px);transform:translateX(-50%);background:rgba(34,57,92,.96);color:#fff;border-radius:999px;padding:4px 9px;font-size:clamp(.55rem,1.1vw,.82rem);font-family:'Oswald',sans-serif;letter-spacing:.04em;text-transform:uppercase;line-height:1;box-shadow:0 2px 8px rgba(0,0,0,.28)}
+  .pin-forevermore span{position:relative;z-index:2}
+  .pin:hover::after,.pin:focus-visible::after{box-shadow:0 0 0 4px rgba(217,168,51,.95)}
+  .pin:focus-visible{outline:none}
+  @keyframes pinpulse{0%,100%{box-shadow:0 0 0 0 rgba(158,47,47,0)}50%{box-shadow:0 0 0 .5vw rgba(158,47,47,.5)}}
+  @keyframes featuredpulse{0%,100%{filter:drop-shadow(0 0 0 rgba(217,168,51,0))}50%{filter:drop-shadow(0 0 12px rgba(217,168,51,.9))}}
+  @media (prefers-reduced-motion:reduce){.pin{animation:none}}
+  .zoomctl{position:absolute;top:14px;right:14px;z-index:20;display:flex;flex-direction:column;gap:6px}
+  .zoomctl button{width:38px;height:38px;border:none;border-radius:8px;background:rgba(34,57,92,.92);color:#fff;font-family:'Oswald',sans-serif;font-size:1.3rem;line-height:1;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center}
+  .zoomctl button:hover{background:var(--red)}
+  .zoomctl button:active{transform:translateY(1px)}
+  @media (max-width:740px){ .mapviewport{max-height:74vh;touch-action:pan-x pan-y} .pin{width:5%} }
+  @media (min-width:741px){ .zoomctl{opacity:.55;transition:opacity .2s} .mapwrap:hover .zoomctl{opacity:1} }
+  /* CARDS — show the full baked-in promotional graphic; hide redundant overlays */
+  .card .imgwrap{position:relative;height:auto;overflow:visible;line-height:0}
+  .card .imgwrap img{width:100%;height:auto;object-fit:fill;display:block}
+  .card .badge,.card .food{display:none}
+  .card h3{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+  .actions{display:flex;flex-wrap:wrap;gap:9px;padding:14px 18px 4px;margin-top:auto}
+  .btn{flex:1 1 130px;text-align:center;font-family:'Oswald',sans-serif;letter-spacing:.04em;text-transform:uppercase;font-size:.82rem;padding:11px 14px;border-radius:9px;text-decoration:none;transition:.15s}
+  .btn.dir{background:var(--navy);color:#fff}
+  .btn.dir:hover{background:#16263f}
+  .btn.web{background:var(--gold);color:var(--navy)}
+  .btn.web:hover{background:#c4952a}
+  .card:target{animation:cardflash 1.8s ease 1}
+  @keyframes cardflash{0%,40%{box-shadow:0 0 0 3px var(--gold),0 3px 12px rgba(70,50,20,.22)}100%{box-shadow:0 3px 12px rgba(70,50,20,.12)}}
 </style>
 </head>
 <body>
-<header class="hero"><div class="script">Forevermore Farm</div><div class="sub">Hickman County Ag &amp; Arts Tour</div></header>
-<nav class="stopnav" aria-label="Forevermore Farm navigation"><a href="https://forevermorefarmtn.com/">Forevermore Farm</a></nav>
-<main><section class="notice" aria-labelledby="tour-heading"><h1 id="tour-heading">About the Ag &amp; Arts Tour</h1><div class="secline"></div><p>At the organizers' request, we've removed the detailed tour information from this page while they finalize updates for the weekend. For the current stop list, times, and directions, please visit the official Ag &amp; Arts Tour site.</p><a class="button" href="https://www.agandartstour.com/" target="_blank" rel="noopener">agandartstour.com</a></section></main>
-<footer><p><b>Forevermore Farm</b></p><p style="margin-top:6px">Current Ag &amp; Arts Tour details are available at <a href="https://www.agandartstour.com/" target="_blank" rel="noopener">agandartstour.com</a>.</p></footer>
+
+<header class="hero">
+  <div class="script">Forevermore Farm</div>
+  <div class="sub">Hickman County Ag &amp; Arts Tour &nbsp;•&nbsp; Farms ★ Art ★ Music ★ Backroads</div>
+  <div class="dates">Friday &amp; Saturday • June 19–20, 2026 • 10 AM – 5 PM</div>
+  <p class="free">A free, self-guided tour of farms, art &amp; music across Tennessee backroads</p>
+</header>
+
+<nav class="stopnav" aria-label="Ag &amp; Arts Tour page navigation">
+  <a href="#map" class="maplink">Map</a><a href="#forevermore" class="maplink">Forevermore Farm</a><a href="#tips" class="maplink">Tips</a>
+</nav>
+
+<section id="map" class="wrap">
+  <h2 class="sec">Plan Your Route</h2>
+  <div class="secline"></div>
+  <div class="maps">
+    <div class="mapwrap">
+      <div class="zoomctl" aria-hidden="false">
+        <button type="button" data-z="in" aria-label="Zoom in">+</button>
+        <button type="button" data-z="out" aria-label="Zoom out">−</button>
+        <button type="button" data-z="reset" aria-label="Reset zoom">⟲</button>
+      </div>
+      <div class="mapviewport" id="mapvp">
+        <div class="mapcanvas" id="mapcanvas">
+          <img src="/ag-arts-tour/tour-map.jpg" alt="Hickman County Ag &amp; Arts Tour map showing Forevermore Farm in Lyles, Tennessee">
+          <a class="pin pin-forevermore" href="#forevermore" style="left:65.7%;top:33.4%" aria-label="Jump to Forevermore Farm, stop 11"><span>11</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="mapnote">On a phone, drag to pan and pinch or use the +/- controls to zoom in for a closer look. Map location is approximate — use the Directions button below for exact navigation.</p>
+</section>
+
+<section class="wrap" id="stops">
+  <h2 class="sec">Forevermore Farm</h2>
+  <div class="secline"></div>
+
+
+  <div class="grid single-stop">
+    <article class="card" id="forevermore" data-tags="animals food shop">
+      <div class="imgwrap"><img loading="lazy" decoding="async" src="/ag-arts-tour/forevermore-farm.jpg" alt="Forevermore Farm" data-id="f58162"><span class="food">Food: Papa KayJoe's BBQ</span></div>
+      <h3>Forevermore Farm</h3>
+      <div class="chips"><span class="chip">Animal Husbandry</span><span class="chip">Straw Bale Gardens</span><span class="chip">USDA Heritage Pork</span></div>
+      <p class="desc">An off-grid homestead rooted in sustainability, family, and long-view stewardship — solar powered, with every garden row and structure connected to living simply and intentionally.<span class="more"> From thriving straw bale gardens and sweeping sunflower fields to hands-on demonstrations and free-roaming animals, you'll leave with a sense that this kind of life is possible, practical, and worth pursuing.</span></p>
+      <button class="readmore">read more…</button>
+      <p class="vendors"><b>Guest Vendors</b> — The Old Country Churchstead • Rustic Roots Homestead • Twin Creek Woodworks • Candy Crochet</p>
+      <div class="amen">Restrooms • Gravel Parking • Cash &amp; Venmo</div>
+    <div class="actions"><a class="btn dir" href="https://www.google.com/maps/dir/?api=1&destination=302+Hickory+Trace,+Lyles,+TN" target="_blank" rel="noopener">Get Directions</a><a class="btn web" href="https://forevermorefarmtn.com" target="_blank" rel="noopener">Visit Website ↗</a></div></article>
+
+  </div>
+</section>
+
+<section class="wrap" id="tips">
+  <h2 class="sec">Tour Tips</h2>
+  <div class="secline"></div>
+  <div class="tips">
+    <div class="tip">Read each stop's highlights carefully — not all stops are open both days, and event hours and amenities vary.</div>
+    <div class="tip">Watch for Ag &amp; Arts Tour signs marking important intersections and site locations.</div>
+    <div class="tip">Bring a cooler for perishable purchases — produce, meats, herb butters, flowers.</div>
+    <div class="tip">Bring cash! Many stops have limited Wi-Fi or no card machines.</div>
+    <div class="tip">Not every stop has a public bathroom — use one when and where it's available.</div>
+    <div class="tip">Parking is limited at many farms — please ride-share if you can.</div>
+    <div class="tip">Be kind, and leave our farms better than you found them.</div>
+    <div class="tip">The tour runs through the heart of rural Hickman County — stops are spread out, so take your time and enjoy the scenery as you go!</div>
+  </div>
+</section>
+
+<footer>
+  <p><b>Hickman County Ag &amp; Arts Tour</b> — Farms ★ Art ★ Music ★ Backroads</p>
+  <p style="margin-top:6px">This page covers Forevermore Farm only. For every other stop on the tour — plus the full schedule, maps, and any last-minute changes — visit the official Ag &amp; Arts Tour site → <a href="https://www.agandartstour.com/" target="_blank" rel="noopener">agandartstour.com</a> (https://www.agandartstour.com/).</p>
+</footer>
+
+<script>
+  document.querySelectorAll('.readmore').forEach(function(b){
+    b.addEventListener('click', function(){
+      var d = b.previousElementSibling;
+      d.classList.toggle('open');
+      b.textContent = d.classList.contains('open') ? 'show less' : 'read more...';
+    });
+  });
+</script>
+
+<script>
+(function(){
+  var vp=document.getElementById('mapvp'), cv=document.getElementById('mapcanvas');
+  if(!vp||!cv) return;
+  var z=1, ZMIN=1, ZMAX=6;
+  function apply(nz, fx, fy){
+    nz=Math.max(ZMIN,Math.min(ZMAX,nz));
+    if(nz===z) return;
+    var rect=vp.getBoundingClientRect();
+    if(fx==null){fx=rect.width/2; fy=rect.height/2;}
+    var oldW=vp.clientWidth*z, oldH=cv.offsetHeight;
+    var cx=(vp.scrollLeft+fx)/oldW, cy=(vp.scrollTop+fy)/Math.max(oldH,1);
+    z=nz; cv.style.setProperty('--z',z);
+    requestAnimationFrame(function(){
+      var newW=vp.clientWidth*z, newH=cv.offsetHeight;
+      vp.scrollLeft=cx*newW-fx; vp.scrollTop=cy*newH-fy;
+    });
+  }
+  document.querySelectorAll('.zoomctl button').forEach(function(b){
+    b.addEventListener('click',function(e){
+      e.preventDefault();
+      var a=b.getAttribute('data-z');
+      if(a==='in') apply(z*1.6);
+      else if(a==='out') apply(z/1.6);
+      else { z=1; cv.style.setProperty('--z',1); vp.scrollLeft=0; vp.scrollTop=0; }
+    });
+  });
+  vp.addEventListener('wheel',function(e){
+    if(Math.abs(e.deltaY)<1) return;
+    e.preventDefault();
+    var r=vp.getBoundingClientRect();
+    apply(z*(e.deltaY<0?1.18:1/1.18), e.clientX-r.left, e.clientY-r.top);
+  },{passive:false});
+  vp.addEventListener('dblclick',function(e){
+    var r=vp.getBoundingClientRect(); apply(z*1.8, e.clientX-r.left, e.clientY-r.top);
+  });
+  var down=false,moved=false,sx,sy,sl,st;
+  vp.addEventListener('pointerdown',function(e){
+    if(e.pointerType!=='mouse') return;
+    down=true;moved=false;sx=e.clientX;sy=e.clientY;sl=vp.scrollLeft;st=vp.scrollTop;
+    vp.classList.add('grabbing');
+  });
+  window.addEventListener('pointermove',function(e){
+    if(!down) return;
+    var dx=e.clientX-sx, dy=e.clientY-sy;
+    if(Math.abs(dx)>5||Math.abs(dy)>5) moved=true;
+    vp.scrollLeft=sl-dx; vp.scrollTop=st-dy;
+  });
+  window.addEventListener('pointerup',function(){ if(down){down=false;vp.classList.remove('grabbing');} });
+  cv.addEventListener('click',function(e){
+    if(moved){ e.preventDefault(); e.stopPropagation(); moved=false; }
+  },true);
+})();
+</script>
 </body>
 </html>
