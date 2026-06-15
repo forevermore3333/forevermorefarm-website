@@ -34,40 +34,6 @@ const broadcastSchedule = [
   },
 ]
 
-interface ConfirmedVendor {
-  name: string
-  cover?: string
-  profile?: string
-}
-
-const confirmedVendors: ConfirmedVendor[] = [
-  {
-    name: 'Papa K Joe’s BBQ',
-    cover: '/images/vendors/papa-kayjoes-bbq-cover.jpg',
-    profile: '/images/vendors/papa-kayjoes-bbq-profile.jpg',
-  },
-  {
-    name: 'Twin Creek Woodworks',
-    cover: '/images/vendors/twin-creek-woodworks-cover.jpg',
-    profile: '/images/vendors/twin-creek-woodworks-profile.jpg',
-  },
-  {
-    name: 'Rustic Roots',
-    cover: '/images/vendors/rustic-roots-homestead-cover.jpg',
-    profile: '/images/vendors/rustic-roots-homestead-profile.jpg',
-  },
-  {
-    name: 'The Old Country Church Stead',
-    cover: '/images/vendors/the-old-country-churchstead-cover.jpg',
-    profile: '/images/vendors/the-old-country-churchstead-profile.jpg',
-  },
-  {
-    name: 'Sourdough by Katerina',
-    cover: '/images/vendors/sourdough-by-katerina-cover.jpg',
-    profile: '/images/vendors/sourdough-by-katerina-profile.jpg',
-  },
-]
-
 const pressLinks = [
   {
     title: 'Watch Volunteer Gardener online',
@@ -84,12 +50,12 @@ const pressLinks = [
 export const metadata: Metadata = {
   title: 'Volunteer Gardener PBS Feature | Straw Bale Garden at Forevermore Farm',
   description:
-    'Watch the Volunteer Gardener PBS feature on Forevermore Farm, get the exact broadcast schedule, and plan your Ag & Arts Tour visit to see the straw bale garden in person.',
+    'Watch the Volunteer Gardener PBS feature on Forevermore Farm and learn more about the straw bale garden.',
   openGraph: {
     type: 'website',
     title: 'Volunteer Gardener PBS Feature | Straw Bale Garden at Forevermore Farm',
     description:
-      'Get the full Volunteer Gardener broadcast schedule, then plan your visit to Forevermore Farm during the June 19–20, 2026 Ag & Arts Tour.',
+      'Get the full Volunteer Gardener broadcast schedule and learn more about the straw bale garden at Forevermore Farm.',
     images: [
       {
         url: '/images/press/volunteer-gardener-seo.png',
@@ -103,7 +69,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Volunteer Gardener PBS Feature | Straw Bale Garden at Forevermore Farm',
     description:
-      'Watch the PBS feature, see the schedule, and come visit the straw bale garden at Forevermore Farm.',
+      'Watch the PBS feature and learn more about the straw bale garden at Forevermore Farm.',
     images: ['/images/press/volunteer-gardener-seo.png'],
   },
   alternates: {
@@ -116,7 +82,7 @@ export default function VolunteerGardenerPage() {
     <>
       <HeroSection
         title="Volunteer Gardener is streaming now"
-        subtitle="Watch the PBS feature online, then come see the straw bale garden in person during the June 19–20, 2026 Ag & Arts Tour at Forevermore Farm."
+        subtitle="Watch the PBS feature online, then learn more about the straw bale garden at Forevermore Farm."
         ctaText="Watch the episode"
         ctaHref="#watch-schedule"
         bgImage="/images/garden/zinnias-sunflowers-white-tent.jpg"
@@ -142,7 +108,7 @@ export default function VolunteerGardenerPage() {
             href="#ag-arts-tour"
             className="inline-block rounded-sm border border-farm-cream/70 px-6 py-3 text-sm font-medium tracking-widest text-farm-cream uppercase transition-colors hover:bg-farm-cream/10"
           >
-            Plan your visit
+            Current farm updates
           </Link>
           <Link
             href="/straw-bale-garden"
@@ -159,7 +125,7 @@ export default function VolunteerGardenerPage() {
             <span className="text-xs font-medium uppercase tracking-[0.3em] text-farm-tan">Watch Online + Broadcast Schedule</span>
             <h2 className="mt-3 font-serif text-3xl text-farm-green md:text-4xl">The episode is online now.</h2>
             <p className="mt-4 max-w-2xl text-lg leading-relaxed text-farm-charcoal/70">
-              PBS has posted the Forevermore Farm feature online. You can watch it now, then catch the remaining broadcast airings or come see the garden in person during Ag &amp; Arts Tour weekend.
+              PBS has posted the Forevermore Farm feature online. You can watch it now, then catch the remaining broadcast airings or learn more about the garden at Forevermore Farm.
             </p>
             <a
               href={pbsVideoUrl}
@@ -204,17 +170,17 @@ export default function VolunteerGardenerPage() {
                   className="h-7 w-7 shrink-0"
                 />
                 <p className="text-sm leading-relaxed text-farm-cream/75">
-                  Volunteer Gardener spotlighted the straw bale garden visitors can come see in person during Ag &amp; Arts Tour weekend.
+                  Volunteer Gardener spotlighted the straw bale garden at Forevermore Farm.
                 </p>
               </div>
             </div>
             <p className="mt-6 leading-relaxed text-farm-cream/70">
-              If the episode sends you here, good. The next move is simple: come walk the straw bale garden for yourself.
+              If the episode sends you here, good. The next move is simple: learn how the straw bale garden came together.
             </p>
             <div className="mt-8 rounded-sm border border-farm-cream/15 bg-farm-charcoal/20 p-5">
               <p className="text-sm uppercase tracking-[0.3em] text-farm-cream/50">Next stop</p>
               <Link href="#see-it-in-person" className="mt-2 inline-block font-serif text-2xl text-farm-cream hover:text-farm-cream/85">
-                See it in person →
+                Learn more about it →
               </Link>
             </div>
           </div>
@@ -261,94 +227,15 @@ export default function VolunteerGardenerPage() {
       </section>
 
       <section id="ag-arts-tour" className="bg-farm-tan/20 px-4 py-20">
-        <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-sm shadow-md">
-            <Image
-              src="/images/garden/garden-beds-with-white-tent.jpg"
-              alt="Garden beds and the tent at Forevermore Farm"
-              fill
-              sizes="(max-width: 768px) 100vw, 45vw"
-              className="object-cover"
-            />
-          </div>
-
-          <div>
-            <span className="text-xs font-medium uppercase tracking-[0.3em] text-farm-tan">Visit During Ag &amp; Arts Tour</span>
-            <h2 className="mt-3 font-serif text-3xl text-farm-green md:text-4xl">June 19–20, 2026, come see why PBS came out.</h2>
-            <p className="mt-5 text-lg leading-relaxed text-farm-charcoal/70">
-              Forevermore Farm is a tour stop for the 2026 Ag &amp; Arts Tour. If you want the best version of this story, it is not just on a screen. It is walking the garden, seeing the sunflower fields, and stepping into the rhythm of the farm for yourself.
-            </p>
-            <p className="mt-4 leading-relaxed text-farm-charcoal/70">
-              The straw bale garden will be front and center, and there will be a flea market under the tent all weekend.
-            </p>
-            <div className="mt-8 rounded-sm border border-farm-tan/35 bg-farm-cream p-6">
-              <p className="text-xs font-medium uppercase tracking-[0.3em] text-farm-tan">Worth seeing up close</p>
-              <ul className="mt-4 space-y-3 text-farm-charcoal/75">
-                <li>→ The straw bale garden featured on Volunteer Gardener</li>
-                <li>→ Sunflower fields in season</li>
-                <li>→ Heritage animals and a working off-grid, solar-powered farm</li>
-                <li>→ The flea market under the tent during Ag &amp; Arts Tour</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-farm-cream px-4 py-20">
-        <div className="mx-auto max-w-6xl">
-          <div className="max-w-3xl">
-            <span className="text-xs font-medium uppercase tracking-[0.3em] text-farm-tan">Vendors + Flea Market Under The Tent</span>
-            <h2 className="mt-3 font-serif text-3xl text-farm-green md:text-4xl">Confirmed so far.</h2>
-            <p className="mt-4 text-lg leading-relaxed text-farm-charcoal/70">
-              These are the confirmed names so far for the Ag &amp; Arts Tour weekend at Forevermore Farm. More vendors are still being finalized.
-            </p>
-          </div>
-
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-            {confirmedVendors.map((vendor) =>
-              vendor.cover && vendor.profile ? (
-                <div key={vendor.name} className="overflow-hidden rounded-sm border border-farm-tan/25 bg-white shadow-sm">
-                  <div className="relative aspect-[16/9]">
-                    <Image
-                      src={vendor.cover}
-                      alt={`${vendor.name} vendor image`}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="relative p-6 pt-10">
-                    <div className="absolute left-6 top-0 h-16 w-16 -translate-y-1/2 overflow-hidden rounded-full border-4 border-white shadow-md">
-                      <Image
-                        src={vendor.profile}
-                        alt={`${vendor.name} profile image`}
-                        fill
-                        sizes="64px"
-                        className="object-cover"
-                      />
-                    </div>
-                    <p className="text-xs font-medium uppercase tracking-[0.25em] text-farm-tan">Confirmed vendor</p>
-                    <p className="mt-2 font-serif text-2xl text-farm-green">{vendor.name}</p>
-                    <p className="mt-3 text-sm leading-relaxed text-farm-charcoal/60">Confirmed for the Ag &amp; Arts Tour weekend.</p>
-                  </div>
-                </div>
-              ) : (
-                <div key={vendor.name} className="flex min-h-[220px] flex-col justify-between rounded-sm border border-dashed border-farm-green/30 bg-farm-green/5 p-6 shadow-sm">
-                  <div>
-                    <p className="text-xs font-medium uppercase tracking-[0.25em] text-farm-green/60">Confirmed vendor</p>
-                    <p className="mt-3 font-serif text-2xl text-farm-green">{vendor.name}</p>
-                  </div>
-                  <p className="mt-6 text-sm leading-relaxed text-farm-charcoal/60">
-                    Confirmed for the Ag &amp; Arts Tour weekend.
-                  </p>
-                </div>
-              )
-            )}
-            <div className="rounded-sm border border-dashed border-farm-green/30 bg-farm-green/5 p-6">
-              <p className="text-xs font-medium uppercase tracking-[0.3em] text-farm-green/60">Still coming together</p>
-              <p className="mt-3 font-serif text-2xl text-farm-green">Plus other vendors still being finalized</p>
-            </div>
-          </div>
+        <div className="mx-auto max-w-4xl">
+          <span className="text-xs font-medium uppercase tracking-[0.3em] text-farm-tan">Ag &amp; Arts Tour Update</span>
+          <h2 className="mt-3 font-serif text-3xl text-farm-green md:text-4xl">Tour details are being finalized by the organizers.</h2>
+          <p className="mt-5 text-lg leading-relaxed text-farm-charcoal/70">
+            Details for the Hickman County Ag &amp; Arts Tour are being finalized by the organizers. For the current stop list, times, and directions, please visit the official Ag &amp; Arts Tour site.
+          </p>
+          <a href="https://www.agandartstour.com/" target="_blank" rel="noopener noreferrer" className="mt-8 inline-block rounded-sm bg-farm-green px-6 py-3 text-sm font-medium uppercase tracking-widest text-farm-cream transition-colors hover:bg-farm-green/90">
+            Visit agandartstour.com →
+          </a>
         </div>
       </section>
 
@@ -361,7 +248,7 @@ export default function VolunteerGardenerPage() {
               Forevermore Farm sits at 302 Hickory Trace, Lyles, TN 37098. The Ag &amp; Arts Tour weekend is the best built-in chance to watch the story on PBS, then come stand in the middle of it yourself a few weeks later.
             </p>
             <p className="mt-4 leading-relaxed text-farm-charcoal/70">
-              Expect the straw bale garden, sunflower fields, heritage animals, and the flea market under the tent. It is a working farm, so give yourself room to slow down and take it in.
+              The PBS feature remains available online, and the straw bale garden story is still here for anyone learning more about Forevermore Farm.
             </p>
           </div>
 
