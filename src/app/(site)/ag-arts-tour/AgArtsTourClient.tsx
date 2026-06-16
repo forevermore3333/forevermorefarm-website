@@ -30,11 +30,6 @@ const confirmedVendors: ConfirmedVendor[] = [
     cover: '/images/vendors/the-old-country-churchstead-cover.jpg',
     profile: '/images/vendors/the-old-country-churchstead-profile.jpg',
   },
-  {
-    name: 'Candy Crochets',
-    cover: '/images/vendors/candy-crochets.jpg',
-    profile: '/images/vendors/candy-crochets.jpg',
-  },
 ]
 
 export default function AgArtsTourClient() {
