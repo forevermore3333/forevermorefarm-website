@@ -30,11 +30,6 @@ const confirmedVendors: ConfirmedVendor[] = [
     cover: '/images/vendors/the-old-country-churchstead-cover.jpg',
     profile: '/images/vendors/the-old-country-churchstead-profile.jpg',
   },
-  {
-    name: 'Sourdough by Katerina',
-    cover: '/images/vendors/sourdough-by-katerina-cover.jpg',
-    profile: '/images/vendors/sourdough-by-katerina-profile.jpg',
-  },
 ]
 
 export default function AgArtsTourClient() {
