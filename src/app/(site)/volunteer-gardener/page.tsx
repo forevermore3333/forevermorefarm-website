@@ -62,9 +62,9 @@ const confirmedVendors: ConfirmedVendor[] = [
     profile: '/images/vendors/the-old-country-churchstead-profile.jpg',
   },
   {
-    name: 'Sourdough by Katerina',
-    cover: '/images/vendors/sourdough-by-katerina-cover.jpg',
-    profile: '/images/vendors/sourdough-by-katerina-profile.jpg',
+    name: 'Candy Crochets',
+    cover: '/images/vendors/candy-crochets.jpg',
+    profile: '/images/vendors/candy-crochets.jpg',
   },
 ]
 
