@@ -129,6 +129,20 @@
   .btn.web:hover{background:#c4952a}
   .card:target{animation:cardflash 1.8s ease 1}
   @keyframes cardflash{0%,40%{box-shadow:0 0 0 3px var(--gold),0 3px 12px rgba(70,50,20,.22)}100%{box-shadow:0 3px 12px rgba(70,50,20,.12)}}
+  .vendor-section{padding-bottom:52px}
+  .vendor-intro{max-width:720px;margin:0 auto 26px;text-align:center;color:#6b6253;font-size:1rem}
+  .vendor-grid{display:grid;grid-template-columns:1fr;gap:18px;margin:0 auto;max-width:1120px}
+  .vendor-card{min-width:0;overflow:hidden;border:1px solid rgba(201,169,110,.45);border-radius:6px;background:#fff;box-shadow:0 6px 18px rgba(70,50,20,.12)}
+  .vendor-cover{position:relative;aspect-ratio:16/9;background:#efe3c8;overflow:hidden}
+  .vendor-cover img{width:100%;height:100%;display:block;object-fit:cover}
+  .vendor-body{position:relative;padding:42px 18px 20px;min-height:126px}
+  .vendor-profile{position:absolute;left:18px;top:0;width:64px;height:64px;transform:translateY(-50%);border:4px solid #fff;border-radius:50%;overflow:hidden;background:#fff;box-shadow:0 3px 12px rgba(70,50,20,.22)}
+  .vendor-profile img{width:100%;height:100%;display:block;object-fit:cover}
+  .vendor-label{font-family:'Oswald',sans-serif;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:7px}
+  .vendor-name{font-family:'Kaushan Script',cursive;font-size:1.55rem;line-height:1.18;color:var(--red);overflow-wrap:anywhere}
+  @media (min-width:700px){.vendor-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.vendor-body{padding:44px 22px 22px}.vendor-profile{left:22px}}
+  @media (min-width:1024px){.vendor-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  @media (max-width:480px){.wrap{padding-left:14px;padding-right:14px}.vendor-section{padding-bottom:38px}.vendor-grid{gap:16px}.vendor-name{font-size:1.42rem}.vendor-card{border-radius:5px}}
 </style>
 </head>
 <body>
@@ -141,7 +155,7 @@
 </header>
 
 <nav class="stopnav" aria-label="Ag &amp; Arts Tour page navigation">
-  <a href="#map" class="maplink">Map</a><a href="#forevermore" class="maplink">Forevermore Farm</a><a href="#tips" class="maplink">Tips</a>
+  <a href="#map" class="maplink">Map</a><a href="#forevermore" class="maplink">Forevermore Farm</a><a href="#vendors" class="maplink">Vendors</a>
 </nav>
 
 <section id="map" class="wrap">
@@ -174,7 +188,7 @@
     <article class="card" id="forevermore" data-tags="animals food shop">
       <div class="imgwrap"><img loading="lazy" decoding="async" src="/ag-arts-tour/forevermore-farm.jpg" alt="Forevermore Farm" data-id="f58162"><span class="food">Food: Papa KayJoe's BBQ</span></div>
       <h3>Forevermore Farm</h3>
-      <div class="chips"><span class="chip">Animal Husbandry</span><span class="chip">Straw Bale Gardens</span><span class="chip">USDA Heritage Pork</span></div>
+      <div class="chips"><span class="chip">Animal Husbandry</span><span class="chip">Straw Bale Gardens</span></div>
       <p class="desc">An off-grid homestead rooted in sustainability, family, and long-view stewardship — solar powered, with every garden row and structure connected to living simply and intentionally.<span class="more"> From thriving straw bale gardens and sweeping sunflower fields to hands-on demonstrations and free-roaming animals, you'll leave with a sense that this kind of life is possible, practical, and worth pursuing.</span></p>
       <button class="readmore">read more…</button>
       <p class="vendors"><b>Guest Vendors</b> — The Old Country Churchstead • Rustic Roots Homestead • Twin Creek Woodworks • Candy Crochet</p>
@@ -184,25 +198,53 @@
   </div>
 </section>
 
-<section class="wrap" id="tips">
-  <h2 class="sec">Tour Tips</h2>
+<section class="wrap vendor-section" id="vendors">
+  <h2 class="sec">Vendors at Our Stop</h2>
   <div class="secline"></div>
-  <div class="tips">
-    <div class="tip">Read each stop's highlights carefully — not all stops are open both days, and event hours and amenities vary.</div>
-    <div class="tip">Watch for Ag &amp; Arts Tour signs marking important intersections and site locations.</div>
-    <div class="tip">Bring a cooler for perishable purchases — produce, meats, herb butters, flowers.</div>
-    <div class="tip">Bring cash! Many stops have limited Wi-Fi or no card machines.</div>
-    <div class="tip">Not every stop has a public bathroom — use one when and where it's available.</div>
-    <div class="tip">Parking is limited at many farms — please ride-share if you can.</div>
-    <div class="tip">Be kind, and leave our farms better than you found them.</div>
-    <div class="tip">The tour runs through the heart of rural Hickman County — stops are spread out, so take your time and enjoy the scenery as you go!</div>
+  <p class="vendor-intro">Confirmed vendors joining Forevermore Farm during the Ag &amp; Arts Tour weekend.</p>
+  <div class="vendor-grid">
+    <article class="vendor-card">
+      <div class="vendor-cover"><img loading="lazy" decoding="async" src="/images/vendors/papa-kayjoes-bbq-cover.jpg" alt="Papa K Joe's BBQ vendor cover image"></div>
+      <div class="vendor-body">
+        <div class="vendor-profile"><img loading="lazy" decoding="async" src="/images/vendors/papa-kayjoes-bbq-profile.jpg" alt="Papa K Joe's BBQ profile image"></div>
+        <p class="vendor-label">Confirmed vendor</p>
+        <h3 class="vendor-name">Papa K Joe's BBQ</h3>
+      </div>
+    </article>
+    <article class="vendor-card">
+      <div class="vendor-cover"><img loading="lazy" decoding="async" src="/images/vendors/twin-creek-woodworks-cover.jpg" alt="Twin Creek Woodworks vendor cover image"></div>
+      <div class="vendor-body">
+        <div class="vendor-profile"><img loading="lazy" decoding="async" src="/images/vendors/twin-creek-woodworks-profile.jpg" alt="Twin Creek Woodworks profile image"></div>
+        <p class="vendor-label">Confirmed vendor</p>
+        <h3 class="vendor-name">Twin Creek Woodworks</h3>
+      </div>
+    </article>
+    <article class="vendor-card">
+      <div class="vendor-cover"><img loading="lazy" decoding="async" src="/images/vendors/rustic-roots-homestead-cover.jpg" alt="Rustic Roots vendor cover image"></div>
+      <div class="vendor-body">
+        <div class="vendor-profile"><img loading="lazy" decoding="async" src="/images/vendors/rustic-roots-homestead-profile.jpg" alt="Rustic Roots profile image"></div>
+        <p class="vendor-label">Confirmed vendor</p>
+        <h3 class="vendor-name">Rustic Roots</h3>
+      </div>
+    </article>
+    <article class="vendor-card">
+      <div class="vendor-cover"><img loading="lazy" decoding="async" src="/images/vendors/the-old-country-churchstead-cover.jpg" alt="The Old Country Church Stead vendor cover image"></div>
+      <div class="vendor-body">
+        <div class="vendor-profile"><img loading="lazy" decoding="async" src="/images/vendors/the-old-country-churchstead-profile.jpg" alt="The Old Country Church Stead profile image"></div>
+        <p class="vendor-label">Confirmed vendor</p>
+        <h3 class="vendor-name">The Old Country Church Stead</h3>
+      </div>
+    </article>
+    <article class="vendor-card">
+      <div class="vendor-cover"><img loading="lazy" decoding="async" src="/images/vendors/sourdough-by-katerina-cover.jpg" alt="Sourdough by Katerina vendor cover image"></div>
+      <div class="vendor-body">
+        <div class="vendor-profile"><img loading="lazy" decoding="async" src="/images/vendors/sourdough-by-katerina-profile.jpg" alt="Sourdough by Katerina profile image"></div>
+        <p class="vendor-label">Confirmed vendor</p>
+        <h3 class="vendor-name">Sourdough by Katerina</h3>
+      </div>
+    </article>
   </div>
 </section>
-
-<footer>
-  <p><b>Hickman County Ag &amp; Arts Tour</b> — Farms ★ Art ★ Music ★ Backroads</p>
-  <p style="margin-top:6px">This page covers Forevermore Farm only. For every other stop on the tour — plus the full schedule, maps, and any last-minute changes — visit the official Ag &amp; Arts Tour site → <a href="https://www.agandartstour.com/" target="_blank" rel="noopener">agandartstour.com</a> (https://www.agandartstour.com/).</p>
-</footer>
 
 <script>
   document.querySelectorAll('.readmore').forEach(function(b){
