@@ -21,114 +21,114 @@
 <meta name="twitter:description" content="Visit Forevermore Farm during the 2026 Hickman County Ag &amp; Arts Tour, then use the official tour site for every other stop.">
 <meta name="twitter:image" content="https://forevermorefarmtn.com/ag-arts-tour/forevermore-farm.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --farm-cream:#F7F3EC;
-    --farm-green:#1B3A2D;
-    --farm-gold:#C9A96E;
-    --farm-sage:#4A6741;
-    --farm-charcoal:#1C1C1C;
-    --farm-ivory:#FFFDF7;
-    --farm-mist:#E9F0E6;
-    --farm-line:rgba(27,58,45,.18);
+    --paper:#f4ecd9; --paper2:#efe3c8; --red:#9e2f2f; --navy:#22395c;
+    --gold:#d9a833; --ink:#2e2a24; --card:#faf5e8;
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{font-family:'Inter',Arial,sans-serif;background:var(--farm-cream);color:var(--farm-charcoal);line-height:1.55;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:1200px;margin:0 auto;padding:0 18px}
+  body{font-family:'EB Garamond',Georgia,serif;background:var(--paper);color:var(--ink);line-height:1.55}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 16px}
 
-  .hero{position:relative;min-height:58vh;background:linear-gradient(rgba(27,58,45,.34),rgba(27,58,45,.64)),url('https://static.wixstatic.com/media/cfc394_da3a820e23204d2a920613d2d146cdc2~mv2.png/v1/fill/w_1600,h_700,al_c,q_80/bg.jpg') center/cover;display:flex;align-items:center;justify-content:center;text-align:center;padding:74px 18px 58px;border-bottom:1px solid rgba(201,169,110,.55)}
-  .hero .script{font-family:'Playfair Display',Georgia,serif;font-size:clamp(3rem,7vw,5.6rem);font-weight:700;color:var(--farm-cream);line-height:.98;text-shadow:0 3px 18px rgba(0,0,0,.36)}
-  .hero .sub{margin-top:16px;color:rgba(247,243,236,.88);font-size:clamp(.78rem,1.8vw,.98rem);font-weight:700;letter-spacing:.22em;text-transform:uppercase;text-shadow:0 2px 8px rgba(0,0,0,.32)}
-  .hero .dates{display:inline-block;margin-top:22px;background:var(--farm-gold);color:var(--farm-charcoal);font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:12px 24px;border-radius:2px;font-size:.9rem;box-shadow:0 12px 34px rgba(0,0,0,.24)}
-  .hero p.free{max-width:680px;margin:16px auto 0;color:rgba(247,243,236,.92);font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.08rem,2.3vw,1.42rem);text-shadow:0 2px 8px rgba(0,0,0,.36)}
+  /* HERO */
+  .hero{background:linear-gradient(rgba(34,57,92,.25),rgba(34,57,92,.45)),url('https://static.wixstatic.com/media/cfc394_da3a820e23204d2a920613d2d146cdc2~mv2.png/v1/fill/w_1600,h_700,al_c,q_80/bg.jpg') center/cover;text-align:center;padding:64px 16px 56px;border-bottom:6px double var(--gold)}
+  .hero .script{font-family:'Kaushan Script',cursive;font-size:clamp(2.6rem,6vw,4.5rem);color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.55)}
+  .hero .sub{font-family:'Oswald',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#ffe9b0;font-size:clamp(.85rem,2vw,1.05rem);margin-top:10px;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+  .hero .dates{display:inline-block;margin-top:18px;background:var(--red);color:#fff;font-family:'Oswald',sans-serif;letter-spacing:.08em;padding:10px 26px;border-radius:4px;font-size:1.05rem;box-shadow:0 3px 10px rgba(0,0,0,.35)}
+  .hero p.free{color:#fff;margin-top:12px;font-style:italic;font-size:1.05rem;text-shadow:0 1px 6px rgba(0,0,0,.7)}
 
-  .stopnav{position:sticky;top:0;z-index:50;background:rgba(247,243,236,.96);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--farm-line),0 6px 18px rgba(27,58,45,.08);padding:10px 8px;text-align:center}
-  .stopnav a{display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:34px;margin:3px;border-radius:999px;background:var(--farm-mist);color:var(--farm-green);font-size:.82rem;font-weight:800;text-decoration:none;transition:.15s;border:1px solid rgba(27,58,45,.1)}
-  .stopnav a:hover{background:var(--farm-green);color:var(--farm-cream)}
-  .stopnav a.maplink{width:auto;padding:0 14px;background:var(--farm-green);color:var(--farm-cream)}
-  .stopnav a.maplink:hover{background:var(--farm-sage)}
+  /* STICKY NAV */
+  .stopnav{position:sticky;top:0;z-index:50;background:var(--navy);box-shadow:0 2px 8px rgba(0,0,0,.25);padding:10px 8px;text-align:center}
+  .stopnav a{display:inline-block;width:34px;height:34px;line-height:34px;margin:3px;border-radius:50%;background:#33507e;color:#fff;font-family:'Oswald',sans-serif;font-size:.95rem;text-decoration:none;transition:.15s}
+  .stopnav a:hover{background:var(--gold);color:var(--navy)}
+  .stopnav a.maplink{width:auto;border-radius:18px;padding:0 14px;background:var(--red)}
+  .stopnav a.maplink:hover{background:var(--gold);color:var(--navy)}
 
-  h2.sec{font-family:'Playfair Display',Georgia,serif;color:var(--farm-green);text-align:center;font-size:clamp(2rem,4vw,3rem);line-height:1.08;margin:56px 0 10px}
-  .secline{width:104px;height:2px;background:var(--farm-gold);margin:0 auto 30px;position:relative}
-  .secline:after{content:'';position:absolute;left:50%;top:50%;width:9px;height:9px;transform:translate(-50%,-50%) rotate(45deg);background:var(--farm-gold)}
+  /* SECTION HEADS */
+  h2.sec{font-family:'Oswald',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--red);text-align:center;font-size:clamp(1.5rem,3.5vw,2.2rem);margin:48px 0 8px}
+  .secline{width:140px;height:3px;background:var(--gold);margin:0 auto 28px;position:relative}
+  .secline:after{content:'★';position:absolute;top:-13px;left:50%;transform:translateX(-50%);color:var(--gold);background:var(--paper);padding:0 8px}
 
+  /* MAP */
   .maps{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
-  .mapnote{text-align:center;margin:14px auto 0;color:rgba(28,28,28,.68);max-width:780px;font-size:.96rem}
+  .maps img{width:min(440px,94vw);border:6px solid #fff;box-shadow:0 4px 14px rgba(0,0,0,.18);border-radius:3px}
+  .mapnote{text-align:center;font-style:italic;margin-top:12px;color:#6b6253}
+
+  /* CARDS */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:22px;margin-bottom:40px}.grid.single-stop{max-width:760px;margin-left:auto;margin-right:auto}
+  .card{background:var(--card);border:1px solid #d9c9a3;border-radius:6px;overflow:hidden;box-shadow:0 3px 12px rgba(70,50,20,.12);display:flex;flex-direction:column;scroll-margin-top:70px}
+  .card .imgwrap{position:relative;height:190px;overflow:hidden}
+  .card .imgwrap img{width:100%;height:100%;object-fit:cover;object-position:top center}
+  .badge{position:absolute;top:10px;left:10px;width:46px;height:46px;background:var(--gold);color:var(--navy);font-family:'Oswald',sans-serif;font-size:1.35rem;font-weight:600;display:flex;align-items:center;justify-content:center;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);text-shadow:none}
+  .food{position:absolute;top:10px;right:10px;background:rgba(158,47,47,.93);color:#fff;font-family:'Oswald',sans-serif;font-size:.72rem;letter-spacing:.06em;padding:5px 10px;border-radius:14px;max-width:60%;text-align:center}
+  .card h3{font-family:'Kaushan Script',cursive;font-size:1.75rem;color:var(--red);padding:14px 18px 2px}
+  .addr{padding:0 18px;font-family:'Oswald',sans-serif;font-size:.85rem;letter-spacing:.04em;text-transform:uppercase;color:var(--navy)}
+  .addr a{color:var(--navy);text-decoration:none;border-bottom:1px dotted var(--navy)}
+  .addr a:hover{color:var(--red);border-color:var(--red)}
+  .chips{padding:10px 18px 4px}
+  .chip{display:inline-block;background:var(--navy);color:#fff;font-family:'Oswald',sans-serif;font-size:.72rem;letter-spacing:.05em;padding:4px 11px;border-radius:13px;margin:0 5px 6px 0}
+  .desc{padding:8px 18px 4px;font-size:1.02rem}
+  .desc .more{display:none}
+  .desc.open .more{display:inline}
+  .readmore{background:none;border:none;color:var(--red);font-family:'EB Garamond',serif;font-size:1rem;font-style:italic;cursor:pointer;padding:0 18px 6px;text-align:left}
+  .vendors{padding:6px 18px;font-size:.97rem}
+  .vendors b{font-family:'Kaushan Script',cursive;color:var(--red);font-weight:400;font-size:1.08rem}
+  .amen{margin-top:auto;background:var(--navy);color:#f3e9d2;padding:10px 18px;font-size:.88rem;font-family:'Oswald',sans-serif;letter-spacing:.03em;font-weight:300}
+
+  .rufus{background:linear-gradient(rgba(125,148,113,.92),rgba(125,148,113,.92)),url('https://static.wixstatic.com/media/cfc394_da3a820e23204d2a920613d2d146cdc2~mv2.png/v1/fill/w_1400,h_400,al_b,q_75/r.jpg') center/cover;margin:40px 0;padding:34px 16px;text-align:center;color:#fff}
+  .rufus img{width:130px;border-radius:50%;border:4px solid var(--gold);margin-bottom:12px}
+  .rufus h2{font-family:'Oswald',sans-serif;letter-spacing:.12em;font-size:1.6rem}
+  .rufus p{max-width:640px;margin:10px auto 0;font-size:1.08rem}
+
+  /* TIPS */
+  .tips{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-bottom:46px}
+  .tip{background:var(--paper2);border:1px solid #d9c9a3;border-radius:6px;padding:14px 16px;font-size:1rem;display:flex;gap:10px}
+  .tip:before{content:'★';color:var(--red);font-size:1.1rem;line-height:1.4}
+
+  /* FOOTER */
+  footer{background:var(--navy);color:#e8e0cd;text-align:center;padding:30px 16px;font-size:.98rem}
+  footer a{color:var(--gold);text-decoration:none}
+  .hidden{display:none!important}
+
+  /* INTERACTIVE FULL MAP (v2) */
+  html{scroll-behavior:smooth}
+  .maps{display:flex;justify-content:center}
   .mapwrap{position:relative;width:min(960px,94vw)}
-  .mapviewport{position:relative;overflow:auto;border:1px solid rgba(27,58,45,.2);border-radius:6px;background:var(--farm-ivory);box-shadow:0 18px 45px rgba(27,58,45,.14);-webkit-overflow-scrolling:touch;cursor:grab}
+  .mapviewport{position:relative;overflow:auto;border:6px solid #fff;border-radius:3px;background:var(--paper);box-shadow:0 4px 14px rgba(0,0,0,.18);-webkit-overflow-scrolling:touch;cursor:grab}
   .mapviewport.grabbing{cursor:grabbing}
   .mapcanvas{position:relative;width:calc(var(--z,1)*100%);line-height:0;transition:width .16s ease}
   .mapcanvas img{width:100%;display:block;border:0;-webkit-user-drag:none;user-select:none}
   .pin{position:absolute;transform:translate(-50%,-50%);width:3.2%;aspect-ratio:1;border-radius:50%;text-indent:-200vw;overflow:hidden;white-space:nowrap;cursor:pointer;-webkit-tap-highlight-color:transparent;animation:pinpulse 1.9s ease 3}
-  .pin::after{content:'';position:absolute;inset:0;border-radius:50%;background:var(--farm-gold);box-shadow:0 0 0 3px var(--farm-green),0 2px 8px rgba(0,0,0,.28);transition:box-shadow .15s}
-  .pin-forevermore{z-index:8;width:6.4%;display:flex;align-items:center;justify-content:center;overflow:visible;text-indent:0;color:#fff;font-size:clamp(.8rem,1.8vw,1.35rem);font-weight:900;text-decoration:none;text-shadow:0 1px 2px rgba(0,0,0,.55);animation:featuredpulse 2.2s ease 4}
-  .pin-forevermore::after{inset:-6%;background:var(--farm-gold);box-shadow:0 0 0 3px var(--farm-cream),0 0 0 8px rgba(201,169,110,.45),0 0 26px rgba(201,169,110,.8),0 3px 12px rgba(0,0,0,.34)}
+  .pin::after{content:'';position:absolute;inset:0;border-radius:50%;background:rgba(217,168,51,.95);box-shadow:0 0 0 3px #22395c,0 2px 8px rgba(0,0,0,.35);transition:box-shadow .15s}
+  .pin-forevermore{z-index:8;width:6.4%;display:flex;align-items:center;justify-content:center;overflow:visible;text-indent:0;color:#fff;font-family:'Oswald',sans-serif;font-size:clamp(.8rem,1.8vw,1.35rem);font-weight:600;letter-spacing:.02em;text-decoration:none;text-shadow:0 1px 2px rgba(0,0,0,.55);animation:featuredpulse 2.2s ease 4}
+  .pin-forevermore::after{inset:-6%;background:var(--gold);box-shadow:0 0 0 3px #fff,0 0 0 8px rgba(217,168,51,.5),0 0 26px rgba(217,168,51,.9),0 3px 12px rgba(0,0,0,.38)}
+  .pin-forevermore::before{content:'Forevermore Farm';position:absolute;left:50%;top:calc(100% + 7px);transform:translateX(-50%);background:rgba(34,57,92,.96);color:#fff;border-radius:999px;padding:4px 9px;font-size:clamp(.55rem,1.1vw,.82rem);font-family:'Oswald',sans-serif;letter-spacing:.04em;text-transform:uppercase;line-height:1;box-shadow:0 2px 8px rgba(0,0,0,.28)}
   .pin-forevermore span{position:relative;z-index:2}
-  .pin:hover::after,.pin:focus-visible::after{box-shadow:0 0 0 4px rgba(201,169,110,.9)}
+  .pin:hover::after,.pin:focus-visible::after{box-shadow:0 0 0 4px rgba(217,168,51,.95)}
   .pin:focus-visible{outline:none}
-  @keyframes pinpulse{0%,100%{box-shadow:0 0 0 0 rgba(74,103,65,0)}50%{box-shadow:0 0 0 .5vw rgba(74,103,65,.35)}}
-  @keyframes featuredpulse{0%,100%{filter:drop-shadow(0 0 0 rgba(201,169,110,0))}50%{filter:drop-shadow(0 0 12px rgba(201,169,110,.9))}}
+  @keyframes pinpulse{0%,100%{box-shadow:0 0 0 0 rgba(158,47,47,0)}50%{box-shadow:0 0 0 .5vw rgba(158,47,47,.5)}}
+  @keyframes featuredpulse{0%,100%{filter:drop-shadow(0 0 0 rgba(217,168,51,0))}50%{filter:drop-shadow(0 0 12px rgba(217,168,51,.9))}}
   @media (prefers-reduced-motion:reduce){.pin{animation:none}}
   .zoomctl{position:absolute;top:14px;right:14px;z-index:20;display:flex;flex-direction:column;gap:6px}
-  .zoomctl button{width:38px;height:38px;border:none;border-radius:4px;background:rgba(27,58,45,.92);color:var(--farm-cream);font-size:1.2rem;line-height:1;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center}
-  .zoomctl button:hover{background:var(--farm-sage)}
+  .zoomctl button{width:38px;height:38px;border:none;border-radius:8px;background:rgba(34,57,92,.92);color:#fff;font-family:'Oswald',sans-serif;font-size:1.3rem;line-height:1;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center}
+  .zoomctl button:hover{background:var(--red)}
   .zoomctl button:active{transform:translateY(1px)}
-  @media (max-width:740px){.mapviewport{max-height:74vh;touch-action:pan-x pan-y}.pin{width:5%}}
-  @media (min-width:741px){.zoomctl{opacity:.6;transition:opacity .2s}.mapwrap:hover .zoomctl{opacity:1}}
-
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px;margin-bottom:42px}
-  .grid.single-stop{max-width:760px;margin-left:auto;margin-right:auto}
-  .card{background:var(--farm-ivory);border:1px solid var(--farm-line);border-radius:6px;overflow:hidden;box-shadow:0 12px 30px rgba(27,58,45,.09);display:flex;flex-direction:column;scroll-margin-top:74px}
-  .card .imgwrap{position:relative;height:190px;overflow:hidden;line-height:0;background:var(--farm-mist)}
-  .card .imgwrap img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
-  .badge{position:absolute;top:12px;left:12px;width:42px;height:42px;background:var(--farm-gold);color:var(--farm-charcoal);font-size:1rem;font-weight:900;display:flex;align-items:center;justify-content:center;border-radius:999px;box-shadow:0 0 0 3px rgba(247,243,236,.9),0 8px 18px rgba(0,0,0,.2)}
-  .food{position:absolute;top:12px;right:12px;background:rgba(27,58,45,.94);color:var(--farm-cream);font-size:.68rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:6px 10px;border-radius:999px;max-width:64%;text-align:center}
-  .card h3{font-family:'Playfair Display',Georgia,serif;font-size:1.65rem;line-height:1.12;color:var(--farm-green);padding:18px 18px 4px}
-  .addr{padding:0 18px;font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--farm-sage)}
-  .addr a{color:var(--farm-sage);text-decoration:none;border-bottom:1px dotted var(--farm-sage)}
-  .addr a:hover{color:var(--farm-green);border-color:var(--farm-green)}
-  .chips{padding:12px 18px 4px}
-  .chip{display:inline-block;background:var(--farm-mist);color:var(--farm-green);font-size:.7rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:999px;margin:0 5px 7px 0;border:1px solid rgba(27,58,45,.08)}
-  .desc{padding:8px 18px 4px;font-size:1rem;color:rgba(28,28,28,.78)}
-  .desc .more{display:none}
-  .desc.open .more{display:inline}
-  .readmore{background:none;border:none;color:var(--farm-sage);font-family:'Playfair Display',Georgia,serif;font-size:1rem;font-style:italic;cursor:pointer;padding:0 18px 8px;text-align:left}
-  .vendors{padding:6px 18px;font-size:.95rem;color:rgba(28,28,28,.76)}
-  .vendors b{font-family:'Playfair Display',Georgia,serif;color:var(--farm-green);font-weight:700;font-size:1.08rem}
-  .amen{margin-top:auto;background:var(--farm-green);color:var(--farm-cream);padding:11px 18px;font-size:.78rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
-  .actions{display:flex;flex-wrap:wrap;gap:9px;padding:14px 18px 18px;margin-top:auto}
-  .btn{flex:1 1 130px;text-align:center;font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:.72rem;padding:11px 14px;border-radius:4px;text-decoration:none;transition:.15s}
-  .btn.dir{background:var(--farm-green);color:var(--farm-cream)}
-  .btn.dir:hover{background:var(--farm-sage)}
-  .btn.web{background:var(--farm-gold);color:var(--farm-charcoal)}
-  .btn.web:hover{filter:brightness(.95)}
+  @media (max-width:740px){ .mapviewport{max-height:74vh;touch-action:pan-x pan-y} .pin{width:5%} }
+  @media (min-width:741px){ .zoomctl{opacity:.55;transition:opacity .2s} .mapwrap:hover .zoomctl{opacity:1} }
+  /* CARDS — show the full baked-in promotional graphic; hide redundant overlays */
+  .card .imgwrap{position:relative;height:auto;overflow:visible;line-height:0}
+  .card .imgwrap img{width:100%;height:auto;object-fit:fill;display:block}
+  .card .badge,.card .food{display:none}
+  .card h3{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+  .actions{display:flex;flex-wrap:wrap;gap:9px;padding:14px 18px 4px;margin-top:auto}
+  .btn{flex:1 1 130px;text-align:center;font-family:'Oswald',sans-serif;letter-spacing:.04em;text-transform:uppercase;font-size:.82rem;padding:11px 14px;border-radius:9px;text-decoration:none;transition:.15s}
+  .btn.dir{background:var(--navy);color:#fff}
+  .btn.dir:hover{background:#16263f}
+  .btn.web{background:var(--gold);color:var(--navy)}
+  .btn.web:hover{background:#c4952a}
   .card:target{animation:cardflash 1.8s ease 1}
-  @keyframes cardflash{0%,40%{box-shadow:0 0 0 3px var(--farm-gold),0 12px 30px rgba(27,58,45,.16)}100%{box-shadow:0 12px 30px rgba(27,58,45,.09)}}
-
-  .featured-stop .card .imgwrap{height:auto;overflow:visible}
-  .featured-stop .card .imgwrap img{height:auto;object-fit:fill}
-  .featured-stop .card .badge,.featured-stop .card .food{display:none}
-  .featured-stop .card h3{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
-
-  .filterbar{text-align:center;margin:0 0 22px}
-  .filterbar button{font-size:.76rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:var(--farm-ivory);border:1px solid var(--farm-line);color:var(--farm-green);border-radius:999px;padding:8px 15px;margin:4px;cursor:pointer;transition:.15s}
-  .filterbar button.on,.filterbar button:hover{background:var(--farm-green);border-color:var(--farm-green);color:var(--farm-cream)}
-  .hidden{display:none!important}
-
-  .rufus{background:linear-gradient(rgba(27,58,45,.9),rgba(27,58,45,.9)),url('https://static.wixstatic.com/media/cfc394_da3a820e23204d2a920613d2d146cdc2~mv2.png/v1/fill/w_1400,h_400,al_b,q_75/r.jpg') center/cover;margin:44px 0;padding:38px 16px;text-align:center;color:var(--farm-cream)}
-  .rufus img{width:130px;border-radius:50%;border:4px solid var(--farm-gold);margin-bottom:12px}
-  .rufus h2{font-family:'Playfair Display',Georgia,serif;font-size:1.8rem}
-  .rufus p{max-width:660px;margin:10px auto 0;font-size:1rem;color:rgba(247,243,236,.86)}
-
-  .tips{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-bottom:48px}
-  .tip{background:var(--farm-ivory);border:1px solid var(--farm-line);border-radius:6px;padding:15px 16px;font-size:.96rem;display:flex;gap:10px;box-shadow:0 8px 22px rgba(27,58,45,.06)}
-  .tip:before{content:'';width:8px;height:8px;flex:0 0 8px;margin-top:.48rem;border-radius:999px;background:var(--farm-gold)}
-
-  footer{background:var(--farm-green);color:rgba(247,243,236,.86);text-align:center;padding:32px 16px;font-size:.96rem}
-  footer a{color:var(--farm-gold);text-decoration:none;font-weight:800}
+  @keyframes cardflash{0%,40%{box-shadow:0 0 0 3px var(--gold),0 3px 12px rgba(70,50,20,.22)}100%{box-shadow:0 3px 12px rgba(70,50,20,.12)}}
 </style>
 </head>
 <body>
@@ -141,7 +141,7 @@
 </header>
 
 <nav class="stopnav" aria-label="Ag &amp; Arts Tour page navigation">
-  <a href="#map" class="maplink">Map</a><a href="#forevermore" class="maplink">Forevermore Farm</a><a href="#all-stops" class="maplink">All Stops</a><a href="#tips" class="maplink">Tips</a>
+  <a href="#map" class="maplink">Map</a><a href="#forevermore" class="maplink">Forevermore Farm</a><a href="#tips" class="maplink">Tips</a>
 </nav>
 
 <section id="map" class="wrap">
@@ -157,7 +157,7 @@
       <div class="mapviewport" id="mapvp">
         <div class="mapcanvas" id="mapcanvas">
           <img src="/ag-arts-tour/tour-map.jpg" alt="Hickman County Ag &amp; Arts Tour map showing Forevermore Farm in Lyles, Tennessee">
-          <a class="pin pin-forevermore" href="#forevermore" style="left:65.7%;top:33.4%" aria-label="Jump to Forevermore Farm"><span>11</span></a>
+          <a class="pin pin-forevermore" href="#forevermore" style="left:65.7%;top:33.4%" aria-label="Jump to Forevermore Farm"></a>
         </div>
       </div>
     </div>
@@ -165,7 +165,7 @@
   <p class="mapnote">On a phone, drag to pan and pinch or use the +/- controls to zoom in for a closer look. Map location is approximate — use the Directions button below for exact navigation.</p>
 </section>
 
-<section class="wrap featured-stop" id="stops">
+<section class="wrap" id="stops">
   <h2 class="sec">Forevermore Farm</h2>
   <div class="secline"></div>
 
@@ -174,148 +174,14 @@
     <article class="card" id="forevermore" data-tags="animals food shop">
       <div class="imgwrap"><img loading="lazy" decoding="async" src="/ag-arts-tour/forevermore-farm.jpg" alt="Forevermore Farm" data-id="f58162"><span class="food">Food: Papa KayJoe's BBQ</span></div>
       <h3>Forevermore Farm</h3>
-      <div class="chips"><span class="chip">Animal Husbandry</span><span class="chip">Straw Bale Gardens</span><span class="chip">Off-Grid Homestead</span></div>
+      <div class="chips"><span class="chip">Animal Husbandry</span><span class="chip">Straw Bale Gardens</span><span class="chip">USDA Heritage Pork</span></div>
       <p class="desc">An off-grid homestead rooted in sustainability, family, and long-view stewardship — solar powered, with every garden row and structure connected to living simply and intentionally.<span class="more"> From thriving straw bale gardens and sweeping sunflower fields to hands-on demonstrations and free-roaming animals, you'll leave with a sense that this kind of life is possible, practical, and worth pursuing.</span></p>
-      <button class="readmore">read more...</button>
+      <button class="readmore">read more…</button>
       <p class="vendors"><b>Guest Vendors</b> — The Old Country Churchstead • Rustic Roots Homestead • Twin Creek Woodworks • Candy Crochet</p>
       <div class="amen">Restrooms • Gravel Parking • Cash &amp; Venmo</div>
     <div class="actions"><a class="btn dir" href="https://www.google.com/maps/dir/?api=1&destination=302+Hickory+Trace,+Lyles,+TN" target="_blank" rel="noopener">Get Directions</a><a class="btn web" href="https://forevermorefarmtn.com" target="_blank" rel="noopener">Visit Website ↗</a></div></article>
 
   </div>
-</section>
-
-<section class="wrap" id="all-stops">
-  <h2 class="sec">More Tour Stops</h2>
-  <div class="secline"></div>
-  <div class="filterbar" role="group" aria-label="Filter stops">
-    <button class="on" data-f="all">All</button><button data-f="animals">Animals</button><button data-f="food">Food</button><button data-f="shop">Shopping</button><button data-f="sips">Sips</button><button data-f="music">Music</button>
-  </div>
-  <div class="grid">
-    <article class="card" id="s1" data-tags="sips food shop">
-      <div class="imgwrap"><img loading="lazy" decoding="async" src="/ag-arts-tour/hero1.jpg" alt="Horseshoe Bend Farm Wines"><span class="badge">1</span><span class="food">Food: Southern Smokehouse (Sat)</span></div>
-      <h3>Horseshoe Bend Farm Wines</h3>
-      <div class="chips"><span class="chip">U-Pick Blueberries</span><span class="chip">Wine Tastings</span><span class="chip">Duck River Views</span></div>
-      <p class="desc">Tucked into a quiet bend of the Duck River, this family working farm and winery offers small-batch wines from traditional pours to fruit-forward blends, with complementary tastings.<span class="more"> Sweeping views, a relaxed farm setting, and plenty of space to linger — a chance to sit a while, savor something local, and taste the richness of Tennessee soil.</span></p>
-      <button class="readmore">read more…</button>
-      <p class="vendors"><b>Guest Vendors</b> — Pioneer Woodcrafters • Past Time Crafts • Sugar Mama Pro</p>
-      <div class="amen">Restrooms • Parking • Shaded Areas • Wheelchair &amp; Stroller Accessible • Digital Pay, Debit/Credit</div>
-    <div class="actions"><a class="btn dir" href="https://www.google.com/maps/dir/?api=1&destination=1420+Mason+Bates+Bend+Rd,+Centerville,+TN" target="_blank" rel="noopener">Get Directions</a><a class="btn web" href="https://hbfwines.square.site" target="_blank" rel="noopener">Visit Website ↗</a></div></article>
-
-    <article class="card" id="s2" data-tags="animals">
-      <div class="imgwrap"><img loading="lazy" decoding="async" src="/ag-arts-tour/hero2.jpg" alt="Wolf Creek Ranch"><span class="badge">2</span></div>
-      <h3>Wolf Creek Ranch</h3>
-      <div class="chips"><span class="chip">Horse Meet &amp; Greet</span><span class="chip">Hayrides</span><span class="chip">Kids' Activities</span></div>
-      <p class="desc">A family-focused working ranch dedicated to equine excellence and agricultural education. Meet the horses, watch professional riding demos, take hay and barrel-train rides.<span class="more"> Plus gem mining and carnival fun — whether hosting field trips or rodeos, Wolf Creek is a welcoming destination that celebrates the agricultural way of life.</span></p>
-      <button class="readmore">read more…</button>
-      <div class="amen">Restrooms • Gravel Parking • Indoor &amp; Shaded Areas • Playground • Cards &amp; Digital Payments</div>
-    <div class="actions"><a class="btn dir" href="https://www.google.com/maps/dir/?api=1&destination=409+Mathis+Loop,+Centerville,+TN" target="_blank" rel="noopener">Get Directions</a></div></article>
-
-    <article class="card" id="s3" data-tags="animals food shop">
-      <div class="imgwrap"><img loading="lazy" decoding="async" src="/ag-arts-tour/hero3.jpg" alt="Andy's Farm"><span class="badge">3</span><span class="food">Food: Andy's Farm Store</span></div>
-      <h3>Andy's Farm</h3>
-      <div class="chips"><span class="chip">Fiber Mill Tours</span><span class="chip">Hayrides</span><span class="chip">Processing Demos</span><span class="chip">Creekside</span></div>
-      <p class="desc">A thriving 132-acre regenerative farm. Hop on a hay wagon tour, watch fiber transformed into yarn at the on-site mill, and learn about chicken processing.<span class="more"> The farm store offers meat, egg, and fiber products with samples of fresh raw goat milk — and time with goats, sheep, and alpacas by the peaceful creek.</span></p>
-      <button class="readmore">read more…</button>
-      <p class="vendors"><b>Guest Vendors</b> — Bluewater Belles • P. Marie's Studio</p>
-      <div class="amen">Restrooms • Gravel Parking • Shaded Rest Areas • Cash, Checks &amp; Cards</div>
-    <div class="actions"><a class="btn dir" href="https://www.google.com/maps/dir/?api=1&destination=597+Backside+Beaverdamn+Rd,+Centerville,+TN" target="_blank" rel="noopener">Get Directions</a><a class="btn web" href="https://andys.farm" target="_blank" rel="noopener">Visit Website ↗</a></div></article>
-
-    <article class="card" id="s4" data-tags="sips food shop">
-      <div class="imgwrap"><img loading="lazy" decoding="async" src="/ag-arts-tour/hero4.jpg" alt="Grinder's Switch Winery"><span class="badge">4</span><span class="food">Food: Wyldflour Pizza Truck</span></div>
-      <h3>Grinder's Switch Winery</h3>
-      <div class="chips"><span class="chip">Free Wine Tastings</span><span class="chip">Photo-Worthy Scenery</span><span class="chip">Unique Vendors</span></div>
-      <p class="desc">Hidden in the rolling hills of Hickman County — small-farm charm meets handcrafted wines and a deeply rooted family story, with the original Centerville location as the heart of the operation.<span class="more"> Slow down on the outdoor patio with relaxed tastings, browse locally made goods, and experience the spirit of Tennessee winemaking at its most welcoming.</span></p>
-      <button class="readmore">read more…</button>
-      <p class="vendors"><b>Guest Vendors</b> — Eternally Adorned Permanent Jewelry • Hickman County Humane Society</p>
-      <div class="amen">Restrooms • Gravel Parking • Cards &amp; Digital Payments</div>
-    <div class="actions"><a class="btn dir" href="https://www.google.com/maps/dir/?api=1&destination=2119+Hwy+50+West+Loop,+Centerville,+TN" target="_blank" rel="noopener">Get Directions</a><a class="btn web" href="https://gswinery.com" target="_blank" rel="noopener">Visit Website ↗</a></div></article>
-
-    <article class="card" id="s5" data-tags="animals shop">
-      <div class="imgwrap"><img loading="lazy" decoding="async" src="/ag-arts-tour/hero5.jpg" alt="Honey Hollar Farm"><span class="badge">5</span></div>
-      <h3>Honey Hollar Farm</h3>
-      <div class="chips"><span class="chip">Fresh Local Honey</span><span class="chip">Hands-on Animals</span><span class="chip">Farm Samples</span></div>
-      <p class="desc">A from-scratch homestead rooted in hard work and conviction. Sample and purchase pasture-raised chicken and honey, and meet piglets, chickens, and turkeys up close.<span class="more"> Hands-on regenerative farming learning, a hay ride back to the pigs in their wooded habitat, and a shaded creek for cooling off — inviting for families, homesteaders, and the curious alike.</span></p>
-      <button class="readmore">read more…</button>
-      <p class="vendors"><b>Guest Vendors</b> — Total Body Balance</p>
-      <div class="amen">Parking • Hand Washing Station • Shaded Areas • Wheelchair &amp; Stroller Accessible • Cash, Cards &amp; Digital</div>
-    <div class="actions"><a class="btn dir" href="https://www.google.com/maps/dir/?api=1&destination=1085+SR-48+S,+Centerville,+TN" target="_blank" rel="noopener">Get Directions</a></div></article>
-
-    <article class="card" id="s6" data-tags="animals shop">
-      <div class="imgwrap"><img loading="lazy" decoding="async" src="/ag-arts-tour/hero6.jpg" alt="BooneTop Farm and Feed" data-id="997f3e"><span class="badge">6</span></div>
-      <h3>BooneTop Farm &amp; Feed</h3>
-      <div class="chips"><span class="chip">Non-GMO Feed Store</span><span class="chip">Hands-on Animals</span><span class="chip">Livestock For Sale</span></div>
-      <p class="desc">A working homestead built largely by hand since 2020 — heritage-breed livestock, quality livestock care, and certified non-GMO, mostly soy-free feed.<span class="more"> Explore the farm store, purchase chicks, eggs, and possibly piglets and seasonal produce, and experience the day-to-day rhythm of a working farm.</span></p>
-      <button class="readmore">read more…</button>
-      <p class="vendors"><b>Guest Vendors</b> — Sourdough By Katerina</p>
-      <div class="amen">Parking • Shaded Rest Areas • Cash, Checks &amp; Venmo</div>
-    <div class="actions"><a class="btn dir" href="https://www.google.com/maps/dir/?api=1&destination=1460+Hwy+100+W,+Centerville,+TN" target="_blank" rel="noopener">Get Directions</a><a class="btn web" href="https://boonetopfarmsandfeed.com" target="_blank" rel="noopener">Visit Website ↗</a></div></article>
-
-    <article class="card" id="s7" data-tags="shop food">
-      <div class="imgwrap"><img loading="lazy" decoding="async" src="/ag-arts-tour/hero7.jpg" alt="Historic Downtown Centerville" data-id="aece25"><span class="badge">7</span></div>
-      <h3>Historic Downtown Centerville</h3>
-      <div class="chips"><span class="chip">Antiques</span><span class="chip">Local Shops</span><span class="chip">Restaurants</span><span class="chip">Sweet Treats</span></div>
-      <p class="desc">The heart of Hickman County — stroll the Square for antique treasures, artisan creations, fresh coffee, and businesses rooted deeply in community.<span class="more"> Spotlight stops: Centerville Marketplace (100 Church St), Holistic Mercantile (306 N Public Sq), The Merry Merchant (304 N Public Sq), Painted Grace (105 S Public Sq), Simplici Soap (107 Church St), and The LOCAL Place &amp; MADE (111 S Public Sq) with coffee, homemade ice cream, and a pottery &amp; candle studio featuring Golden Thistle Studio.</span></p>
-      <button class="readmore">read more…</button>
-      <div class="amen">Restaurants • Shops • Restrooms • Street &amp; Lot Parking</div>
-    <div class="actions"><a class="btn dir" href="https://www.google.com/maps/dir/?api=1&destination=Public+Square,+Centerville,+TN" target="_blank" rel="noopener">Get Directions</a></div></article>
-
-    <article class="card" id="s8" data-tags="food shop music">
-      <div class="imgwrap"><img loading="lazy" decoding="async" src="/ag-arts-tour/hero8.jpg" alt="Farmers Market at River Park" data-id="473b28"><span class="badge">8</span><span class="food">Saturday Only</span></div>
-      <h3>Farmers Market at River Park</h3>
-      <div class="chips"><span class="chip">Open Sat 8 AM–12 PM</span><span class="chip">Fresh Produce</span><span class="chip">Artisan Goods</span></div>
-      <p class="desc">Local farmers &amp; artisans uniting with the community — tables brimming with hand-picked vegetables, fresh baked goods, morning-collected eggs, and artisan crafts.<span class="more"> Enjoy the park while you're there: playground, basketball courts, and brand-new pickleball courts for all ages. Market runs Tuesdays &amp; Saturdays, May through October.</span></p>
-      <button class="readmore">read more…</button>
-      <div class="amen">Parking • Shaded Areas • Wheelchair &amp; Stroller Accessible • Playground • Cash, Cards &amp; Digital</div>
-    <div class="actions"><a class="btn dir" href="https://www.google.com/maps/dir/?api=1&destination=142+Central+Avenue,+Centerville,+TN" target="_blank" rel="noopener">Get Directions</a></div></article>
-
-    <article class="card" id="s9" data-tags="animals food">
-      <div class="imgwrap"><img loading="lazy" decoding="async" src="/ag-arts-tour/hero9.jpg" alt="The Stone Farm" data-id="b9a914"><span class="badge">9</span><span class="food">Food: The Stone Farm Stand</span></div>
-      <h3>The Stone Farm</h3>
-      <div class="chips"><span class="chip">Hayrides</span><span class="chip">Face Painting</span><span class="chip">Honey Extraction Demo</span><span class="chip">Historic Farming</span></div>
-      <p class="desc">Set on historic land dating to 1824 with a home built in 1900 — sustainable, organic practices and a true taste of farm life, from honey extraction demonstrations to fresh-squeezed lemonade from a generations-old recipe.<span class="more"> Shop farm-fresh produce, canned goods, and exclusive tour merchandise, then hop on a hayride to hear the farm's history firsthand. Kids love the play area, potato digging, and hands-on games.</span></p>
-      <button class="readmore">read more…</button>
-      <p class="vendors"><b>Guest Vendors</b> — Forest Friends Nature School</p>
-      <div class="amen">Restrooms • Parking • Shaded Areas • Cash, CashApp, Apple Pay, Debit/Credit</div>
-    <div class="actions"><a class="btn dir" href="https://www.google.com/maps/dir/?api=1&destination=320+Huddleston+Rd,+Centerville,+TN" target="_blank" rel="noopener">Get Directions</a><a class="btn web" href="https://thestonefarmandkitchen.com" target="_blank" rel="noopener">Visit Website ↗</a></div></article>
-
-    <article class="card" id="s10" data-tags="music shop food">
-      <div class="imgwrap"><img loading="lazy" decoding="async" src="/ag-arts-tour/hero10.jpg" alt="Tiny Little Homestead" data-id="5677ce"><span class="badge">10</span><span class="food">Drinks: Cowgirl Cantina (Sat)</span></div>
-      <h3>Tiny Little Homestead</h3>
-      <div class="chips"><span class="chip">Small-Batch Farm Goods</span><span class="chip">Cottage Gardens</span><span class="chip">Live Music</span></div>
-      <p class="desc">A thoughtfully built, small-scale homestead proving meaningful living doesn't require a large piece of land — a tiny house, cottage gardens, and a welcoming farmstand.<span class="more"> Stroll the gardens and raised beds, interact with friendly chickens, and enjoy live acoustic music from Livi &amp; Friends. Fresh eggs, baked goods, and seasonal homestead items made in small batches.</span></p>
-      <button class="readmore">read more…</button>
-      <p class="vendors"><b>Guest Vendors</b> — Breezy's Ear Candy • Music by Livi &amp; Friends</p>
-      <div class="amen">Restrooms • Nearby Parking • Shaded Areas • Rest Areas • Cash &amp; Venmo</div>
-    <div class="actions"><a class="btn dir" href="https://www.google.com/maps/dir/?api=1&destination=2604+Canady+Street,+Nunnelly,+TN" target="_blank" rel="noopener">Get Directions</a><a class="btn web" href="https://tinylittlehomestead.com" target="_blank" rel="noopener">Visit Website ↗</a></div></article>
-
-    <article class="card" id="s12" data-tags="animals music food">
-      <div class="imgwrap"><img loading="lazy" decoding="async" src="/ag-arts-tour/hero12.jpg" alt="Trinity Valley Livestock" data-id="97acd6"><span class="badge">12</span><span class="food">Food: Mix Tape Grill (Sat)</span></div>
-      <h3>Trinity Valley Livestock</h3>
-      <div class="chips"><span class="chip">Guided Farm Tours</span><span class="chip">Hands-on Animals</span><span class="chip">Live Music</span></div>
-      <p class="desc">A small, family-run operation with a deep appreciation for animals, land, and the everyday rhythms of farm life — cattle grazing, horses on open pasture, and a barnyard humming with chickens.<span class="more"> Meet the animals up close, walk the pasture, and enjoy live music by Nick Bentley with food on site. Muddy boots, open fields, and all — an authentic glimpse into Middle Tennessee agriculture.</span></p>
-      <button class="readmore">read more…</button>
-      <p class="vendors"><b>Guest Vendors</b> — Music by Nick Bentley</p>
-      <div class="amen">Parking • Shaded Seating • Rest Areas • Multiple Payment Options</div>
-    <div class="actions"><a class="btn dir" href="https://www.google.com/maps/dir/?api=1&destination=2653+Campground+Rd,+Nunnelly,+TN" target="_blank" rel="noopener">Get Directions</a></div></article>
-
-    <article class="card" id="s13" data-tags="animals food shop">
-      <div class="imgwrap"><img loading="lazy" decoding="async" src="/ag-arts-tour/hero13.jpg" alt="Growing Home Farmstead" data-id="d744ac"><span class="badge">13</span><span class="food">Food: Farm-to-Table BBQ</span></div>
-      <h3>Growing Home Farmstead</h3>
-      <div class="chips"><span class="chip">Guided Farm Tours</span><span class="chip">Hands-on Animals</span><span class="chip">Organic Farm Goods</span></div>
-      <p class="desc">A 22-acre regenerative farm home to Duroc pigs, chickens, sheep, and rabbits, plus a thriving 1,200-square-foot garden — a story of starting from scratch and learning as they went.<span class="more"> Guided tours, hands-on animal experiences, and kids' activities, with farm-to-table food and organic baked goods for purchase, plus eggs, sourdough starter, and farm goods for the homestead home. Book signing by Jess Kimball Saturday.</span></p>
-      <button class="readmore">read more…</button>
-      <p class="vendors"><b>Guest Vendors</b> — The ReGeneration Organic Coffee Roaster • She Can Hold Her Own book signing (Sat)</p>
-      <div class="amen">Restrooms • Parking • Shaded Areas • Cash, CashApp &amp; Venmo</div>
-    <div class="actions"><a class="btn dir" href="https://www.google.com/maps/dir/?api=1&destination=6111+SR-48,+Dickson,+TN" target="_blank" rel="noopener">Get Directions</a></div></article>
-
-
-  </div>
-</section>
-
-<section class="rufus">
-  <img src="https://static.wixstatic.com/media/cfc394_9c27a4d5c7a84f599b8552e8d5bd4ceb~mv2.png/v1/fill/w_300,h_300,q_85/rufus.png" alt="Rufus the cow, 2026 tour mascot">
-  <h2>Where's Rufus?</h2>
-  <p>Meet Rufus, the 2026 mascot so grand! He's hiding at <b>every tour stop</b> — peek by the pumpkins, hay, and art. When you spot him, let the Tour Stop know he's near... you just might earn a fun surprise. Keep the secret when he's found, and let the hunt go on!</p>
 </section>
 
 <section class="wrap" id="tips">
@@ -344,17 +210,6 @@
       var d = b.previousElementSibling;
       d.classList.toggle('open');
       b.textContent = d.classList.contains('open') ? 'show less' : 'read more...';
-    });
-  });
-  var btns = document.querySelectorAll('.filterbar button');
-  btns.forEach(function(b){
-    b.addEventListener('click', function(){
-      btns.forEach(function(x){ x.classList.remove('on'); });
-      b.classList.add('on');
-      var f = b.dataset.f;
-      document.querySelectorAll('#all-stops .card').forEach(function(c){
-        c.classList.toggle('hidden', f !== 'all' && (c.dataset.tags || '').indexOf(f) === -1);
-      });
     });
   });
 </script>
