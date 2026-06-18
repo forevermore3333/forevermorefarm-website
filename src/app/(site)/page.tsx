@@ -127,6 +127,17 @@ export default function Home() {
               Concetta&apos;s straw bale garden on PBS <em>Volunteer Gardener</em> — watch the episode &amp; visit info &rarr;
             </Link>
           </div>
+          <div className="mt-5">
+            <p className="mb-3 text-sm leading-relaxed text-farm-cream/55">
+              New: WKRN News 2 featured the farm for the 2026 Ag &amp; Arts Tour.
+            </p>
+            <Link
+              href="/press"
+              className="inline-block rounded-sm border border-farm-tan/40 px-5 py-3 text-sm font-medium uppercase tracking-widest text-farm-tan transition-colors hover:bg-farm-tan/10"
+            >
+              See all our news features →
+            </Link>
+          </div>
         </div>
       </section>
 
