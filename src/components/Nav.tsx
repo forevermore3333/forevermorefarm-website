@@ -12,6 +12,7 @@ const links = [
   { href: '/learning-collective', label: 'Programs' },
   { href: '/stay', label: 'Stay' },
   { href: '/gallery', label: 'Gallery' },
+  { href: '/press', label: 'Press' },
   { href: '/contact', label: 'Contact' },
 ]
 
