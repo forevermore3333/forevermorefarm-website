@@ -160,6 +160,7 @@ export default function AgArtsTourClient() {
           <div className="sub">Hickman County Ag &amp; Arts Tour &nbsp;•&nbsp; Farms ★ Art ★ Music ★ Backroads</div>
           <div className="dates">Friday &amp; Saturday • June 19–20, 2026 • 10 AM – 5 PM</div>
           <p className="free">A free, self-guided tour of farms, art &amp; music across Tennessee backroads</p>
+          <p className="official">For a full list of the other farms and tour info, see the official website for details → <a href="https://www.agandartstour.com/" target="_blank" rel="noopener noreferrer">agandartstour.com</a></p>
         </div>
       </header>
 
@@ -301,6 +302,8 @@ const agArtsStyles = `
   .ag-arts-page .hero .sub{font-family:'Oswald',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#ffe9b0;font-size:clamp(.85rem,2vw,1.05rem);margin-top:10px;text-shadow:0 1px 6px rgba(0,0,0,.6)}
   .ag-arts-page .hero .dates{display:inline-block;margin-top:18px;background:var(--red);color:#fff;font-family:'Oswald',sans-serif;letter-spacing:.08em;padding:10px 26px;border-radius:4px;font-size:1.05rem;box-shadow:0 3px 10px rgba(0,0,0,.35)}
   .ag-arts-page .hero p.free{color:#fff;margin-top:12px;font-style:italic;font-size:1.05rem;text-shadow:0 1px 6px rgba(0,0,0,.7)}
+  .ag-arts-page .hero p.official{color:#fff;margin:10px auto 0;max-width:720px;font-size:.98rem;line-height:1.5;text-shadow:0 1px 7px rgba(0,0,0,.75)}
+  .ag-arts-page .hero p.official a{color:#ffe9b0;font-weight:700;text-decoration:underline;text-underline-offset:3px}
   .ag-arts-page .stopnav{position:sticky;top:0;z-index:40;background:var(--navy);box-shadow:0 2px 8px rgba(0,0,0,.25);padding:10px 8px;text-align:center}
   .ag-arts-page .stopnav a{display:inline-block;width:34px;height:34px;line-height:34px;margin:3px;border-radius:50%;background:#33507e;color:#fff;font-family:'Oswald',sans-serif;font-size:.95rem;text-decoration:none;transition:.15s}
   .ag-arts-page .stopnav a:hover{background:var(--gold);color:var(--navy)}
